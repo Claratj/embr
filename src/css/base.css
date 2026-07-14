@@ -1,0 +1,44 @@
+/**
+ * Embr — opinionated base layer. Optional: consumers who only want tokens + utilities can
+ * import `embr-ui/preset.css` instead of `embr-ui/styles.css` and skip all of this.
+ *
+ * Everything here is expressed in tokens. There are no literal design values.
+ */
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--embr-bg-page);
+    color: var(--embr-text-default);
+    font-family: var(--embr-font-family-body);
+    font-size: var(--embr-font-size-md);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--embr-font-family-heading);
+    font-weight: var(--embr-font-weight-semibold);
+  }
+
+  /*
+   * Golden rule 2: a visible focus ring on everything interactive, everywhere, by default.
+   * `:focus-visible` (not `:focus`) so it appears for keyboard users without punishing mouse
+   * users. Components must not remove this — they can only restyle it via the same token.
+   */
+  :focus-visible {
+    outline: 2px solid var(--embr-focus-ring);
+    outline-offset: 2px;
+  }
+}

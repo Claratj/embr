@@ -1,0 +1,114 @@
+/**
+ * Embr — the Tailwind v4 theme layer.
+ *
+ * This is the bridge between the generated design tokens (`--embr-*` custom properties, built
+ * from tokens/ by Style Dictionary) and Tailwind's utility namespaces. It contains no design
+ * values of its own: every declaration on the right-hand side is a `var(--embr-*)` reference.
+ *
+ * Two deliberate choices:
+ *
+ * 1. `@theme inline` (not plain `@theme`). Utilities inline the `var(--embr-*)` reference rather
+ *    than resolving it once at build time, which is exactly what makes dark mode work: flipping
+ *    `data-theme="dark"` re-resolves the same utility against the dark token values.
+ *
+ * 2. Every namespace is reset with `*: initial` before our keys are added. Tailwind's default
+ *    palette and scales are therefore *gone* — `bg-red-500` and `p-10` do not compile, because
+ *    those utilities no longer exist. This is what enforces golden rule 1 (no hardcoded design
+ *    values): the only way to style something is with a token.
+ *
+ * Token role  ─▶  utility
+ *   bg.*        ─▶  bg-page      bg-surface     bg-subtle
+ *   text.*      ─▶  text-ink     text-ink-muted text-on-brand
+ *   border.*    ─▶  border-border
+ *   brand.*     ─▶  bg-brand     bg-brand-strong  bg-accent  text-link
+ *   focus.ring  ─▶  ring-focus   outline-focus
+ *   status.*    ─▶  bg-danger    text-success   border-warning  …
+ *
+ * Colors are keyed by *role*, not by the CSS property they came from, because Tailwind serves
+ * `bg-`, `text-`, `border-` and `ring-` from one shared colour namespace — keying them
+ * `--color-bg-page` would spell `bg-bg-page` at the call site.
+ */
+
+@theme inline {
+  /* ---- Color ------------------------------------------------------------------------- */
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* Surfaces */
+  --color-page: var(--embr-bg-page);
+  --color-surface: var(--embr-bg-surface);
+  --color-subtle: var(--embr-bg-subtle);
+
+  /* Content */
+  --color-ink: var(--embr-text-default);
+  --color-ink-muted: var(--embr-text-muted);
+  --color-on-brand: var(--embr-text-on-brand);
+
+  /* Lines */
+  --color-border: var(--embr-border-default);
+
+  /* Brand */
+  --color-brand: var(--embr-brand-primary);
+  --color-brand-strong: var(--embr-brand-primary-strong);
+  --color-accent: var(--embr-brand-accent);
+  --color-link: var(--embr-brand-link);
+
+  /* Focus */
+  --color-focus: var(--embr-focus-ring);
+
+  /* Status — generic. Embr is domain-agnostic; consumers map these to their own states. */
+  --color-neutral: var(--embr-status-neutral);
+  --color-info: var(--embr-status-info);
+  --color-success: var(--embr-status-success);
+  --color-warning: var(--embr-status-warning);
+  --color-danger: var(--embr-status-danger);
+
+  /* ---- Spacing ----------------------------------------------------------------------- */
+  /* `--spacing` (the base multiplier) is unset too, so Tailwind cannot synthesise off-scale
+     utilities like `p-13`. Only the eight steps below exist. */
+  --spacing: initial;
+  --spacing-*: initial;
+  --spacing-0: var(--embr-space-0);
+  --spacing-1: var(--embr-space-1);
+  --spacing-2: var(--embr-space-2);
+  --spacing-3: var(--embr-space-3);
+  --spacing-4: var(--embr-space-4);
+  --spacing-5: var(--embr-space-5);
+  --spacing-6: var(--embr-space-6);
+  --spacing-7: var(--embr-space-7);
+  --spacing-8: var(--embr-space-8);
+
+  /* ---- Radius ------------------------------------------------------------------------ */
+  --radius-*: initial;
+  --radius-sm: var(--embr-radius-sm);
+  --radius-md: var(--embr-radius-md);
+  --radius-lg: var(--embr-radius-lg);
+  --radius-full: var(--embr-radius-full);
+
+  /* ---- Typography -------------------------------------------------------------------- */
+  --font-*: initial;
+  --font-heading: var(--embr-font-family-heading);
+  --font-body: var(--embr-font-family-body);
+
+  --font-weight-*: initial;
+  --font-weight-regular: var(--embr-font-weight-regular);
+  --font-weight-medium: var(--embr-font-weight-medium);
+  --font-weight-semibold: var(--embr-font-weight-semibold);
+  --font-weight-bold: var(--embr-font-weight-bold);
+
+  --text-*: initial;
+  --text-xs: var(--embr-font-size-xs);
+  --text-sm: var(--embr-font-size-sm);
+  --text-md: var(--embr-font-size-md);
+  --text-lg: var(--embr-font-size-lg);
+  --text-xl: var(--embr-font-size-xl);
+  --text-2xl: var(--embr-font-size-2xl);
+  --text-3xl: var(--embr-font-size-3xl);
+  --text-4xl: var(--embr-font-size-4xl);
+
+  /* ---- Elevation --------------------------------------------------------------------- */
+  --shadow-*: initial;
+  --shadow-sm: var(--embr-shadow-sm);
+  --shadow-md: var(--embr-shadow-md);
+}

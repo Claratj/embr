@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Lint, typecheck, build & test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Tokens are generated, not committed. Everything downstream depends on them, so they are
+      # built once, explicitly, before the steps that consume them. (The `pre*` npm scripts would
+      # do it anyway — this makes a token-pipeline failure show up as its own red step.)
+      - name: Build tokens
+        run: npm run build:tokens
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build library
+        run: npm run build
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      # Runs the story tests in a real browser: each story must render, and axe must report zero
+      # violations (a11y `test: 'error'`). This is the step that enforces golden rule 2.
+      - name: Test
+        run: npm test
+
+      - name: Build Storybook
+        run: npm run build-storybook

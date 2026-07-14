@@ -1,0 +1,37 @@
+{
+  "bg": {
+    "$type": "color",
+    "page": { "$value": "{color.cream}" },
+    "surface": { "$value": "{color.white}" },
+    "subtle": { "$value": "{color.linen}" }
+  },
+  "text": {
+    "$type": "color",
+    "default": { "$value": "{color.charcoal}" },
+    "muted": { "$value": "{color.gray}" },
+    "onBrand": { "$value": "{color.white}" }
+  },
+  "border": {
+    "$type": "color",
+    "default": { "$value": "{color.sand}" }
+  },
+  "brand": {
+    "$type": "color",
+    "primary": { "$value": "{color.magenta}" },
+    "primaryStrong": { "$value": "{color.plum}" },
+    "accent": { "$value": "{color.orange}" },
+    "link": { "$value": "{color.rust}" }
+  },
+  "focus": {
+    "$type": "color",
+    "ring": { "$value": "{color.magenta}" }
+  },
+  "status": {
+    "$type": "color",
+    "neutral": { "$value": "{color.gray}", "$description": "Neutral / default state" },
+    "info": { "$value": "{color.teal}", "$description": "Informational" },
+    "success": { "$value": "{color.green}", "$description": "Success" },
+    "warning": { "$value": "{color.amber}", "$description": "Warning" },
+    "danger": { "$value": "{color.crimson}", "$description": "Error / negative" }
+  }
+}

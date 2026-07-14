@@ -1,0 +1,25 @@
+{
+  "$description": "Dark mode — STUB (Phase 0). Overrides the semantic layer only, and re-points it exclusively at primitives that already exist. No new colors are invented and no brand value is touched. Phase 1 replaces this with a properly designed dark palette (real raised-surface and border neutrals, plus status colors re-tuned for dark backgrounds).",
+  "bg": {
+    "$type": "color",
+    "page": { "$value": "{color.charcoal}" },
+    "surface": {
+      "$value": "{color.charcoal}",
+      "$description": "STUB: flat with page. Needs a raised dark neutral in Phase 1."
+    },
+    "subtle": {
+      "$value": "{color.gray}",
+      "$description": "STUB: zebra/hover. Stronger than it should be; needs a dark neutral in Phase 1."
+    }
+  },
+  "text": {
+    "$type": "color",
+    "default": { "$value": "{color.cream}" },
+    "muted": { "$value": "{color.sand}" },
+    "onBrand": { "$value": "{color.white}" }
+  },
+  "border": {
+    "$type": "color",
+    "default": { "$value": "{color.gray}" }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "color": {
+    "$type": "color",
+    "plum": { "$value": "#5A1545", "$description": "Brand: dark primary (name/CV)" },
+    "magenta": { "$value": "#AA1355", "$description": "Brand: action accent" },
+    "orange": { "$value": "#E5491E", "$description": "Brand: vivid accent, rules and details" },
+    "rust": { "$value": "#C2380F", "$description": "Brand: links and bullets" },
+
+    "cream": { "$value": "#FAF9F5", "$description": "Neutral: page background" },
+    "white": { "$value": "#FFFFFF", "$description": "Neutral: surfaces (cards, tables)" },
+    "charcoal": { "$value": "#1A1416", "$description": "Neutral: primary text" },
+    "gray": { "$value": "#5C5858", "$description": "Neutral: secondary text" },
+    "sand": { "$value": "#E7E3DC", "$description": "Neutral: soft borders on cream" },
+    "linen": { "$value": "#F1EEE8", "$description": "Neutral: table zebra/hover" },
+
+    "amber": { "$value": "#B45309", "$description": "Semantic base: warning" },
+    "green": { "$value": "#15803D", "$description": "Semantic base: success" },
+    "teal": {
+      "$value": "#0E7490",
+      "$description": "Semantic base: info (cool hue, absent from the warm brand palette)"
+    },
+    "crimson": {
+      "$value": "#BE123C",
+      "$description": "Semantic base: danger (distinct from the rust used for links)"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+dist/
+storybook-static/
+coverage/
+src/tokens/generated/
+package-lock.json
+
+# Authored planning documents — Prettier shouldn't reflow them.
+CLAUDE.md
+EMBR-PLAN.md
+EMBR-PHASE-0.md
+EMBR-PHASE-1.md

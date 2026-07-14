@@ -1,0 +1,36 @@
+name: Chromatic
+
+# Publishes Storybook and (from Phase 3) runs visual regression on the key components.
+# Requires a CHROMATIC_PROJECT_TOKEN repository secret — see README.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  chromatic:
+    name: Publish Storybook
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # Chromatic uses git history to compare snapshots against the previous build.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          # `npm run build-storybook` regenerates the tokens first via its `pre` script.
+          buildScriptName: build-storybook
+          # Phase 0 has no components yet, so a visual diff has nothing meaningful to gate on.
+          # Flip this to `false` in Phase 3, when visual regression becomes a real signal.
+          exitZeroOnChanges: true
+          onlyChanged: true

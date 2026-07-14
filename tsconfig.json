@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // The build scripts are plain ESM JavaScript. Including them (parsed, not type-checked)
+    // is what lets typescript-eslint's project service lint them.
+    "allowJs": true,
+    "checkJs": false,
+
+    "noEmit": true
+  },
+  // `.storybook/**/*` must be spelled out: TypeScript skips dot-directories in bare directory
+  // includes, and its globs do not support brace expansion.
+  "include": ["src", "types", "scripts/**/*.js", ".storybook/**/*", "*.config.ts", "*.config.js"],
+  "exclude": ["dist", "node_modules", "storybook-static"]
+}

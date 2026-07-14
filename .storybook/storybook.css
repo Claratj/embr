@@ -1,0 +1,17 @@
+/*
+ * The stylesheet Storybook loads. It composes exactly the same layers, in the same order, as
+ * the published `dist/styles.css` (assembled by scripts/build-css.js) — the difference is that
+ * it reads from src/ so `npm run dev` works without building the package first.
+ */
+@import 'tailwindcss';
+
+/* Design tokens: custom properties for light, then the dark overrides. */
+@import '../src/tokens/generated/tokens.css';
+@import '../src/tokens/generated/tokens.dark.css';
+
+/* The Tailwind theme layer + Embr's base styles. */
+@import '../src/css/theme.css';
+@import '../src/css/base.css';
+
+/* Scan the source tree for utility classes (this file lives outside src/). */
+@source '../src';
