@@ -3,7 +3,7 @@
 An accessible, token-driven React design system — published as a versioned package and documented
 in Storybook.
 
-**Live Storybook:** _pending first Chromatic deploy — see [Deploying Storybook](#deploying-storybook)._
+**Live Storybook:** [6a82cd9af250dd2e815a248d-twpoqofjys.chromatic.com](https://6a82cd9af250dd2e815a248d-twpoqofjys.chromatic.com/)
 
 Embr is deliberately **domain-agnostic**. Its components are generic and reusable, and it never
 imports business logic. A separate application ([Compass](#who-consumes-it)) installs Embr as a
@@ -175,13 +175,9 @@ name, or an image with no alt text each turn the suite red.
 
 ## Deploying Storybook
 
-Storybook publishes to [Chromatic](https://www.chromatic.com/) on every push to `main`.
-
-To enable it: create a Chromatic project for this repo, then add its token as a repository secret
-named `CHROMATIC_PROJECT_TOKEN` (**Settings → Secrets and variables → Actions → New repository
-secret**). The workflow is already wired in
-[`.github/workflows/chromatic.yml`](.github/workflows/chromatic.yml). Once the first build lands,
-put the URL at the top of this README.
+Storybook publishes to [Chromatic](https://www.chromatic.com/) on every push to `main`, via
+[`.github/workflows/chromatic.yml`](.github/workflows/chromatic.yml) and a `CHROMATIC_PROJECT_TOKEN`
+repository secret. The live URL is at the top of this README.
 
 ## Decisions
 

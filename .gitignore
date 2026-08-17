@@ -40,6 +40,9 @@ Thumbs.db
 !.vscode/extensions.json
 !.vscode/settings.json
 
-# Personal planning Docs. 
+# Personal planning Docs.
 EMBR-PLAN.md
 EMBR-PHASE-*.md
+
+# graphify — local knowledge-graph tool output, not part of the repo
+graphify-out/
