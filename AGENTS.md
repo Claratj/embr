@@ -28,9 +28,10 @@ TypeScript (strict) · React 19 · Vite 8 (library build) · **Style Dictionary 
 CSS variables + typed TS) · **Tailwind v4 `@theme` layer** consuming those CSS variables — v4
 removed JS config presets, so the artefact we ship is `preset.css`, not a preset object
 (`docs/adr/0003`) · **Radix UI** (headless primitives) · **Storybook (current major)** — a11y addon
-+ the built-in test/interactions runner (`storybook/test` + `addon-vitest`; the standalone
-interactions addon was merged into core in Storybook 9) · Vitest + React Testing Library ·
-Chromatic (visual regression) · Changesets (semver + changelog) · GitHub Actions.
+
+- the built-in test/interactions runner (`storybook/test` + `addon-vitest`; the standalone
+  interactions addon was merged into core in Storybook 9) · Vitest + React Testing Library ·
+  Chromatic (visual regression) · Changesets (semver + changelog) · GitHub Actions.
 
 Use current stable majors (greenfield project): don't pin to older Storybook/Vite. If a tool's docs
 name a specific version, follow the current stable one.
