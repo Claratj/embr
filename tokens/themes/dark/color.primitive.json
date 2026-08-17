@@ -1,0 +1,30 @@
+{
+  "$description": "Dark-only primitives — Phase 1. Each is the *same hue* as its light-mode counterpart, only re-lightened for use on a dark surface. Not a new palette: charcoal/gray/rust/magenta stay the source of truth, these are tints of them.",
+  "color": {
+    "$type": "color",
+    "charcoalRaised": {
+      "$value": "#2E2327",
+      "$description": "bg.surface — a raised neutral against the charcoal page. 1.20:1 vs page, matching (scaled up for dark) the light theme's own 1.05-1.16:1 surface step."
+    },
+    "charcoalSubtle": {
+      "$value": "#3F3136",
+      "$description": "bg.subtle — hover/zebra, one step up from charcoalRaised. 1.47:1 vs page."
+    },
+    "charcoalBorder": {
+      "$value": "#564349",
+      "$description": "border.default — 1.99:1 vs page, 1.66:1 vs charcoalRaised."
+    },
+    "grayLight": {
+      "$value": "#9E9999",
+      "$description": "text.muted — lightened gray, 6.46:1 vs page (light theme's gray-on-cream is 6.66:1 — matched)."
+    },
+    "rustLight": {
+      "$value": "#EE5325",
+      "$description": "brand.link — lightened rust. Plain rust is only 3.35:1 on charcoal (fails AA text); this hits 5.11:1, matching light theme's 5.16:1 rust-on-cream."
+    },
+    "magentaLight": {
+      "$value": "#E7277B",
+      "$description": "focus.ring — lightened magenta. Plain magenta is only 2.54:1 on charcoal (fails WCAG 2.4.11's 3:1 floor for a focus indicator); this hits 4.30:1."
+    }
+  }
+}

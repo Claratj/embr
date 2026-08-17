@@ -18,6 +18,16 @@ const OUT = 'src/tokens/generated/';
 const SEMANTIC_ROOTS = new Set(['bg', 'text', 'border', 'brand', 'focus', 'status']);
 const isSemantic = (token) => SEMANTIC_ROOTS.has(token.path[0]);
 
+/**
+ * Dark-only primitives (a lighter tint of a brand hue, needed only because the light version is
+ * too dark to read on a dark surface — see tokens/themes/dark/color.primitive.json) have nothing
+ * to inherit from: unlike the reused light primitives, they don't already have a `:root`
+ * declaration from the light build. `isSource` is true only for tokens that came from the dark
+ * theme's own `source` files (not the shared `include`), so this is what makes their `var()`
+ * references in the dark semantic output resolve to a real declaration instead of a dangling one.
+ */
+const belongsInDarkOutput = (token) => isSemantic(token) || token.isSource;
+
 /** SD keeps the original DTCG key and the transformed one; prefer whichever is present. */
 const valueOf = (token) => token.$value ?? token.value;
 
@@ -134,10 +144,13 @@ async function buildAll() {
   // (rather than two `source` entries) is what tells Style Dictionary this is an intentional
   // override and not a token collision.
   //
-  // Only the semantic layer is emitted: primitives are theme-independent and already live on
-  // :root from the light build. That means the `var(--embr-color-*)` references in this file
-  // point at declarations in tokens.css — valid at runtime, but SD can't verify across files,
-  // so it warns. The warning is the only one this build can produce, and it's a false positive.
+  // The semantic layer is always emitted here. Primitives normally are not — they're
+  // theme-independent and already live on :root from the light build, so a reused one (e.g.
+  // `color.charcoal`) only needs a `var()` reference, not a redeclaration; SD warns about that
+  // cross-file reference because it can't verify it, and the warning is a false positive.
+  // Dark-only primitives (`belongsInDarkOutput`'s `token.isSource` half) are the exception: they
+  // have no light-build declaration to point at, so they DO need to be emitted here too, or their
+  // `var()` reference in the semantic tokens below would resolve to nothing.
   const dark = new StyleDictionary({
     include: ['tokens/*.json'],
     source: ['tokens/themes/dark/*.json'],
@@ -145,7 +158,7 @@ async function buildAll() {
     platforms: {
       css: {
         buildPath: OUT,
-        ...cssPlatform('tokens.dark.css', ":root[data-theme='dark']", isSemantic),
+        ...cssPlatform('tokens.dark.css', ":root[data-theme='dark']", belongsInDarkOutput),
       },
     },
   });
