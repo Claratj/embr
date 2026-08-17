@@ -7,7 +7,7 @@ Embr is a **design system published as a versioned package** and documented in S
 apps consume it as an external dependency. Embr is domain-agnostic: its components are
 generic and reusable, and it never imports business logic.
 
-Full plan: `EMBR-PLAN.md`. Current phase: `EMBR-PHASE-0.md`.
+Full plan: `EMBR-PLAN.md`. Current phase: `EMBR-PHASE-2.md`.
 
 ## Golden rules (non-negotiable)
 
