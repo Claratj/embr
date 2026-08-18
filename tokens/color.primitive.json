@@ -22,6 +22,26 @@
     "crimson": {
       "$value": "#BE123C",
       "$description": "Semantic base: danger (distinct from the rust used for links)"
-    }
+    },
+
+    "graySubtle": { "$value": "#E6E5E5", "$description": "status.neutralSubtle fill (light)" },
+    "grayStrong": { "$value": "#686464", "$description": "status.onNeutral foreground (light)" },
+    "grayBorder": { "$value": "#948F8F", "$description": "status.neutralBorder (light)" },
+
+    "tealSubtle": { "$value": "#D1F1FA", "$description": "status.infoSubtle fill (light)" },
+    "tealStrong": { "$value": "#0E708B", "$description": "status.onInfo foreground (light)" },
+    "tealBorder": { "$value": "#139DC3", "$description": "status.infoBorder (light)" },
+
+    "greenSubtle": { "$value": "#D3F8E1", "$description": "status.successSubtle fill (light)" },
+    "greenStrong": { "$value": "#147B3A", "$description": "status.onSuccess foreground (light)" },
+    "greenBorder": { "$value": "#1BA64F", "$description": "status.successBorder (light)" },
+
+    "amberSubtle": { "$value": "#FDE2CE", "$description": "status.warningSubtle fill (light)" },
+    "amberStrong": { "$value": "#A54C08", "$description": "status.onWarning foreground (light)" },
+    "amberBorder": { "$value": "#E96C0C", "$description": "status.warningBorder (light)" },
+
+    "crimsonSubtle": { "$value": "#FBD0DB", "$description": "status.dangerSubtle fill (light)" },
+    "crimsonStrong": { "$value": "#BA123B", "$description": "status.onDanger foreground (light)" },
+    "crimsonBorder": { "$value": "#F05C80", "$description": "status.dangerBorder (light)" }
   }
 }

@@ -22,7 +22,8 @@
  *   border.*    ─▶  border-border
  *   brand.*     ─▶  bg-brand     bg-brand-strong  bg-accent  text-link
  *   focus.ring  ─▶  ring-focus   outline-focus
- *   status.*    ─▶  bg-danger    text-success   border-warning  …
+ *   status.*    ─▶  bg-danger    text-success   border-warning  bg-danger-subtle  text-on-danger
+ *                    border-danger-border  …
  *
  * Colors are keyed by *role*, not by the CSS property they came from, because Tailwind serves
  * `bg-`, `text-`, `border-` and `ring-` from one shared colour namespace — keying them
@@ -57,12 +58,34 @@
   /* Focus */
   --color-focus: var(--embr-focus-ring);
 
-  /* Status — generic. Embr is domain-agnostic; consumers map these to their own states. */
+  /* Status — generic. Embr is domain-agnostic; consumers map these to their own states.
+     Each role has three treatments: the solid fill above (pairs with text-on-brand), a soft
+     fill + foreground pair for a subtle badge, and a border for an outline badge. */
   --color-neutral: var(--embr-status-neutral);
   --color-info: var(--embr-status-info);
   --color-success: var(--embr-status-success);
   --color-warning: var(--embr-status-warning);
   --color-danger: var(--embr-status-danger);
+
+  --color-neutral-subtle: var(--embr-status-neutral-subtle);
+  --color-on-neutral: var(--embr-status-on-neutral);
+  --color-neutral-border: var(--embr-status-neutral-border);
+
+  --color-info-subtle: var(--embr-status-info-subtle);
+  --color-on-info: var(--embr-status-on-info);
+  --color-info-border: var(--embr-status-info-border);
+
+  --color-success-subtle: var(--embr-status-success-subtle);
+  --color-on-success: var(--embr-status-on-success);
+  --color-success-border: var(--embr-status-success-border);
+
+  --color-warning-subtle: var(--embr-status-warning-subtle);
+  --color-on-warning: var(--embr-status-on-warning);
+  --color-warning-border: var(--embr-status-warning-border);
+
+  --color-danger-subtle: var(--embr-status-danger-subtle);
+  --color-on-danger: var(--embr-status-on-danger);
+  --color-danger-border: var(--embr-status-danger-border);
 
   /* ---- Spacing ----------------------------------------------------------------------- */
   /* `--spacing` (the base multiplier) is unset too, so Tailwind cannot synthesise off-scale

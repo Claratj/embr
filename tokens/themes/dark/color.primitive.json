@@ -1,5 +1,5 @@
 {
-  "$description": "Dark-only primitives — Phase 1. Each is the *same hue* as its light-mode counterpart, only re-lightened for use on a dark surface. Not a new palette: charcoal/gray/rust/magenta stay the source of truth, these are tints of them.",
+  "$description": "Dark tints — Phase 1 (charcoal*/grayLight/rustLight/magentaLight) and Phase 2 status roles (graySubtle..crimsonBorder). Each is the *same hue* as its light-mode counterpart, only re-lightened for a dark surface — never a new color family. The Phase 1 set introduced brand-new names (no light-mode equivalent exists). The Phase 2 status set reuses the *same primitive names* as tokens/color.primitive.json on purpose: both themes need a value for these, so this file overrides them the same way tokens/themes/dark/color.semantic.json already overrides semantic paths — the dark StyleDictionary instance's `source` layer wins over `include`.",
   "color": {
     "$type": "color",
     "charcoalRaised": {
@@ -25,6 +25,71 @@
     "magentaLight": {
       "$value": "#E7277B",
       "$description": "focus.ring — lightened magenta. Plain magenta is only 2.54:1 on charcoal (fails WCAG 2.4.11's 3:1 floor for a focus indicator); this hits 4.30:1."
+    },
+
+    "graySubtle": {
+      "$value": "#343232",
+      "$description": "status.neutralSubtle fill (dark). 1.43:1 vs bg.page."
+    },
+    "grayStrong": {
+      "$value": "#9E9999",
+      "$description": "status.onNeutral foreground (dark). 4.53:1 vs neutralSubtle."
+    },
+    "grayBorder": {
+      "$value": "#686464",
+      "$description": "status.neutralBorder (dark). 3.11:1 vs bg.page."
+    },
+
+    "tealSubtle": {
+      "$value": "#084354",
+      "$description": "status.infoSubtle fill (dark). 1.68:1 vs bg.page."
+    },
+    "tealStrong": {
+      "$value": "#16B7E4",
+      "$description": "status.onInfo foreground (dark). 4.60:1 vs infoSubtle."
+    },
+    "tealBorder": {
+      "$value": "#0D6D87",
+      "$description": "status.infoBorder (dark). 3.08:1 vs bg.page."
+    },
+
+    "greenSubtle": {
+      "$value": "#0C4621",
+      "$description": "status.successSubtle fill (dark). 1.66:1 vs bg.page."
+    },
+    "greenStrong": {
+      "$value": "#20C15C",
+      "$description": "status.onSuccess foreground (dark). 4.62:1 vs successSubtle."
+    },
+    "greenBorder": {
+      "$value": "#137236",
+      "$description": "status.successBorder (dark). 3.02:1 vs bg.page."
+    },
+
+    "amberSubtle": {
+      "$value": "#612D05",
+      "$description": "status.warningSubtle fill (dark). 1.63:1 vs bg.page."
+    },
+    "amberStrong": {
+      "$value": "#F58A38",
+      "$description": "status.onWarning foreground (dark). 4.55:1 vs warningSubtle."
+    },
+    "amberBorder": {
+      "$value": "#A04A08",
+      "$description": "status.warningBorder (dark). 3.01:1 vs bg.page."
+    },
+
+    "crimsonSubtle": {
+      "$value": "#700B23",
+      "$description": "status.dangerSubtle fill (dark). 1.52:1 vs bg.page."
+    },
+    "crimsonStrong": {
+      "$value": "#F37D99",
+      "$description": "status.onDanger foreground (dark). 4.66:1 vs dangerSubtle."
+    },
+    "crimsonBorder": {
+      "$value": "#C4133E",
+      "$description": "status.dangerBorder (dark). 3.04:1 vs bg.page."
     }
   }
 }

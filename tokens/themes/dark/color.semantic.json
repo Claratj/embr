@@ -1,5 +1,5 @@
 {
-  "$description": "Dark palette — Phase 1. Overrides the semantic layer only; primitives are theme-independent. `brand.primary`/`primaryStrong`/`accent` and every `status.*` color are deliberately NOT overridden here: they're fills (white text on top, 4.5-6.3:1 regardless of theme) or already pass as text on a dark page (orange accent: 4.59:1). Status colors specifically are designed for a filled/bordered treatment, not bare inline text — as bare text on the dark page they range 2.9-3.6:1, below AA, and no single tint can fix that without weakening their fill contrast below AA too. Phase 2's Badge component is where that constraint actually gets exercised.",
+  "$description": "Dark palette — Phase 1 (bg/text/border/brand.link/focus.ring) plus Phase 2's status color contract (status.*Subtle/on*/​*Border below). `brand.primary`/`primaryStrong`/`accent` and the solid `status.<name>` fills are still NOT overridden: they're used with white text on top (4.5-6.3:1 regardless of theme), so theme doesn't change their contrast. The Subtle/on/Border trio IS re-tuned per theme — see tokens/color.semantic.json for the shared rationale and the contrast numbers per pair.",
   "bg": {
     "$type": "color",
     "page": { "$value": "{color.charcoal}" },
@@ -29,5 +29,27 @@
       "$value": "{color.magentaLight}",
       "$description": "Plain magenta is 2.54:1 on the dark page — fails WCAG 2.4.11's 3:1 floor for a focus indicator. Re-tinted to 4.30:1."
     }
+  },
+  "status": {
+    "$type": "color",
+    "neutralSubtle": { "$value": "{color.graySubtle}" },
+    "onNeutral": { "$value": "{color.grayStrong}", "$description": "4.53:1 on neutralSubtle." },
+    "neutralBorder": { "$value": "{color.grayBorder}", "$description": "3.11:1 on bg.page." },
+
+    "infoSubtle": { "$value": "{color.tealSubtle}" },
+    "onInfo": { "$value": "{color.tealStrong}", "$description": "4.60:1 on infoSubtle." },
+    "infoBorder": { "$value": "{color.tealBorder}", "$description": "3.08:1 on bg.page." },
+
+    "successSubtle": { "$value": "{color.greenSubtle}" },
+    "onSuccess": { "$value": "{color.greenStrong}", "$description": "4.62:1 on successSubtle." },
+    "successBorder": { "$value": "{color.greenBorder}", "$description": "3.02:1 on bg.page." },
+
+    "warningSubtle": { "$value": "{color.amberSubtle}" },
+    "onWarning": { "$value": "{color.amberStrong}", "$description": "4.55:1 on warningSubtle." },
+    "warningBorder": { "$value": "{color.amberBorder}", "$description": "3.01:1 on bg.page." },
+
+    "dangerSubtle": { "$value": "{color.crimsonSubtle}" },
+    "onDanger": { "$value": "{color.crimsonStrong}", "$description": "4.66:1 on dangerSubtle." },
+    "dangerBorder": { "$value": "{color.crimsonBorder}", "$description": "3.04:1 on bg.page." }
   }
 }
