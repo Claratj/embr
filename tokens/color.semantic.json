@@ -3,24 +3,40 @@
     "$type": "color",
     "page": { "$value": "{color.cream}" },
     "surface": { "$value": "{color.white}" },
-    "subtle": { "$value": "{color.linen}" }
+    "subtle": { "$value": "{color.cream2}" },
+    "inverse": { "$value": "{color.tealBrand}" }
   },
   "text": {
     "$type": "color",
     "default": { "$value": "{color.charcoal}" },
-    "muted": { "$value": "{color.gray}" },
-    "onBrand": { "$value": "{color.white}" }
+    "muted": { "$value": "{color.inkMuted}" },
+    "caption": { "$value": "{color.inkCaption}" },
+    "heading": { "$value": "{color.plum}", "$description": "12.24:1 on bg.page." },
+    "onBrand": { "$value": "{color.white}" },
+    "onInverse": { "$value": "{color.cream}", "$description": "5.74:1 on bg.inverse." },
+    "onInverseMuted": { "$value": "{color.sageLight}" }
   },
   "border": {
     "$type": "color",
-    "default": { "$value": "{color.sand}" }
+    "default": { "$value": "{color.inkLine}" }
   },
   "brand": {
     "$type": "color",
-    "primary": { "$value": "{color.magenta}" },
-    "primaryStrong": { "$value": "{color.plum}" },
+    "primary": {
+      "$value": "{color.terracottaCta}",
+      "$description": "4.55:1 vs bg.page; 4.80:1 with text.onBrand."
+    },
+    "primaryStrong": {
+      "$value": "{color.terracottaCtaHover}",
+      "$description": "6.10:1 with text.onBrand."
+    },
     "accent": { "$value": "{color.orange}" },
-    "link": { "$value": "{color.rust}" }
+    "link": { "$value": "{color.rust}" },
+    "eyebrow": {
+      "$value": "{color.magenta}",
+      "$description": "6.80:1 on bg.page. Magenta's remaining job after brand.primary moved to terracotta."
+    },
+    "labelOnInverse": { "$value": "{color.amberLabel}" }
   },
   "focus": {
     "$type": "color",
@@ -51,7 +67,7 @@
     "infoSubtle": { "$value": "{color.tealSubtle}", "$description": "Soft badge fill — info" },
     "onInfo": {
       "$value": "{color.tealStrong}",
-      "$description": "Foreground on infoSubtle, or on the page for an outline badge. 4.76:1 on infoSubtle."
+      "$description": "Foreground on infoSubtle, or on the page for an outline badge. 4.61:1 on infoSubtle."
     },
     "infoBorder": {
       "$value": "{color.tealBorder}",

@@ -10,6 +10,10 @@
     "$type": "color",
     "default": { "$value": "{color.cream}" },
     "muted": { "$value": "{color.grayLight}" },
+    "heading": {
+      "$value": "{color.plumLight}",
+      "$description": "Plain plum (light theme's heading color) is 1.41:1 on the dark page — fails even the 3:1 large-text floor. Re-tinted to 11.9:1 vs bg.page, 10.0:1 vs bg.surface."
+    },
     "onBrand": { "$value": "{color.white}" }
   },
   "border": {
@@ -37,8 +41,8 @@
     "neutralBorder": { "$value": "{color.grayBorder}", "$description": "3.11:1 on bg.page." },
 
     "infoSubtle": { "$value": "{color.tealSubtle}" },
-    "onInfo": { "$value": "{color.tealStrong}", "$description": "4.60:1 on infoSubtle." },
-    "infoBorder": { "$value": "{color.tealBorder}", "$description": "3.08:1 on bg.page." },
+    "onInfo": { "$value": "{color.tealStrong}", "$description": "4.56:1 on infoSubtle." },
+    "infoBorder": { "$value": "{color.tealBorder}", "$description": "3.00:1 on bg.page." },
 
     "successSubtle": { "$value": "{color.greenSubtle}" },
     "onSuccess": { "$value": "{color.greenStrong}", "$description": "4.62:1 on successSubtle." },

@@ -26,6 +26,10 @@
       "$value": "#E7277B",
       "$description": "focus.ring — lightened magenta. Plain magenta is only 2.54:1 on charcoal (fails WCAG 2.4.11's 3:1 floor for a focus indicator); this hits 4.30:1."
     },
+    "plumLight": {
+      "$value": "#E7C9DC",
+      "$description": "text.heading — lightened plum. Plain plum is only 1.41:1 on charcoal (fails even the 3:1 large-text floor); this hits 11.9:1 vs bg.page, 10.0:1 vs bg.surface."
+    },
 
     "graySubtle": {
       "$value": "#343232",
@@ -41,16 +45,16 @@
     },
 
     "tealSubtle": {
-      "$value": "#084354",
-      "$description": "status.infoSubtle fill (dark). 1.68:1 vs bg.page."
+      "$value": "#084443",
+      "$description": "status.infoSubtle fill (dark). Retuned to brand teal. 1.66:1 vs bg.page."
     },
     "tealStrong": {
-      "$value": "#16B7E4",
-      "$description": "status.onInfo foreground (dark). 4.60:1 vs infoSubtle."
+      "$value": "#15BAB8",
+      "$description": "status.onInfo foreground (dark). 4.56:1 on infoSubtle."
     },
     "tealBorder": {
-      "$value": "#0D6D87",
-      "$description": "status.infoBorder (dark). 3.08:1 vs bg.page."
+      "$value": "#0C6E6D",
+      "$description": "status.infoBorder (dark). 3.00:1 vs bg.page."
     },
 
     "greenSubtle": {

@@ -17,13 +17,18 @@
  *    values): the only way to style something is with a token.
  *
  * Token role  ─▶  utility
- *   bg.*        ─▶  bg-page      bg-surface     bg-subtle
- *   text.*      ─▶  text-ink     text-ink-muted text-on-brand
+ *   bg.*        ─▶  bg-page      bg-surface     bg-subtle       bg-inverse
+ *   text.*      ─▶  text-ink     text-ink-muted text-heading    text-caption
+ *                    text-on-brand  text-on-inverse  text-on-inverse-muted
  *   border.*    ─▶  border-border
- *   brand.*     ─▶  bg-brand     bg-brand-strong  bg-accent  text-link
+ *   brand.*     ─▶  bg-brand     bg-brand-strong  bg-accent  text-link  text-eyebrow
+ *                    text-label-on-inverse
  *   focus.ring  ─▶  ring-focus   outline-focus
  *   status.*    ─▶  bg-danger    text-success   border-warning  bg-danger-subtle  text-on-danger
  *                    border-danger-border  …
+ *   motion.*    ─▶  ease-out (a real `@theme` namespace); duration-fast, duration-base and
+ *                    opacity-disabled are `@utility` rules instead — Tailwind v4 has no themeable
+ *                    `--duration-*`/`--opacity-*` namespace to hang named keys off of.
  *
  * Colors are keyed by *role*, not by the CSS property they came from, because Tailwind serves
  * `bg-`, `text-`, `border-` and `ring-` from one shared colour namespace — keying them
@@ -40,11 +45,16 @@
   --color-page: var(--embr-bg-page);
   --color-surface: var(--embr-bg-surface);
   --color-subtle: var(--embr-bg-subtle);
+  --color-inverse: var(--embr-bg-inverse);
 
   /* Content */
   --color-ink: var(--embr-text-default);
   --color-ink-muted: var(--embr-text-muted);
+  --color-heading: var(--embr-text-heading);
+  --color-caption: var(--embr-text-caption);
   --color-on-brand: var(--embr-text-on-brand);
+  --color-on-inverse: var(--embr-text-on-inverse);
+  --color-on-inverse-muted: var(--embr-text-on-inverse-muted);
 
   /* Lines */
   --color-border: var(--embr-border-default);
@@ -54,6 +64,8 @@
   --color-brand-strong: var(--embr-brand-primary-strong);
   --color-accent: var(--embr-brand-accent);
   --color-link: var(--embr-brand-link);
+  --color-eyebrow: var(--embr-brand-eyebrow);
+  --color-label-on-inverse: var(--embr-brand-label-on-inverse);
 
   /* Focus */
   --color-focus: var(--embr-focus-ring);
@@ -105,7 +117,6 @@
   /* ---- Radius ------------------------------------------------------------------------ */
   --radius-*: initial;
   --radius-sm: var(--embr-radius-sm);
-  --radius-md: var(--embr-radius-md);
   --radius-lg: var(--embr-radius-lg);
   --radius-full: var(--embr-radius-full);
 
@@ -119,7 +130,11 @@
   --font-weight-medium: var(--embr-font-weight-medium);
   --font-weight-semibold: var(--embr-font-weight-semibold);
   --font-weight-bold: var(--embr-font-weight-bold);
+  --font-weight-extrabold: var(--embr-font-weight-extrabold);
 
+  /* `bodyLg`/`h4`/`h3`/`h2`/`h1` are clamp() expressions — fluid on purpose, copied verbatim
+     from MyWeb (see tokens/core.json). A component's type responds to the viewport, not just
+     the page; that's a deliberate call, not an oversight. */
   --text-*: initial;
   --text-xs: var(--embr-font-size-xs);
   --text-sm: var(--embr-font-size-sm);
@@ -129,9 +144,51 @@
   --text-2xl: var(--embr-font-size-2xl);
   --text-3xl: var(--embr-font-size-3xl);
   --text-4xl: var(--embr-font-size-4xl);
+  --text-eyebrow: var(--embr-font-size-eyebrow);
+  --text-caption: var(--embr-font-size-caption);
+  --text-body: var(--embr-font-size-body);
+  --text-body-lg: var(--embr-font-size-body-lg);
+  --text-h4: var(--embr-font-size-h4);
+  --text-h3: var(--embr-font-size-h3);
+  --text-h2: var(--embr-font-size-h2);
+  --text-h1: var(--embr-font-size-h1);
+
+  --leading-*: initial;
+  --leading-tight: var(--embr-font-line-height-tight);
+  --leading-snug: var(--embr-font-line-height-snug);
+  --leading-normal: var(--embr-font-line-height-normal);
+
+  --tracking-*: initial;
+  --tracking-eyebrow: var(--embr-font-letter-spacing-eyebrow);
+  --tracking-tight: var(--embr-font-letter-spacing-tight);
 
   /* ---- Elevation --------------------------------------------------------------------- */
   --shadow-*: initial;
   --shadow-sm: var(--embr-shadow-sm);
   --shadow-md: var(--embr-shadow-md);
+
+  /* ---- Motion ------------------------------------------------------------------------ */
+  /* `--ease-*` is a real Tailwind theme namespace (unlike duration/opacity below), so it goes
+     through @theme like everything else. Reset first: Tailwind ships its own ease-in/out/in-out
+     values, and golden rule 1 means those shouldn't be usable un-tokenized. */
+  --ease-*: initial;
+  --ease-out: var(--embr-motion-easing-out);
+}
+
+/*
+ * Tailwind v4 has no themeable `--duration-*` or `--opacity-*` namespace (only a single
+ * `--default-transition-duration` and bare numeric `opacity-<n>` utilities exist), so named
+ * utilities for these can't go through `@theme`. `@utility` is the standard mechanism for
+ * defining custom utilities outside the theme-namespace system — used here for exactly that.
+ */
+@utility duration-fast {
+  transition-duration: var(--embr-motion-duration-fast);
+}
+
+@utility duration-base {
+  transition-duration: var(--embr-motion-duration-base);
+}
+
+@utility opacity-disabled {
+  opacity: var(--embr-opacity-disabled);
 }

@@ -35,6 +35,11 @@ const valueOf = (token) => token.$value ?? token.value;
  * px → rem, so type and spacing scale with the user's browser font size (a11y).
  * `radius.full` is excluded on purpose: it is a "pill" sentinel, not a measurement, and
  * 9999px reads better than 624.9375rem in the generated CSS.
+ *
+ * Only plain `<number>px` values are converted. A `dimension` token can also hold a `clamp()`
+ * expression (the fluid type scale) or an `em` value (letter-spacing) — both are already final,
+ * unit-correct CSS and must pass through untouched, or `parseFloat` would silently truncate them
+ * to their first number (e.g. `clamp(1rem, 0.4vw + 0.9rem, 1.1875rem)` → `1` → `0.0625rem`).
  */
 StyleDictionary.registerTransform({
   name: 'embr/dimension-rem',
@@ -45,7 +50,9 @@ StyleDictionary.registerTransform({
     return token.$type === 'dimension' && !isPill;
   },
   transform: (token) => {
-    const px = parseFloat(valueOf(token));
+    const raw = valueOf(token);
+    if (typeof raw !== 'string' || !raw.endsWith('px')) return raw;
+    const px = parseFloat(raw);
     return px === 0 ? '0' : `${px / BASE_FONT_SIZE}rem`;
   },
 });

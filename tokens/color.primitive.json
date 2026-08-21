@@ -16,8 +16,8 @@
     "amber": { "$value": "#B45309", "$description": "Semantic base: warning" },
     "green": { "$value": "#15803D", "$description": "Semantic base: success" },
     "teal": {
-      "$value": "#0E7490",
-      "$description": "Semantic base: info (cool hue, absent from the warm brand palette)"
+      "$value": "#0F6E6D",
+      "$description": "Semantic base: info, retuned to the brand teal (MyWeb's own 179° card-surface hue — not absent from the palette, just a different teal from the old 195° cool one)"
     },
     "crimson": {
       "$value": "#BE123C",
@@ -28,9 +28,18 @@
     "grayStrong": { "$value": "#686464", "$description": "status.onNeutral foreground (light)" },
     "grayBorder": { "$value": "#948F8F", "$description": "status.neutralBorder (light)" },
 
-    "tealSubtle": { "$value": "#D1F1FA", "$description": "status.infoSubtle fill (light)" },
-    "tealStrong": { "$value": "#0E708B", "$description": "status.onInfo foreground (light)" },
-    "tealBorder": { "$value": "#139DC3", "$description": "status.infoBorder (light)" },
+    "tealSubtle": {
+      "$value": "#BBF4F3",
+      "$description": "status.infoSubtle fill (light). Retuned to brand teal."
+    },
+    "tealStrong": {
+      "$value": "#0E7473",
+      "$description": "status.onInfo foreground (light). 4.61:1 on infoSubtle."
+    },
+    "tealBorder": {
+      "$value": "#14A1A0",
+      "$description": "status.infoBorder (light). 3.00:1 on bg.page, 2.61:1 on infoSubtle."
+    },
 
     "greenSubtle": { "$value": "#D3F8E1", "$description": "status.successSubtle fill (light)" },
     "greenStrong": { "$value": "#147B3A", "$description": "status.onSuccess foreground (light)" },
@@ -42,6 +51,34 @@
 
     "crimsonSubtle": { "$value": "#FBD0DB", "$description": "status.dangerSubtle fill (light)" },
     "crimsonStrong": { "$value": "#BA123B", "$description": "status.onDanger foreground (light)" },
-    "crimsonBorder": { "$value": "#F05C80", "$description": "status.dangerBorder (light)" }
+    "crimsonBorder": { "$value": "#F05C80", "$description": "status.dangerBorder (light)" },
+
+    "terracottaCta": {
+      "$value": "#CF3F17",
+      "$description": "Filled CTA background. 4.55:1 vs bg.page; 4.80:1 with white text."
+    },
+    "terracottaCtaHover": {
+      "$value": "#B5330D",
+      "$description": "Filled CTA hover. 6.10:1 with white text."
+    },
+    "inkMuted": { "$value": "rgba(26, 20, 22, 0.7)", "$description": "Muted body text — 70% ink." },
+    "inkCaption": { "$value": "rgba(26, 20, 22, 0.55)", "$description": "Captions — 55% ink." },
+    "inkLine": {
+      "$value": "rgba(26, 20, 22, 0.12)",
+      "$description": "Hairline borders — 12% ink."
+    },
+    "cream2": {
+      "$value": "#F3F0E7",
+      "$description": "Subtle alt background (MyWeb's --color-bg-alt)."
+    },
+    "tealBrand": { "$value": "#0F6E6D", "$description": "Inverse surface (MyWeb's card colour)." },
+    "sageLight": {
+      "$value": "#CDE8E2",
+      "$description": "Muted text on the inverse surface. 4.7:1 on tealBrand."
+    },
+    "amberLabel": {
+      "$value": "#FFDFA0",
+      "$description": "Label/eyebrow on the inverse surface. 4.7:1 on tealBrand."
+    }
   }
 }
