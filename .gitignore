@@ -46,3 +46,11 @@ EMBR-PHASE-*.md
 
 # graphify — local knowledge-graph tool output, not part of the repo
 graphify-out/
+
+# design-sync — Claude Design sync: build artifacts, transient scratch, staged scripts
+.design-sync/sb-reference/
+.design-sync/learnings/
+.design-sync/.cache/
+.design-sync/node_modules
+.ds-sync/
+ds-bundle/

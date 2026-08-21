@@ -1,0 +1,12 @@
+<!--
+  Embr's font tokens (tokens/core.json) name Montserrat (heading) and Mulish (body) as the
+  first-choice families, but nothing in the repo ever loaded them — Storybook, like every
+  consumer, was silently falling back to the system-ui stack. Weights match the full
+  font.weight token scale (regular 400 → extrabold 800) so no weight gets browser-synthesized.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Mulish:wght@400;500;600;700;800&display=swap"
+/>

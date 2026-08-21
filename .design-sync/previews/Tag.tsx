@@ -1,0 +1,60 @@
+import * as React from 'react';
+import * as S from "@ds-stories/src/components/Tag.stories";
+
+// See .design-sync/previews/Button.tsx for why this exists: compiled previews don't thread
+// per-story `globals` overrides through decorators, so the Dark story's `globals: { theme:
+// 'dark' }` is mirrored locally.
+function DarkMode({ children }: { children: React.ReactNode }) {
+  React.useLayoutEffect(() => {
+    document.documentElement.dataset['theme'] = 'dark';
+    return () => {
+      delete document.documentElement.dataset['theme'];
+    };
+  }, []);
+  return <>{children}</>;
+}
+
+function compose(S: any, key: string) {
+  const meta: any = S.default ?? {};
+  const st: any = S[key];
+  const args: any = { ...(meta.args ?? {}), ...(st && st.args ? st.args : {}) };
+  // Storybook resolves argTypes.mapping (control value -> real arg) before
+  // rendering; mirror that so mapped args don't render raw.
+  const at: any = { ...(meta.argTypes ?? {}), ...(st && st.argTypes ? st.argTypes : {}) };
+  for (const k of Object.keys(args)) {
+    const m = at[k] && at[k].mapping;
+    if (m && typeof m === 'object' && args[k] in m) args[k] = m[args[k]];
+  }
+  const title: string = typeof meta.title === 'string' ? meta.title : '';
+  const ctx: any = {
+    args, name: key, title, kind: title, id: '', componentId: '',
+    globals: {}, viewMode: 'story',
+    parameters: (st && st.parameters) ?? meta.parameters ?? {},
+  };
+  let render: (() => any) | null = null;
+  if (st && typeof st.render === 'function') render = () => st.render(args, ctx);
+  else if (typeof st === 'function') render = () => st(args, ctx);
+  else if (typeof meta.render === 'function') render = () => meta.render(args, ctx);
+  else {
+    const C = (st && st.component) || meta.component;
+    if (C) render = () => React.createElement(C, args);
+  }
+  if (!render) return () => null;
+  // [].concat: a single function is legal CSF decorator shorthand. A
+  // decorator returning undefined (stubbed addon) falls through to the inner
+  // render — otherwise one unrecognized addon blanks the cell silently.
+  const decorators: any[] = ([] as any[]).concat((st && st.decorators) ?? []).concat(meta.decorators ?? []);
+  return decorators.reduce((inner: any, dec: any) => () => {
+    const out = dec(inner, ctx);
+    return out === undefined ? inner() : out;
+  }, render);
+}
+
+export const Unselected = /* Unselected */ compose(S, "Unselected");
+export const Selected = /* Selected */ compose(S, "Selected");
+export const Disabled = /* Disabled */ compose(S, "Disabled");
+export const Small = /* Small */ compose(S, "Small");
+export const Medium = /* Medium */ compose(S, "Medium");
+export const Toggle = /* Toggle */ compose(S, "Toggle");
+const DarkInner = /* Dark */ compose(S, "Dark");
+export const Dark = () => <DarkMode>{DarkInner()}</DarkMode>;
