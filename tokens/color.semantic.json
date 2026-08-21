@@ -28,7 +28,7 @@
   },
   "status": {
     "$type": "color",
-    "$description": "Three distinct treatments per role, not one. Solid: <name> fill + text.onBrand (white) — already AA in both themes, white-on-fill doesn't depend on background. Soft: <name>Subtle fill + on<Name> text, no border. Outline: on<Name> text + <name>Border border, on the page background — NOT on the Subtle fill. Border is only verified against bg.page (>=3:1); against its own Subtle fill it's 1.8-2.8:1, which is why outline and soft are two separate treatments rather than one badge that layers both. Do not build an outline-on-Subtle variant.",
+    "$description": "Three distinct treatments per role, not one. Solid: <name> fill + text.onBrand (white) — already AA in both themes, white-on-fill doesn't depend on background. Soft: <name>Subtle fill + on<Name> text, no border. Outline: on<Name> text + <name>Border border, on the page background — NOT on the Subtle fill. Border is only verified against bg.page (>=3:1); against its own Subtle fill it's 1.8-2.8:1, which is why outline and soft are two separate treatments rather than one badge that layers both. Badge (src/components/Badge.tsx) implements exactly this: its solid/soft/outline variants map 1:1 onto these three treatments, and no variant stacks Border on top of Subtle — that combination is not just undocumented, it's unreachable through Badge's props.",
     "neutral": { "$value": "{color.gray}", "$description": "Neutral / default state" },
     "info": { "$value": "{color.teal}", "$description": "Informational" },
     "success": { "$value": "{color.green}", "$description": "Success" },
