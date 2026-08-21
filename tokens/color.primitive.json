@@ -62,10 +62,13 @@
       "$description": "Filled CTA hover. 6.10:1 with white text."
     },
     "inkMuted": { "$value": "rgba(26, 20, 22, 0.7)", "$description": "Muted body text — 70% ink." },
-    "inkCaption": { "$value": "rgba(26, 20, 22, 0.55)", "$description": "Captions — 55% ink." },
+    "inkCaption": {
+      "$value": "rgba(26, 20, 22, 0.6)",
+      "$description": "Captions — 60% ink. Phase 4 STOP 2: was 55% (3.97:1 on bg.page, 4.03:1 on bg.surface — both fail the 4.5:1 text floor). 60% clears it: 4.67:1 on bg.page, 4.75:1 on bg.surface."
+    },
     "inkLine": {
-      "$value": "rgba(26, 20, 22, 0.12)",
-      "$description": "Hairline borders — 12% ink."
+      "$value": "rgba(26, 20, 22, 0.48)",
+      "$description": "Hairline borders — 48% ink. Phase 4 STOP 1: was 12% (1.28:1 on both bg.page and bg.surface — far under the 3:1 control-boundary floor, `border.control` was never actually added as its own token). 48% clears it: 3.20:1 on bg.page, 3.24:1 on bg.surface. Also strengthens Tag's unselected border and Card's border (its only other consumers) — deliberate, not a side effect to avoid."
     },
     "cream2": {
       "$value": "#F3F0E7",

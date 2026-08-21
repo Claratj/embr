@@ -14,6 +14,10 @@
       "$value": "{color.plumLight}",
       "$description": "Plain plum (light theme's heading color) is 1.41:1 on the dark page — fails even the 3:1 large-text floor. Re-tinted to 11.9:1 vs bg.page, 10.0:1 vs bg.surface."
     },
+    "caption": {
+      "$value": "{color.inkCaptionLight}",
+      "$description": "Phase 4 STOP 2: this role had NO dark override at all — light theme's inkCaption got reused verbatim in dark (1.00:1 vs bg.page, 1.11:1 vs bg.surface). Re-tinted to 6.00:1 vs bg.page, 5.00:1 vs bg.surface."
+    },
     "onBrand": { "$value": "{color.white}" }
   },
   "border": {

@@ -39,3 +39,9 @@ export type {
   CardContentProps,
   CardFooterProps,
 } from './components/Card';
+
+export { Input } from './components/Input';
+export type { InputProps, InputSize } from './components/Input';
+
+export { Textarea } from './components/Textarea';
+export type { TextareaProps, TextareaSize } from './components/Textarea';

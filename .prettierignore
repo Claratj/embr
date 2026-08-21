@@ -3,6 +3,9 @@ storybook-static/
 coverage/
 src/tokens/generated/
 package-lock.json
+ds-bundle/
+.ds-sync/
+.design-sync/
 
 # Authored planning documents — Prettier shouldn't reflow them.
 CLAUDE.md

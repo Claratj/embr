@@ -11,8 +11,8 @@
       "$description": "bg.subtle — hover/zebra, one step up from charcoalRaised. 1.47:1 vs page."
     },
     "charcoalBorder": {
-      "$value": "#564349",
-      "$description": "border.default — 1.99:1 vs page, 1.66:1 vs charcoalRaised."
+      "$value": "#826C73",
+      "$description": "border.default. Phase 4 STOP 1: #564349 was 1.99:1 vs page, 1.66:1 vs charcoalRaised — under the 3:1 control-boundary floor on both. Lightened, same warm hue: 3.76:1 vs page, 3.13:1 vs charcoalRaised."
     },
     "grayLight": {
       "$value": "#9E9999",
@@ -29,6 +29,10 @@
     "plumLight": {
       "$value": "#E7C9DC",
       "$description": "text.heading — lightened plum. Plain plum is only 1.41:1 on charcoal (fails even the 3:1 large-text floor); this hits 11.9:1 vs bg.page, 10.0:1 vs bg.surface."
+    },
+    "inkCaptionLight": {
+      "$value": "#9E9194",
+      "$description": "text.caption — lightened ink. Phase 4 STOP 2: light theme's inkCaption (rgba(26,20,22,0.6)) had no dark override at all, so dark reused the light value verbatim — 1.00:1 vs bg.page, 1.11:1 vs bg.surface, effectively invisible. This hits 6.00:1 vs bg.page, 5.00:1 vs bg.surface."
     },
 
     "graySubtle": {

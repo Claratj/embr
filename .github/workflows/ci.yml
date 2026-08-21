@@ -45,6 +45,12 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
 
+      # Contrast ratios read from the REAL compiled dist/tokens.css, via a real browser resolving
+      # the :root[data-theme='dark'] cascade — not the source token JSON. Catches drift between
+      # what tokens/ documents and what actually ships (see EMBR-PHASE-4.md's STOP points).
+      - name: Verify compiled-CSS contrast
+        run: npm run verify:contrast
+
       # Runs the story tests in a real browser: each story must render, and axe must report zero
       # violations (a11y `test: 'error'`). This is the step that enforces golden rule 2.
       - name: Test

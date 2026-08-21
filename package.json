@@ -44,6 +44,8 @@
     "build-storybook": "storybook build",
     "pretest": "npm run build:tokens",
     "test": "vitest run",
+    "verify:contrast": "node scripts/verify-contrast.mjs contrast",
+    "verify:height": "node scripts/verify-contrast.mjs height",
     "changeset": "changeset",
     "version": "changeset version",
     "lint": "eslint .",
