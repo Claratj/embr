@@ -29,7 +29,7 @@ function Focus() {
         <button
           type="button"
           autoFocus
-          className="rounded-md bg-brand px-4 py-2 font-medium text-on-brand"
+          className="rounded-full bg-brand px-4 py-2 font-medium text-on-brand"
         >
           Focused button
         </button>
@@ -39,7 +39,7 @@ function Focus() {
         <input
           type="text"
           placeholder="Focused-on-tab input"
-          className="rounded-md border border-border bg-page px-3 py-2 text-ink"
+          className="rounded-sm border border-border bg-page px-3 py-2 text-ink"
         />
       </section>
     </div>

@@ -52,7 +52,7 @@ function Swatch({ token }: { token: EmbrToken }) {
         // The chip is decorative — the name and value next to it carry the information — so it
         // is hidden from assistive tech rather than given a redundant label.
         aria-hidden="true"
-        className="size-8 shrink-0 rounded-md border border-border"
+        className="size-8 shrink-0 rounded-sm border border-border"
         style={{ backgroundColor: `var(${token.cssVar})` }}
       />
       <div className="min-w-0">

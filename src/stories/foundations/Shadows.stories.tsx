@@ -9,7 +9,7 @@ const shadowTokens: EmbrToken[] = Object.values(tokens).filter(
 function Sample({ token }: { token: EmbrToken }) {
   return (
     <div className="flex flex-col items-center gap-2">
-      <div className="size-8 rounded-md bg-surface" style={{ boxShadow: `var(${token.cssVar})` }} />
+      <div className="size-8 rounded-sm bg-surface" style={{ boxShadow: `var(${token.cssVar})` }} />
       <span className="font-mono text-sm text-ink-muted">{token.path.at(-1)}</span>
     </div>
   );

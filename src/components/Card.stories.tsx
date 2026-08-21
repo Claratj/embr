@@ -48,7 +48,7 @@ export const Default: Story = {
 export const ContentOnly: Story = {
   render: () => (
     <Card className="max-w-sm">
-      <CardContent className="pt-5">
+      <CardContent>
         <p className="text-sm text-ink">A card with no header or footer, just content.</p>
       </CardContent>
     </Card>

@@ -40,6 +40,21 @@ export const Disabled: Story = {
   },
 };
 
+export const Small: Story = {
+  args: { size: 'sm' },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Dense desktop contexts only — toolbars, table rows, filter bars. Not for primary ' +
+          'touch actions: at 26px tall it clears the WCAG 2.2 SC 2.5.8 minimum (24×24px) by just ' +
+          '2px. Its real consumer is the DataGrid toolbar, coming in a later phase.',
+      },
+    },
+  },
+};
+export const Medium: Story = { args: { size: 'md' } };
+
 export const AsChildLink: Story = {
   name: 'asChild (link)',
   args: {

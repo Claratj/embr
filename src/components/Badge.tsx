@@ -55,6 +55,10 @@ const STATUS_VARIANT_CLASSES: Record<BadgeVariant, Record<BadgeStatus, string>> 
  * `px-2 py-1`, not the more usual `px-2.5 py-0.5` — the space scale only defines integer steps
  * (`--spacing-1`…`--spacing-8`), so a `.5` step compiles to no rule at all under this theme's
  * reset `@theme` layer. See tokens/core.json's `space` scale for the full step list.
+ *
+ * No `size` prop: it was tried and measured out. `sm`/`md` differed only in 4px of horizontal
+ * padding — same height (26px), same `text-xs` — a tweak, not a size. `Button` and `Tag` keep
+ * `size` because 26px vs 37px there is a real, visible distinction.
  */
 const BASE_CLASSES =
   'inline-flex items-center gap-1 rounded-full px-2 py-1 font-body text-xs font-medium';

@@ -24,21 +24,27 @@ export function Card({ className, ...rest }: CardProps) {
   );
 }
 
+/** `-mb-5` collapses its own bottom padding when a `CardContent` follows, so the pair reads as
+ * one `space-5` gap instead of two stacked ones — `CardContent` no longer needs to know what
+ * precedes it. */
 export function CardHeader({ className, ...rest }: CardHeaderProps) {
-  return <div className={cx('flex flex-col gap-1 p-5', className)} {...rest} />;
+  return <div className={cx('flex flex-col gap-1 p-5 -mb-5', className)} {...rest} />;
 }
 
 export function CardTitle({ className, ...rest }: CardTitleProps) {
-  return <h3 className={cx('font-heading text-lg font-semibold text-ink', className)} {...rest} />;
+  return (
+    <h3 className={cx('font-heading text-lg font-semibold text-heading', className)} {...rest} />
+  );
 }
 
 export function CardDescription({ className, ...rest }: CardDescriptionProps) {
   return <p className={cx('text-sm text-ink-muted', className)} {...rest} />;
 }
 
-/** Assumes a preceding `CardHeader` already paid the top padding — same trade-off as `CardFooter`. */
+/** Standalone-safe: full padding on every side. `CardHeader` collapses the gap between the two
+ * with its own negative bottom margin, so a Header+Content pair isn't double-spaced. */
 export function CardContent({ className, ...rest }: CardContentProps) {
-  return <div className={cx('p-5 pt-0', className)} {...rest} />;
+  return <div className={cx('p-5', className)} {...rest} />;
 }
 
 export function CardFooter({ className, ...rest }: CardFooterProps) {

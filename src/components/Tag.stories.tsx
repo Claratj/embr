@@ -27,6 +27,8 @@ type Story = StoryObj<typeof meta>;
 export const Unselected: Story = { args: { selected: false } };
 export const Selected: Story = { args: { selected: true } };
 export const Disabled: Story = { args: { disabled: true } };
+export const Small: Story = { args: { size: 'sm' } };
+export const Medium: Story = { args: { size: 'md' } };
 
 /** `selected` is consumer state — this story owns it locally to demonstrate the toggle. */
 function ToggleableTag() {
