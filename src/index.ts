@@ -45,3 +45,11 @@ export type { InputProps, InputSize } from './components/Input';
 
 export { Textarea } from './components/Textarea';
 export type { TextareaProps, TextareaSize } from './components/Textarea';
+
+export {
+  FormField,
+  FormFieldLabel,
+  FormFieldDescription,
+  FormFieldError,
+} from './components/FormField';
+export type { FormFieldProps, FormFieldLabelProps } from './components/FormField';

@@ -7,6 +7,7 @@ import {
   FIELD_STATE_CLASSES,
 } from './internal/field-classes';
 import type { FieldSize } from './internal/field-classes';
+import { useFormFieldControlContext } from './internal/form-field-context';
 
 export type TextareaSize = FieldSize;
 
@@ -33,23 +34,37 @@ export interface TextareaProps extends ComponentPropsWithRef<'textarea'> {
  * token exists.
  */
 
-/** No `forwardRef` — React 19 accepts `ref` as a regular prop. */
+/**
+ * No `forwardRef` — React 19 accepts `ref` as a regular prop.
+ *
+ * Ambient `FormField` wiring (id, aria-describedby, invalid, required) is merged in when this
+ * Textarea is rendered inside one, but an explicit prop the consumer actually passes always
+ * wins — same merge pattern as Input.
+ */
 export function Textarea({
   size = 'md',
   invalid = false,
   rows = 3,
   className,
+  id,
+  required,
+  'aria-describedby': ariaDescribedBy,
   ...rest
 }: TextareaProps) {
+  const field = useFormFieldControlContext();
+  const isInvalid = invalid || field.invalid === true;
   return (
     <textarea
+      id={id ?? field.controlId}
       rows={rows}
-      aria-invalid={invalid || undefined}
+      aria-describedby={ariaDescribedBy ?? field.describedBy}
+      aria-invalid={isInvalid || undefined}
+      required={required ?? field.required}
       className={cx(
         FIELD_BASE_CLASSES,
         'resize-y',
         FIELD_SIZE_CLASSES[size],
-        invalid ? FIELD_STATE_CLASSES.invalid : FIELD_STATE_CLASSES.default,
+        isInvalid ? FIELD_STATE_CLASSES.invalid : FIELD_STATE_CLASSES.default,
         className,
       )}
       {...rest}

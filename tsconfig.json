@@ -27,6 +27,14 @@
   },
   // `.storybook/**/*` must be spelled out: TypeScript skips dot-directories in bare directory
   // includes, and its globs do not support brace expansion.
-  "include": ["src", "types", "scripts/**/*.js", ".storybook/**/*", "*.config.ts", "*.config.js"],
+  "include": [
+    "src",
+    "types",
+    "scripts/**/*.js",
+    ".storybook/**/*",
+    "*.config.ts",
+    "*.config.js",
+    "vitest.setup.ts"
+  ],
   "exclude": ["dist", "node_modules", "storybook-static"]
 }
