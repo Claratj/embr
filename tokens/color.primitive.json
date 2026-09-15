@@ -109,8 +109,8 @@
       "$description": "Muted body text — 70% ink. Palette D: re-based on new charcoal #0B2027."
     },
     "inkCaption": {
-      "$value": "rgba(11, 32, 39, 0.6)",
-      "$description": "Captions — 60% ink. Palette D: re-based on new charcoal #0B2027 (was based on #1A1416)."
+      "$value": "rgba(11, 32, 39, 0.63)",
+      "$description": "Captions — 63% ink. Palette D's new, slightly darker cream (#F7F2F5) undercut the previous 60% (4.33:1 on bg.page, 4.48:1 on bg.surface — both under the 4.5:1 floor). 63% clears it: 4.76:1 on bg.page, 4.94:1 on bg.surface."
     },
     "inkLine": {
       "$value": "rgba(11, 32, 39, 0.48)",
