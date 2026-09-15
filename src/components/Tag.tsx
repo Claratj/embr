@@ -22,8 +22,8 @@ export interface TagProps extends ComponentPropsWithRef<'button'> {
 const BASE_CLASSES =
   'inline-flex items-center rounded-full border font-body font-medium ' +
   'transition-[background-color,border-color,color,transform] duration-fast ease-out ' +
-  'active:scale-[0.97] motion-reduce:transition-none disabled:pointer-events-none ' +
-  'disabled:opacity-disabled';
+  'active:scale-[0.97] motion-reduce:transition-[background-color,border-color,color] ' +
+  'disabled:pointer-events-none disabled:opacity-disabled';
 
 /** Two sizes, four padding values, all from the integer spacing scale — no `.5` step exists. */
 const SIZE_CLASSES: Record<TagSize, string> = {

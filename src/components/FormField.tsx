@@ -118,7 +118,7 @@ export function FormFieldError({ className, ...rest }: ComponentPropsWithRef<'p'
       id={field.errorId}
       className={cx(
         'text-sm font-medium text-on-danger transition-[opacity,transform] duration-base ' +
-          'ease-out starting:opacity-0 starting:-translate-y-1 motion-reduce:transition-none',
+          'ease-out starting:opacity-0 starting:-translate-y-1 motion-reduce:transition-[opacity]',
         className,
       )}
       {...rest}

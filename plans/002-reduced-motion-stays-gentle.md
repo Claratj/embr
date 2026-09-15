@@ -1,6 +1,6 @@
 # 002 — Reduced motion should drop movement, not every transition
 
-- **Status**: TODO
+- **Status**: DONE
 - **Commit**: 3d45113
 - **Severity**: MEDIUM
 - **Category**: Accessibility

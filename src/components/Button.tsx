@@ -34,12 +34,12 @@ const SIZE_CLASSES: Record<ButtonSize, string> = {
  * `disabled:pointer-events-none` keeps the button from ever firing hover/active styles or
  * click handlers once disabled — the same effect `disabled` gives a native `<button>`, made
  * explicit here because `asChild` can put this className onto an element with no such default.
- * `motion-reduce:transition-none` respects `prefers-reduced-motion` without needing a JS check.
+ * No `motion-reduce:` override: this transition is colour-only, which is comprehension-safe under
+ * reduced motion. One is only needed if a `transform` ever joins this class (see Tag).
  */
 const BASE_CLASSES =
   'inline-flex items-center justify-center rounded-full font-body font-medium transition-colors ' +
-  'duration-fast ease-out motion-reduce:transition-none disabled:pointer-events-none ' +
-  'disabled:opacity-disabled';
+  'duration-fast ease-out disabled:pointer-events-none disabled:opacity-disabled';
 
 type NativeButtonType = ComponentPropsWithRef<'button'>['type'];
 
