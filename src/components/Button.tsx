@@ -19,9 +19,9 @@ export interface ButtonProps extends ComponentPropsWithRef<'button'> {
 }
 
 const VARIANT_CLASSES: Record<ButtonVariant, string> = {
-  solid: 'bg-brand text-on-brand hover:bg-brand-strong',
-  outline: 'border border-brand text-brand bg-transparent hover:bg-subtle',
-  ghost: 'text-ink bg-transparent hover:bg-subtle',
+  solid: 'bg-brand text-on-brand can-hover:hover:bg-brand-strong',
+  outline: 'border border-brand text-brand bg-transparent can-hover:hover:bg-subtle',
+  ghost: 'text-ink bg-transparent can-hover:hover:bg-subtle',
 };
 
 /** Two sizes, four padding values, all from the integer spacing scale — no `.5` step exists. */

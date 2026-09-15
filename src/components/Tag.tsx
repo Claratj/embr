@@ -32,8 +32,8 @@ const SIZE_CLASSES: Record<TagSize, string> = {
 };
 
 const STATE_CLASSES = {
-  unselected: 'border-border bg-page text-ink hover:bg-subtle',
-  selected: 'border-transparent bg-brand text-on-brand hover:bg-brand-strong',
+  unselected: 'border-border bg-page text-ink can-hover:hover:bg-subtle',
+  selected: 'border-transparent bg-brand text-on-brand can-hover:hover:bg-brand-strong',
 };
 
 export function Tag({

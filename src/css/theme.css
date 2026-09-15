@@ -35,6 +35,13 @@
  * `--color-bg-page` would spell `bg-bg-page` at the call site.
  */
 
+/*
+ * `can-hover:` gates `:hover` behind `(hover: hover) and (pointer: fine)` — plain `hover:`
+ * fires on tap on touch devices with no way to clear it, leaving a button/tag stuck in its
+ * hover color. Interactive components should always stack this in front of `hover:`.
+ */
+@custom-variant can-hover (@media (hover: hover) and (pointer: fine));
+
 @theme inline {
   /* ---- Color ------------------------------------------------------------------------- */
   --color-*: initial;

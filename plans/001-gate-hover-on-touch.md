@@ -1,6 +1,6 @@
 # 001 — Gate `hover:` classes behind `(hover: hover) and (pointer: fine)`
 
-- **Status**: TODO
+- **Status**: DONE
 - **Commit**: 3d45113
 - **Severity**: MEDIUM
 - **Category**: Accessibility
