@@ -112,17 +112,56 @@ const VARS = {
   'status.on-danger': '--embr-status-on-danger',
 };
 
-// [fgRole, bgRole, floor, label] — floor is the WCAG minimum that role pair must clear.
+// [fgRole, bgRole, floor, label, gate] — floor is the WCAG minimum that role pair must clear.
 // 3:1 = non-text UI component boundary (WCAG 1.4.11); 4.5:1 = normal text (WCAG 1.4.3).
+// gate=false means the row is reported but never fails the exit code — for roles that are
+// deliberately not used in that pairing (e.g. status.danger is a border/fill token, not text; it
+// stays here so a future consumer of it as text sees the real, expected-to-fail number).
 const CONTRAST_CHECKS = [
-  ['border.default', 'bg.page', 3.0, 'STOP 1 — border.default vs bg.page (control boundary)'],
-  ['border.default', 'bg.surface', 3.0, 'STOP 1 — border.default vs bg.surface (control boundary)'],
-  ['text.caption', 'bg.page', 4.5, 'STOP 2 — text.caption vs bg.page (placeholder text)'],
-  ['text.caption', 'bg.surface', 4.5, 'STOP 2 — text.caption vs bg.surface (placeholder text)'],
-  ['status.danger', 'bg.page', 4.5, 'STOP 5 — status.danger as text vs bg.page'],
-  ['status.danger', 'bg.surface', 4.5, 'STOP 5 — status.danger as text vs bg.surface'],
-  ['status.on-danger', 'bg.page', 4.5, '(informational) status.on-danger as text vs bg.page'],
-  ['status.on-danger', 'bg.surface', 4.5, '(informational) status.on-danger as text vs bg.surface'],
+  ['border.default', 'bg.page', 3.0, 'STOP 1 — border.default vs bg.page (control boundary)', true],
+  [
+    'border.default',
+    'bg.surface',
+    3.0,
+    'STOP 1 — border.default vs bg.surface (control boundary)',
+    true,
+  ],
+  ['text.caption', 'bg.page', 4.5, 'STOP 2 — text.caption vs bg.page (placeholder text)', true],
+  [
+    'text.caption',
+    'bg.surface',
+    4.5,
+    'STOP 2 — text.caption vs bg.surface (placeholder text)',
+    true,
+  ],
+  [
+    'status.danger',
+    'bg.page',
+    4.5,
+    '(informational) status.danger as text vs bg.page — unsafe, not consumed as text',
+    false,
+  ],
+  [
+    'status.danger',
+    'bg.surface',
+    4.5,
+    '(informational) status.danger as text vs bg.surface — unsafe, not consumed as text',
+    false,
+  ],
+  [
+    'status.on-danger',
+    'bg.page',
+    4.5,
+    'STOP 5 — status.on-danger as text vs bg.page (FormFieldError)',
+    true,
+  ],
+  [
+    'status.on-danger',
+    'bg.surface',
+    4.5,
+    'STOP 5 — status.on-danger as text vs bg.surface (FormFieldError)',
+    true,
+  ],
 ];
 
 async function readTokens(page, theme) {
@@ -157,15 +196,15 @@ async function runContrast() {
   const rows = [];
   for (const theme of ['light', 'dark']) {
     const values = await readTokens(page, theme);
-    for (const [fgRole, bgRole, floor, label] of CONTRAST_CHECKS) {
+    for (const [fgRole, bgRole, floor, label, gate] of CONTRAST_CHECKS) {
       const fgRaw = values[fgRole];
       const bgRaw = values[bgRole];
       const bg = parseColor(bgRaw);
       const fg = compositeOver(parseColor(fgRaw), bg);
       const ratio = contrastRatio(fg, bg);
       const pass = ratio >= floor;
-      if (!pass) anyFail = true;
-      rows.push({ theme, label, fgRaw, bgRaw, ratio, floor, pass });
+      if (!pass && gate) anyFail = true;
+      rows.push({ theme, label, fgRaw, bgRaw, ratio, floor, pass, gate });
     }
   }
 

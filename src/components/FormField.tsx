@@ -89,7 +89,7 @@ export function FormFieldLabel({
     >
       {children}
       {field.required && (
-        <span aria-hidden="true" className="text-danger">
+        <span aria-hidden="true" className="text-on-danger">
           {' '}
           *
         </span>
@@ -106,14 +106,18 @@ export function FormFieldDescription({ className, ...rest }: ComponentPropsWithR
 }
 
 /**
- * `text-danger`, not `text-on-danger`: status.danger as text fails the 4.5:1 floor in dark
- * (2.89:1 on bg.page, 2.41:1 on bg.surface — measured with `npm run verify:contrast`, see
- * EMBR-PHASE-4.md STOP 5). Accepted as known debt this session rather than switching to
- * status.on-danger unilaterally; revisit before shipping anything that leans on this in dark.
+ * `text-on-danger`, not `text-danger`: status.danger as text fails the 4.5:1 floor in dark
+ * (2.89:1 on bg.page, 2.41:1 on bg.surface). status.on-danger clears the floor on both surfaces
+ * in both themes (light 6.16–6.49:1, dark 5.92–7.10:1 — measured with `npm run verify:contrast`)
+ * and matches the token Badge already uses for the same danger status as text.
  */
 export function FormFieldError({ className, ...rest }: ComponentPropsWithRef<'p'>) {
   const field = useFormFieldContext('FormFieldError');
   return (
-    <p id={field.errorId} className={cx('text-sm font-medium text-danger', className)} {...rest} />
+    <p
+      id={field.errorId}
+      className={cx('text-sm font-medium text-on-danger', className)}
+      {...rest}
+    />
   );
 }
