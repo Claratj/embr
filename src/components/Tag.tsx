@@ -20,8 +20,9 @@ export interface TagProps extends ComponentPropsWithRef<'button'> {
  * itself in a non-interactive tone like a status color.
  */
 const BASE_CLASSES =
-  'inline-flex items-center rounded-full border font-body font-medium transition-colors ' +
-  'duration-fast ease-out motion-reduce:transition-none disabled:pointer-events-none ' +
+  'inline-flex items-center rounded-full border font-body font-medium ' +
+  'transition-[background-color,border-color,color,transform] duration-fast ease-out ' +
+  'active:scale-[0.97] motion-reduce:transition-none disabled:pointer-events-none ' +
   'disabled:opacity-disabled';
 
 /** Two sizes, four padding values, all from the integer spacing scale — no `.5` step exists. */

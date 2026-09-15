@@ -12,6 +12,7 @@ export type FieldSize = 'sm' | 'md';
  */
 export const FIELD_BASE_CLASSES =
   'w-full rounded-sm border bg-surface text-ink font-body placeholder:text-caption ' +
+  'transition-colors duration-fast ease-out motion-reduce:transition-none ' +
   'disabled:opacity-disabled';
 
 /**
