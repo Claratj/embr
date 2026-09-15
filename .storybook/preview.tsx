@@ -50,6 +50,38 @@ const preview: Preview = {
     // violation fail `npm test` and CI, rather than showing up as a note in a panel.
     a11y: { test: 'error' },
   },
+  // @storybook/addon-a11y's own afterEach only fails on `result.violations` — but axe's
+  // color-contrast rule reports a failure it can't be 100% certain about as `incomplete`
+  // ("needs manual review"), not a violation, and addon-a11y never looks at that array. Verified
+  // by planting plain white-on-white text: a11y: { test: 'error' } let it pass silently. This is
+  // a second, project-owned afterEach — Storybook composes afterEach hooks from every preview
+  // source, so this runs in addition to (not instead of) addon-a11y's own, using the exact same
+  // axe-core run addon-a11y uses (including its 'region' exception — component stories rarely
+  // have a landmark, and that's a false positive, not a real violation).
+  //
+  // Gated the same way addon-a11y gates its own throw (see its getIsVitestStandaloneRun): this
+  // env var is the string 'false' when running under the vitest gate (`npm test`, CI) and unset
+  // during interactive `npm run dev` — `import.meta.env.VITEST` is NOT set in this browser
+  // context, despite the name, so it can't be used here. Verified directly by dumping
+  // import.meta.env inside a planted story's play function.
+  async afterEach(context) {
+    if (context.viewMode !== 'story' || import.meta.env['VITEST_STORYBOOK'] !== 'false') return;
+    const a11yParam = context.parameters['a11y'] as
+      { disable?: boolean; test?: string } | undefined;
+    if (a11yParam?.disable === true || a11yParam?.test === 'off') return;
+
+    const axe = (await import('axe-core')).default;
+    const result = await axe.run(document.body, {
+      rules: { region: { enabled: false } },
+    });
+    if (result.incomplete.length > 0) {
+      throw new Error(
+        `axe: ${result.incomplete.length} rule(s) need manual review, reported as ` +
+          `"incomplete" rather than "violations" — addon-a11y's own gate misses these: ` +
+          result.incomplete.map((r) => r.id).join(', '),
+      );
+    }
+  },
 };
 
 export default preview;
