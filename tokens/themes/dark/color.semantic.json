@@ -1,5 +1,5 @@
 {
-  "$description": "Dark palette. Palette D changes: bg.page → deep green (was reused charcoal), text.heading → sageLight (was plumLight), focus.ring → tealStrong (was magentaLight), brand.eyebrow added (amberLabel). brand.link unchanged (rustLight already matches Palette D's dark-link decision). brand.primary/primaryStrong/accent and solid status.<name> fills remain un-overridden, same rationale as before: white text on top holds contrast regardless of theme.",
+  "$description": "Dark palette. bg.page is deep green (deepGreenPage), text.heading uses sageLight. brand.link, brand.eyebrow, and focus.ring all point to plumLight now — light mode moved all three off magenta/rust onto plum, so dark follows with plum's lightened tint, consistent with this theme's rule that a dark tint is always its light counterpart's hue. brand.primary/primaryStrong/accent and solid status.<name> fills remain un-overridden: white text on top holds contrast regardless of theme.",
   "bg": {
     "$type": "color",
     "page": {
@@ -26,17 +26,20 @@
   },
   "brand": {
     "$type": "color",
-    "link": { "$value": "{color.rustLight}" },
+    "link": {
+      "$value": "{color.plumLight}",
+      "$description": "Follows light mode's move to plum. 11.28:1 vs bg.page."
+    },
     "eyebrow": {
-      "$value": "{color.amberLabel}",
-      "$description": "Palette D: new dark override, reuses the existing inverse-surface label color. Previously un-overridden (fell back to light magenta)."
+      "$value": "{color.plumLight}",
+      "$description": "Follows light mode's move off magenta (reserved for Accent secundario) onto plum. 11.28:1 vs bg.page."
     }
   },
   "focus": {
     "$type": "color",
     "ring": {
-      "$value": "{color.tealStrong}",
-      "$description": "Palette D: reuses the existing info-on-dark teal for the focus ring. Was {color.magentaLight}."
+      "$value": "{color.plumLight}",
+      "$description": "Follows light mode's move to plum, for the same reason: keeps the ring's hue independent of brand.primary's. 11.28:1 vs bg.page, 9.95:1 vs bg.surface."
     }
   },
   "status": {

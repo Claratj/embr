@@ -26,38 +26,37 @@
   "brand": {
     "$type": "color",
     "primary": {
-      "$value": "{color.terracottaCta}",
-      "$description": "Palette D coral, darkened. 5.60:1 with text.onBrand (white)."
+      "$value": "{color.orange}",
+      "$description": "Palette D Accent principal, darkened for AA. 5.06:1 with text.onBrand (white)."
     },
     "primaryStrong": {
-      "$value": "{color.terracottaCtaHover}",
-      "$description": "Palette D coral hover step."
-    },
-    "tertiary": {
-      "$value": "{color.tertiary}",
-      "$description": "New Palette D role, distinct from status.success."
+      "$value": "{color.orangeStrong}",
+      "$description": "Palette D Accent principal hover step. 6.82:1 with text.onBrand (white)."
     },
     "accent": {
       "$value": "{color.orange}",
-      "$description": "Palette D: unified with the coral family."
+      "$description": "Same primitive as brand.primary — no separate decorative surface exists yet, and this role has no component consumer today."
     },
     "link": {
-      "$value": "{color.rust}",
-      "$description": "Palette D: darkened magenta, 6.1:1 on bg.page."
+      "$value": "{color.plum}",
+      "$description": "Palette D has no dedicated link hex — reuses Primary (plum). 13.20:1 on bg.page."
     },
     "eyebrow": {
-      "$value": "{color.magenta}",
-      "$description": "Palette D magenta."
+      "$value": "{color.plum}",
+      "$description": "Moved off magenta, which Palette D reserves for Accent secundario (badges/tags). 13.20:1 on bg.page."
     },
     "labelOnInverse": { "$value": "{color.amberLabel}" }
   },
   "focus": {
     "$type": "color",
-    "ring": { "$value": "{color.magenta}" }
+    "ring": {
+      "$value": "{color.plum}",
+      "$description": "Moved off magenta for the same reason as brand.eyebrow, and to avoid repeating the Phase 2 bug where brand.primary and focus.ring shared a value (an invisible ring on the primary button). 13.20:1 on bg.page, well above the 3:1 UI-indicator floor."
+    }
   },
   "status": {
     "$type": "color",
-    "$description": "Three distinct treatments per role, not one. Solid: <name> fill + text.onBrand (white). Soft: <name>Subtle fill + on<Name> text. Outline: on<Name> text + <name>Border border on bg.page. Badge implements exactly this. Palette D note: success's Subtle/on/Border trio was recomputed for the hue rotation; info/warning/danger bases were nudged but their Subtle/on/Border trios are still the pre-Palette-D values — pending recompute.",
+    "$description": "Three distinct treatments per role, not one. Solid: <name> fill + text.onBrand (white). Soft: <name>Subtle fill + on<Name> text. Outline: on<Name> text + <name>Border border on bg.page. Badge implements exactly this. Palette D note: every base hue has moved (success now unified with the former Tertiary role, at 169°; info/warning/danger were nudged) but none of the four Subtle/on/Border trios were recomputed to match — pending recompute across the board.",
     "neutral": { "$value": "{color.gray}", "$description": "Neutral / default state" },
     "info": { "$value": "{color.teal}", "$description": "Informational" },
     "success": { "$value": "{color.green}", "$description": "Success" },
@@ -92,15 +91,15 @@
 
     "successSubtle": {
       "$value": "{color.greenSubtle}",
-      "$description": "Soft badge fill — success. Palette D rotation."
+      "$description": "Soft badge fill — success. Pending Palette D recompute."
     },
     "onSuccess": {
       "$value": "{color.greenStrong}",
-      "$description": "Foreground on successSubtle. Palette D rotation."
+      "$description": "Foreground on successSubtle. Pending Palette D recompute."
     },
     "successBorder": {
       "$value": "{color.greenBorder}",
-      "$description": "Outline badge border — success. Palette D rotation."
+      "$description": "Outline badge border — success. Pending Palette D recompute."
     },
 
     "warningSubtle": {

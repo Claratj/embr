@@ -1,5 +1,5 @@
 {
-  "$description": "Dark tints. Palette D adds one new primitive: deepGreenPage, for the dark bg.page direction (deep green, no pink). Everything else in this file is unchanged.",
+  "$description": "Dark tints. deepGreenPage is the dark bg.page direction (deep green, no pink). plumLight now covers brand.link, brand.eyebrow, and focus.ring — all three moved off the magenta/rust family in light mode, so their dark tints follow the same hue (plum), per this file's own rule that a dark tint is always its light counterpart's hue, only re-lightened. magentaLight and rustLight are gone: nothing references them now that link/eyebrow/focus all point to plum.",
   "color": {
     "$type": "color",
     "charcoalRaised": {
@@ -15,17 +15,9 @@
       "$description": "border.default — unchanged by Palette D."
     },
     "grayLight": { "$value": "#9E9999", "$description": "text.muted — unchanged by Palette D." },
-    "rustLight": {
-      "$value": "#EE5325",
-      "$description": "brand.link — unchanged by Palette D (already the value Palette D wants for dark link)."
-    },
-    "magentaLight": {
-      "$value": "#E7277B",
-      "$description": "Unused for focus.ring under Palette D (dark focus.ring now uses tealStrong below) — kept for any other consumer."
-    },
     "plumLight": {
       "$value": "#E7C9DC",
-      "$description": "Unused for text.heading under Palette D (dark heading now uses sageLight, from the main token file) — kept for any other consumer."
+      "$description": "brand.link, brand.eyebrow, focus.ring (dark) — lightened plum, same hue as their light-mode value. 11.28:1 vs bg.page, 9.95:1 vs bg.surface — clears both the 4.5:1 text floor and the 3:1 UI-indicator floor with heavy margin."
     },
     "inkCaptionLight": {
       "$value": "#9E9194",

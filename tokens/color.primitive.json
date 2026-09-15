@@ -7,15 +7,15 @@
     },
     "magenta": {
       "$value": "#8C1249",
-      "$description": "Brand: action accent. Palette D: darkened from #AA1355."
+      "$description": "Accent secundario — badges, tags, CTA de menor jerarquía (Palette D image role). No component consumer yet."
     },
     "orange": {
-      "$value": "#E2694A",
-      "$description": "Brand: vivid accent, rules and details. Palette D: unified with brand.primary's coral family, was #E5491E."
+      "$value": "#C54120",
+      "$description": "Accent principal / CTA primario. Palette D's image hex is #E2694A, but that's only 3.31:1 with white text — fails AA. Darkened along the same hue/sat (H12° S72%) to L45%: 5.06:1 with white. The lighter #E2694A has no consumer at a contrast that clears AA, so it wasn't kept as a separate unused primitive."
     },
-    "rust": {
-      "$value": "#A61658",
-      "$description": "Brand: links and bullets. Palette D: darkened magenta, was #C2380F. 6.1:1 on the new bg.page."
+    "orangeStrong": {
+      "$value": "#A2361A",
+      "$description": "CTA hover — same hue/sat as orange, one step darker (L37%). 6.82:1 with white."
     },
 
     "cream": {
@@ -36,8 +36,8 @@
       "$description": "Semantic base: warning. Palette D: nudged toward coral, was #B45309. Subtle/on/border not yet recomputed."
     },
     "green": {
-      "$value": "#158053",
-      "$description": "Semantic base: success. Palette D: hue rotated ~13° toward brand.tertiary's 169°, was #15803D."
+      "$value": "#1E4A42",
+      "$description": "Semantic base: success. Palette D image: this IS the Tertiary/success color, not a separate role — unified here rather than kept as two roles at two hues. 9.94:1 with white text. Was #158053 (a rotation toward this hue that stopped short); the former separate brand.tertiary/color.tertiary primitive is gone."
     },
     "teal": {
       "$value": "#0F6E64",
@@ -67,15 +67,15 @@
 
     "greenSubtle": {
       "$value": "#D3F8E9",
-      "$description": "status.successSubtle fill (light). Palette D rotation of #D3F8E1."
+      "$description": "status.successSubtle fill (light). Tuned for the earlier 154.8° rotation, now 14° off the true 169° success base (#1E4A42) — pending recompute, same as info/warning/danger."
     },
     "greenStrong": {
       "$value": "#147B52",
-      "$description": "status.onSuccess foreground (light). Palette D rotation of #147B3A."
+      "$description": "status.onSuccess foreground (light). Pending recompute — see greenSubtle."
     },
     "greenBorder": {
       "$value": "#1BA66D",
-      "$description": "status.successBorder (light). Palette D rotation of #1BA64F."
+      "$description": "status.successBorder (light). Pending recompute — see greenSubtle."
     },
 
     "amberSubtle": {
@@ -104,14 +104,6 @@
       "$description": "status.dangerBorder (light). Not yet recomputed for Palette D."
     },
 
-    "terracottaCta": {
-      "$value": "#B33413",
-      "$description": "Filled CTA background. Palette D: darkened coral (was #CF3F17) so white text clears AA — 5.60:1."
-    },
-    "terracottaCtaHover": {
-      "$value": "#7B2914",
-      "$description": "Filled CTA hover. Palette D: darker step of the same coral scale, was #B5330D."
-    },
     "inkMuted": {
       "$value": "rgba(11, 32, 39, 0.7)",
       "$description": "Muted body text — 70% ink. Palette D: re-based on new charcoal #0B2027."
@@ -138,11 +130,7 @@
     },
     "amberLabel": {
       "$value": "#FFDFA0",
-      "$description": "Label/eyebrow on the inverse surface. Also reused in dark theme for brand.eyebrow under Palette D."
-    },
-    "tertiary": {
-      "$value": "#1E4A42",
-      "$description": "New Palette D role: brand.tertiary. Kept separate from status.success even though success's hue was rotated to match it."
+      "$description": "Label/eyebrow on the inverse surface."
     }
   }
 }

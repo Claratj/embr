@@ -115,6 +115,7 @@ const VARS = {
   'brand.primary': '--embr-brand-primary',
   'brand.primary-strong': '--embr-brand-primary-strong',
   'brand.eyebrow': '--embr-brand-eyebrow',
+  'brand.link': '--embr-brand-link',
   'focus.ring': '--embr-focus-ring',
   'status.danger': '--embr-status-danger',
   'status.on-danger': '--embr-status-on-danger',
@@ -219,6 +220,7 @@ const CONTRAST_CHECKS = [
     true,
   ],
   ['brand.eyebrow', 'bg.page', 4.5, 'PALETTE D — brand.eyebrow vs bg.page', true],
+  ['brand.link', 'bg.page', 4.5, 'PALETTE D — brand.link vs bg.page', true],
   [
     'focus.ring',
     'bg.page',
