@@ -34,12 +34,20 @@ const SIZE_CLASSES: Record<ButtonSize, string> = {
  * `disabled:pointer-events-none` keeps the button from ever firing hover/active styles or
  * click handlers once disabled — the same effect `disabled` gives a native `<button>`, made
  * explicit here because `asChild` can put this className onto an element with no such default.
- * No `motion-reduce:` override: this transition is colour-only, which is comprehension-safe under
- * reduced motion. One is only needed if a `transform` ever joins this class (see Tag).
+ * The transition lists `scale`, NOT `transform`: Tailwind v4's `scale-*` utility compiles to the
+ * standalone `scale:` property, which CSS animates independently of `transform` — listing
+ * `transform` here makes the press snap with no easing at all. Measured, not assumed.
+ *
+ * `motion-reduce:transition-[background-color]` is that list minus `scale`: under reduced motion
+ * the colour still fades, only the press becomes instant. `background-color` rather than
+ * `transition-colors` because it's the only colour property any variant changes on hover —
+ * `outline`'s border and every variant's text colour stay put.
  */
 const BASE_CLASSES =
-  'inline-flex items-center justify-center rounded-full font-body font-medium transition-colors ' +
-  'duration-fast ease-out disabled:pointer-events-none disabled:opacity-disabled';
+  'inline-flex items-center justify-center rounded-full font-body font-medium ' +
+  'transition-[background-color,scale] duration-fast ease-out active:scale-[0.97] ' +
+  'motion-reduce:transition-[background-color] disabled:pointer-events-none ' +
+  'disabled:opacity-disabled';
 
 type NativeButtonType = ComponentPropsWithRef<'button'>['type'];
 

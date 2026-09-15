@@ -1,10 +1,28 @@
 # 003 — Add press feedback to Button
 
-- **Status**: TODO
+- **Status**: DONE — with two approved deviations from the text below, see "As implemented"
 - **Commit**: 3d45113
 - **Severity**: MEDIUM
 - **Category**: Physicality & origin
 - **Estimated scope**: 1 file, 1 class string (`src/components/Button.tsx`)
+
+## As implemented
+
+Two deviations from the Target/Boundaries below, both deliberate:
+
+1. **`transition-[background-color,scale]`, not `…,transform]`.** Tailwind v4's `scale-*` utility
+   compiles to the standalone `scale:` property, which CSS animates independently of `transform`.
+   The Target's literal string left the press snapping to `0.97` with no easing — verified by
+   sampling computed `scale` across a real press (one value before, a full ease-out ramp after).
+   The Target as written did not satisfy this plan's own feel check.
+2. **`Tag.tsx` was fixed too**, against this plan's "Do NOT touch `Tag.tsx`" boundary. It carried
+   the identical `transform`/`scale` defect from the session that first added its press feedback,
+   so leaving it would have shipped the same bug knowingly. Approved explicitly before editing.
+
+Also, plan 002 ran first (out of the recommended 1 → 3 → 2 → 4 order), so `Button` had no
+`motion-reduce:` class to replace — the guard was **added** as
+`motion-reduce:transition-[background-color]`, exactly as plan 002's own Boundaries predicted for
+this case.
 
 ## Problem
 

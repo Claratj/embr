@@ -18,10 +18,14 @@ export interface TagProps extends ComponentPropsWithRef<'button'> {
  * link, and Button already owns rendering styling onto an `<a>`. Being a plain `<button>` is what
  * makes it keyboard-operable and gets it `aria-pressed` for free; `selected` never expresses
  * itself in a non-interactive tone like a status color.
+ *
+ * The transition lists `scale`, NOT `transform`: Tailwind v4's `scale-*` utility compiles to the
+ * standalone `scale:` property, which CSS animates independently of `transform` — listing
+ * `transform` makes the press snap with no easing. Same reasoning as Button.
  */
 const BASE_CLASSES =
   'inline-flex items-center rounded-full border font-body font-medium ' +
-  'transition-[background-color,border-color,color,transform] duration-fast ease-out ' +
+  'transition-[background-color,border-color,color,scale] duration-fast ease-out ' +
   'active:scale-[0.97] motion-reduce:transition-[background-color,border-color,color] ' +
   'disabled:pointer-events-none disabled:opacity-disabled';
 
