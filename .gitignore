@@ -47,6 +47,11 @@ EMBR-PHASE-*.md
 # graphify — local knowledge-graph tool output, not part of the repo
 graphify-out/
 
+# Claude Code tooling — local skills/config, not part of the repo
+.agents/
+.claude/
+skills-lock.json
+
 # design-sync — Claude Design sync: build artifacts, transient scratch, staged scripts
 .design-sync/sb-reference/
 .design-sync/learnings/
