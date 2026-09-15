@@ -1,8 +1,11 @@
 {
-  "$description": "Dark palette — Phase 1 (bg/text/border/brand.link/focus.ring) plus Phase 2's status color contract (status.*Subtle/on*/​*Border below). `brand.primary`/`primaryStrong`/`accent` and the solid `status.<name>` fills are still NOT overridden: they're used with white text on top (4.5-6.3:1 regardless of theme), so theme doesn't change their contrast. The Subtle/on/Border trio IS re-tuned per theme — see tokens/color.semantic.json for the shared rationale and the contrast numbers per pair.",
+  "$description": "Dark palette. Palette D changes: bg.page → deep green (was reused charcoal), text.heading → sageLight (was plumLight), focus.ring → tealStrong (was magentaLight), brand.eyebrow added (amberLabel). brand.link unchanged (rustLight already matches Palette D's dark-link decision). brand.primary/primaryStrong/accent and solid status.<name> fills remain un-overridden, same rationale as before: white text on top holds contrast regardless of theme.",
   "bg": {
     "$type": "color",
-    "page": { "$value": "{color.charcoal}" },
+    "page": {
+      "$value": "{color.deepGreenPage}",
+      "$description": "Palette D: deep green direction for dark mode, no pink. Was {color.charcoal}."
+    },
     "surface": { "$value": "{color.charcoalRaised}" },
     "subtle": { "$value": "{color.charcoalSubtle}" }
   },
@@ -11,13 +14,10 @@
     "default": { "$value": "{color.cream}" },
     "muted": { "$value": "{color.grayLight}" },
     "heading": {
-      "$value": "{color.plumLight}",
-      "$description": "Plain plum (light theme's heading color) is 1.41:1 on the dark page — fails even the 3:1 large-text floor. Re-tinted to 11.9:1 vs bg.page, 10.0:1 vs bg.surface."
+      "$value": "{color.sageLight}",
+      "$description": "Palette D: reuses the existing inverse-surface muted text color for dark headings. Was {color.plumLight}."
     },
-    "caption": {
-      "$value": "{color.inkCaptionLight}",
-      "$description": "Phase 4 STOP 2: this role had NO dark override at all — light theme's inkCaption got reused verbatim in dark (1.00:1 vs bg.page, 1.11:1 vs bg.surface). Re-tinted to 6.00:1 vs bg.page, 5.00:1 vs bg.surface."
-    },
+    "caption": { "$value": "{color.inkCaptionLight}" },
     "onBrand": { "$value": "{color.white}" }
   },
   "border": {
@@ -26,38 +26,39 @@
   },
   "brand": {
     "$type": "color",
-    "link": {
-      "$value": "{color.rustLight}",
-      "$description": "Plain rust (light theme's link color) is 3.35:1 on the dark page — fails AA text. Re-tinted to 5.11:1."
+    "link": { "$value": "{color.rustLight}" },
+    "eyebrow": {
+      "$value": "{color.amberLabel}",
+      "$description": "Palette D: new dark override, reuses the existing inverse-surface label color. Previously un-overridden (fell back to light magenta)."
     }
   },
   "focus": {
     "$type": "color",
     "ring": {
-      "$value": "{color.magentaLight}",
-      "$description": "Plain magenta is 2.54:1 on the dark page — fails WCAG 2.4.11's 3:1 floor for a focus indicator. Re-tinted to 4.30:1."
+      "$value": "{color.tealStrong}",
+      "$description": "Palette D: reuses the existing info-on-dark teal for the focus ring. Was {color.magentaLight}."
     }
   },
   "status": {
     "$type": "color",
     "neutralSubtle": { "$value": "{color.graySubtle}" },
-    "onNeutral": { "$value": "{color.grayStrong}", "$description": "4.53:1 on neutralSubtle." },
-    "neutralBorder": { "$value": "{color.grayBorder}", "$description": "3.11:1 on bg.page." },
+    "onNeutral": { "$value": "{color.grayStrong}" },
+    "neutralBorder": { "$value": "{color.grayBorder}" },
 
     "infoSubtle": { "$value": "{color.tealSubtle}" },
-    "onInfo": { "$value": "{color.tealStrong}", "$description": "4.56:1 on infoSubtle." },
-    "infoBorder": { "$value": "{color.tealBorder}", "$description": "3.00:1 on bg.page." },
+    "onInfo": { "$value": "{color.tealStrong}" },
+    "infoBorder": { "$value": "{color.tealBorder}" },
 
     "successSubtle": { "$value": "{color.greenSubtle}" },
-    "onSuccess": { "$value": "{color.greenStrong}", "$description": "4.62:1 on successSubtle." },
-    "successBorder": { "$value": "{color.greenBorder}", "$description": "3.02:1 on bg.page." },
+    "onSuccess": { "$value": "{color.greenStrong}" },
+    "successBorder": { "$value": "{color.greenBorder}" },
 
     "warningSubtle": { "$value": "{color.amberSubtle}" },
-    "onWarning": { "$value": "{color.amberStrong}", "$description": "4.55:1 on warningSubtle." },
-    "warningBorder": { "$value": "{color.amberBorder}", "$description": "3.01:1 on bg.page." },
+    "onWarning": { "$value": "{color.amberStrong}" },
+    "warningBorder": { "$value": "{color.amberBorder}" },
 
     "dangerSubtle": { "$value": "{color.crimsonSubtle}" },
-    "onDanger": { "$value": "{color.crimsonStrong}", "$description": "4.66:1 on dangerSubtle." },
-    "dangerBorder": { "$value": "{color.crimsonBorder}", "$description": "3.04:1 on bg.page." }
+    "onDanger": { "$value": "{color.crimsonStrong}" },
+    "dangerBorder": { "$value": "{color.crimsonBorder}" }
   }
 }

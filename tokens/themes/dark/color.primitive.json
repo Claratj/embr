@@ -1,103 +1,87 @@
 {
-  "$description": "Dark tints — Phase 1 (charcoal*/grayLight/rustLight/magentaLight) and Phase 2 status roles (graySubtle..crimsonBorder). Each is the *same hue* as its light-mode counterpart, only re-lightened for a dark surface — never a new color family. The Phase 1 set introduced brand-new names (no light-mode equivalent exists). The Phase 2 status set reuses the *same primitive names* as tokens/color.primitive.json on purpose: both themes need a value for these, so this file overrides them the same way tokens/themes/dark/color.semantic.json already overrides semantic paths — the dark StyleDictionary instance's `source` layer wins over `include`.",
+  "$description": "Dark tints. Palette D adds one new primitive: deepGreenPage, for the dark bg.page direction (deep green, no pink). Everything else in this file is unchanged.",
   "color": {
     "$type": "color",
     "charcoalRaised": {
       "$value": "#2E2327",
-      "$description": "bg.surface — a raised neutral against the charcoal page. 1.20:1 vs page, matching (scaled up for dark) the light theme's own 1.05-1.16:1 surface step."
+      "$description": "bg.surface — unchanged by Palette D."
     },
     "charcoalSubtle": {
       "$value": "#3F3136",
-      "$description": "bg.subtle — hover/zebra, one step up from charcoalRaised. 1.47:1 vs page."
+      "$description": "bg.subtle — unchanged by Palette D."
     },
     "charcoalBorder": {
       "$value": "#826C73",
-      "$description": "border.default. Phase 4 STOP 1: #564349 was 1.99:1 vs page, 1.66:1 vs charcoalRaised — under the 3:1 control-boundary floor on both. Lightened, same warm hue: 3.76:1 vs page, 3.13:1 vs charcoalRaised."
+      "$description": "border.default — unchanged by Palette D."
     },
-    "grayLight": {
-      "$value": "#9E9999",
-      "$description": "text.muted — lightened gray, 6.46:1 vs page (light theme's gray-on-cream is 6.66:1 — matched)."
-    },
+    "grayLight": { "$value": "#9E9999", "$description": "text.muted — unchanged by Palette D." },
     "rustLight": {
       "$value": "#EE5325",
-      "$description": "brand.link — lightened rust. Plain rust is only 3.35:1 on charcoal (fails AA text); this hits 5.11:1, matching light theme's 5.16:1 rust-on-cream."
+      "$description": "brand.link — unchanged by Palette D (already the value Palette D wants for dark link)."
     },
     "magentaLight": {
       "$value": "#E7277B",
-      "$description": "focus.ring — lightened magenta. Plain magenta is only 2.54:1 on charcoal (fails WCAG 2.4.11's 3:1 floor for a focus indicator); this hits 4.30:1."
+      "$description": "Unused for focus.ring under Palette D (dark focus.ring now uses tealStrong below) — kept for any other consumer."
     },
     "plumLight": {
       "$value": "#E7C9DC",
-      "$description": "text.heading — lightened plum. Plain plum is only 1.41:1 on charcoal (fails even the 3:1 large-text floor); this hits 11.9:1 vs bg.page, 10.0:1 vs bg.surface."
+      "$description": "Unused for text.heading under Palette D (dark heading now uses sageLight, from the main token file) — kept for any other consumer."
     },
     "inkCaptionLight": {
       "$value": "#9E9194",
-      "$description": "text.caption — lightened ink. Phase 4 STOP 2: light theme's inkCaption (rgba(26,20,22,0.6)) had no dark override at all, so dark reused the light value verbatim — 1.00:1 vs bg.page, 1.11:1 vs bg.surface, effectively invisible. This hits 6.00:1 vs bg.page, 5.00:1 vs bg.surface."
+      "$description": "text.caption — unchanged by Palette D."
     },
 
-    "graySubtle": {
-      "$value": "#343232",
-      "$description": "status.neutralSubtle fill (dark). 1.43:1 vs bg.page."
+    "deepGreenPage": {
+      "$value": "#0B1F17",
+      "$description": "New Palette D primitive: dark theme bg.page. Deep green direction, replacing the reused charcoal — no pink in dark mode."
     },
-    "grayStrong": {
-      "$value": "#9E9999",
-      "$description": "status.onNeutral foreground (dark). 4.53:1 vs neutralSubtle."
-    },
-    "grayBorder": {
-      "$value": "#686464",
-      "$description": "status.neutralBorder (dark). 3.11:1 vs bg.page."
-    },
+
+    "graySubtle": { "$value": "#343232", "$description": "status.neutralSubtle fill (dark)" },
+    "grayStrong": { "$value": "#9E9999", "$description": "status.onNeutral foreground (dark)" },
+    "grayBorder": { "$value": "#686464", "$description": "status.neutralBorder (dark)" },
 
     "tealSubtle": {
       "$value": "#084443",
-      "$description": "status.infoSubtle fill (dark). Retuned to brand teal. 1.66:1 vs bg.page."
+      "$description": "status.infoSubtle fill (dark). Pending Palette D recompute."
     },
     "tealStrong": {
       "$value": "#15BAB8",
-      "$description": "status.onInfo foreground (dark). 4.56:1 on infoSubtle."
+      "$description": "status.onInfo foreground (dark). Also reused as dark focus.ring under Palette D."
     },
     "tealBorder": {
       "$value": "#0C6E6D",
-      "$description": "status.infoBorder (dark). 3.00:1 vs bg.page."
+      "$description": "status.infoBorder (dark). Pending Palette D recompute."
     },
 
-    "greenSubtle": {
-      "$value": "#0C4621",
-      "$description": "status.successSubtle fill (dark). 1.66:1 vs bg.page."
-    },
-    "greenStrong": {
-      "$value": "#20C15C",
-      "$description": "status.onSuccess foreground (dark). 4.62:1 vs successSubtle."
-    },
-    "greenBorder": {
-      "$value": "#137236",
-      "$description": "status.successBorder (dark). 3.02:1 vs bg.page."
-    },
+    "greenSubtle": { "$value": "#0C4621", "$description": "status.successSubtle fill (dark)" },
+    "greenStrong": { "$value": "#20C15C", "$description": "status.onSuccess foreground (dark)" },
+    "greenBorder": { "$value": "#137236", "$description": "status.successBorder (dark)" },
 
     "amberSubtle": {
       "$value": "#612D05",
-      "$description": "status.warningSubtle fill (dark). 1.63:1 vs bg.page."
+      "$description": "status.warningSubtle fill (dark). Pending Palette D recompute."
     },
     "amberStrong": {
       "$value": "#F58A38",
-      "$description": "status.onWarning foreground (dark). 4.55:1 vs warningSubtle."
+      "$description": "status.onWarning foreground (dark). Pending Palette D recompute."
     },
     "amberBorder": {
       "$value": "#A04A08",
-      "$description": "status.warningBorder (dark). 3.01:1 vs bg.page."
+      "$description": "status.warningBorder (dark). Pending Palette D recompute."
     },
 
     "crimsonSubtle": {
       "$value": "#700B23",
-      "$description": "status.dangerSubtle fill (dark). 1.52:1 vs bg.page."
+      "$description": "status.dangerSubtle fill (dark). Pending Palette D recompute."
     },
     "crimsonStrong": {
       "$value": "#F37D99",
-      "$description": "status.onDanger foreground (dark). 4.66:1 vs dangerSubtle."
+      "$description": "status.onDanger foreground (dark). Pending Palette D recompute."
     },
     "crimsonBorder": {
       "$value": "#C4133E",
-      "$description": "status.dangerBorder (dark). 3.04:1 vs bg.page."
+      "$description": "status.dangerBorder (dark). Pending Palette D recompute."
     }
   }
 }

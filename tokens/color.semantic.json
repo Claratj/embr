@@ -11,9 +11,12 @@
     "default": { "$value": "{color.charcoal}" },
     "muted": { "$value": "{color.inkMuted}" },
     "caption": { "$value": "{color.inkCaption}" },
-    "heading": { "$value": "{color.plum}", "$description": "12.24:1 on bg.page." },
+    "heading": {
+      "$value": "{color.plum}",
+      "$description": "Palette D plum, still clears large-text contrast on bg.page."
+    },
     "onBrand": { "$value": "{color.white}" },
-    "onInverse": { "$value": "{color.cream}", "$description": "5.74:1 on bg.inverse." },
+    "onInverse": { "$value": "{color.cream}" },
     "onInverseMuted": { "$value": "{color.sageLight}" }
   },
   "border": {
@@ -24,17 +27,27 @@
     "$type": "color",
     "primary": {
       "$value": "{color.terracottaCta}",
-      "$description": "4.55:1 vs bg.page; 4.80:1 with text.onBrand."
+      "$description": "Palette D coral, darkened. 5.60:1 with text.onBrand (white)."
     },
     "primaryStrong": {
       "$value": "{color.terracottaCtaHover}",
-      "$description": "6.10:1 with text.onBrand."
+      "$description": "Palette D coral hover step."
     },
-    "accent": { "$value": "{color.orange}" },
-    "link": { "$value": "{color.rust}" },
+    "tertiary": {
+      "$value": "{color.tertiary}",
+      "$description": "New Palette D role, distinct from status.success."
+    },
+    "accent": {
+      "$value": "{color.orange}",
+      "$description": "Palette D: unified with the coral family."
+    },
+    "link": {
+      "$value": "{color.rust}",
+      "$description": "Palette D: darkened magenta, 6.1:1 on bg.page."
+    },
     "eyebrow": {
       "$value": "{color.magenta}",
-      "$description": "6.80:1 on bg.page. Magenta's remaining job after brand.primary moved to terracotta."
+      "$description": "Palette D magenta."
     },
     "labelOnInverse": { "$value": "{color.amberLabel}" }
   },
@@ -44,7 +57,7 @@
   },
   "status": {
     "$type": "color",
-    "$description": "Three distinct treatments per role, not one. Solid: <name> fill + text.onBrand (white) — already AA in both themes, white-on-fill doesn't depend on background. Soft: <name>Subtle fill + on<Name> text, no border. Outline: on<Name> text + <name>Border border, on the page background — NOT on the Subtle fill. Border is only verified against bg.page (>=3:1); against its own Subtle fill it's 1.8-2.8:1, which is why outline and soft are two separate treatments rather than one badge that layers both. Badge (src/components/Badge.tsx) implements exactly this: its solid/soft/outline variants map 1:1 onto these three treatments, and no variant stacks Border on top of Subtle — that combination is not just undocumented, it's unreachable through Badge's props.",
+    "$description": "Three distinct treatments per role, not one. Solid: <name> fill + text.onBrand (white). Soft: <name>Subtle fill + on<Name> text. Outline: on<Name> text + <name>Border border on bg.page. Badge implements exactly this. Palette D note: success's Subtle/on/Border trio was recomputed for the hue rotation; info/warning/danger bases were nudged but their Subtle/on/Border trios are still the pre-Palette-D values — pending recompute.",
     "neutral": { "$value": "{color.gray}", "$description": "Neutral / default state" },
     "info": { "$value": "{color.teal}", "$description": "Informational" },
     "success": { "$value": "{color.green}", "$description": "Success" },
@@ -64,53 +77,56 @@
       "$description": "Outline badge border — neutral. 3.03:1 on bg.page."
     },
 
-    "infoSubtle": { "$value": "{color.tealSubtle}", "$description": "Soft badge fill — info" },
+    "infoSubtle": {
+      "$value": "{color.tealSubtle}",
+      "$description": "Soft badge fill — info. Pending Palette D recompute."
+    },
     "onInfo": {
       "$value": "{color.tealStrong}",
-      "$description": "Foreground on infoSubtle, or on the page for an outline badge. 4.61:1 on infoSubtle."
+      "$description": "Foreground on infoSubtle. Pending Palette D recompute."
     },
     "infoBorder": {
       "$value": "{color.tealBorder}",
-      "$description": "Outline badge border — info. 3.00:1 on bg.page."
+      "$description": "Outline badge border — info. Pending Palette D recompute."
     },
 
     "successSubtle": {
       "$value": "{color.greenSubtle}",
-      "$description": "Soft badge fill — success"
+      "$description": "Soft badge fill — success. Palette D rotation."
     },
     "onSuccess": {
       "$value": "{color.greenStrong}",
-      "$description": "Foreground on successSubtle, or on the page for an outline badge. 4.66:1 on successSubtle."
+      "$description": "Foreground on successSubtle. Palette D rotation."
     },
     "successBorder": {
       "$value": "{color.greenBorder}",
-      "$description": "Outline badge border — success. 3.01:1 on bg.page."
+      "$description": "Outline badge border — success. Palette D rotation."
     },
 
     "warningSubtle": {
       "$value": "{color.amberSubtle}",
-      "$description": "Soft badge fill — warning"
+      "$description": "Soft badge fill — warning. Pending Palette D recompute."
     },
     "onWarning": {
       "$value": "{color.amberStrong}",
-      "$description": "Foreground on warningSubtle, or on the page for an outline badge. 4.66:1 on warningSubtle."
+      "$description": "Foreground on warningSubtle. Pending Palette D recompute."
     },
     "warningBorder": {
       "$value": "{color.amberBorder}",
-      "$description": "Outline badge border — warning. 3.01:1 on bg.page."
+      "$description": "Outline badge border — warning. Pending Palette D recompute."
     },
 
     "dangerSubtle": {
       "$value": "{color.crimsonSubtle}",
-      "$description": "Soft badge fill — danger"
+      "$description": "Soft badge fill — danger. Pending Palette D recompute."
     },
     "onDanger": {
       "$value": "{color.crimsonStrong}",
-      "$description": "Foreground on dangerSubtle, or on the page for an outline badge. 4.68:1 on dangerSubtle."
+      "$description": "Foreground on dangerSubtle. Pending Palette D recompute."
     },
     "dangerBorder": {
       "$value": "{color.crimsonBorder}",
-      "$description": "Outline badge border — danger. 3.04:1 on bg.page."
+      "$description": "Outline badge border — danger. Pending Palette D recompute."
     }
   }
 }

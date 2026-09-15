@@ -1,27 +1,51 @@
 {
   "color": {
     "$type": "color",
-    "plum": { "$value": "#5A1545", "$description": "Brand: dark primary (name/CV)" },
-    "magenta": { "$value": "#AA1355", "$description": "Brand: action accent" },
-    "orange": { "$value": "#E5491E", "$description": "Brand: vivid accent, rules and details" },
-    "rust": { "$value": "#C2380F", "$description": "Brand: links and bullets" },
+    "plum": {
+      "$value": "#4D0C3E",
+      "$description": "Brand: dark primary (name/CV). Palette D: darkened from #5A1545."
+    },
+    "magenta": {
+      "$value": "#8C1249",
+      "$description": "Brand: action accent. Palette D: darkened from #AA1355."
+    },
+    "orange": {
+      "$value": "#E2694A",
+      "$description": "Brand: vivid accent, rules and details. Palette D: unified with brand.primary's coral family, was #E5491E."
+    },
+    "rust": {
+      "$value": "#A61658",
+      "$description": "Brand: links and bullets. Palette D: darkened magenta, was #C2380F. 6.1:1 on the new bg.page."
+    },
 
-    "cream": { "$value": "#FAF9F5", "$description": "Neutral: page background" },
+    "cream": {
+      "$value": "#F7F2F5",
+      "$description": "Neutral: page background. Palette D: cooler direction, was #FAF9F5."
+    },
     "white": { "$value": "#FFFFFF", "$description": "Neutral: surfaces (cards, tables)" },
-    "charcoal": { "$value": "#1A1416", "$description": "Neutral: primary text" },
+    "charcoal": {
+      "$value": "#0B2027",
+      "$description": "Neutral: primary text. Palette D: cooler near-navy-black, was #1A1416."
+    },
     "gray": { "$value": "#5C5858", "$description": "Neutral: secondary text" },
     "sand": { "$value": "#E7E3DC", "$description": "Neutral: soft borders on cream" },
     "linen": { "$value": "#F1EEE8", "$description": "Neutral: table zebra/hover" },
 
-    "amber": { "$value": "#B45309", "$description": "Semantic base: warning" },
-    "green": { "$value": "#15803D", "$description": "Semantic base: success" },
+    "amber": {
+      "$value": "#B44209",
+      "$description": "Semantic base: warning. Palette D: nudged toward coral, was #B45309. Subtle/on/border not yet recomputed."
+    },
+    "green": {
+      "$value": "#158053",
+      "$description": "Semantic base: success. Palette D: hue rotated ~13° toward brand.tertiary's 169°, was #15803D."
+    },
     "teal": {
-      "$value": "#0F6E6D",
-      "$description": "Semantic base: info, retuned to the brand teal (MyWeb's own 179° card-surface hue — not absent from the palette, just a different teal from the old 195° cool one)"
+      "$value": "#0F6E64",
+      "$description": "Semantic base: info. Palette D: nudged toward the deep-green family, was #0F6E6D. Subtle/on/border not yet recomputed."
     },
     "crimson": {
-      "$value": "#BE123C",
-      "$description": "Semantic base: danger (distinct from the rust used for links)"
+      "$value": "#BE124E",
+      "$description": "Semantic base: danger. Palette D: nudged toward magenta, was #BE123C. Subtle/on/border not yet recomputed."
     },
 
     "graySubtle": { "$value": "#E6E5E5", "$description": "status.neutralSubtle fill (light)" },
@@ -30,58 +54,95 @@
 
     "tealSubtle": {
       "$value": "#BBF4F3",
-      "$description": "status.infoSubtle fill (light). Retuned to brand teal."
+      "$description": "status.infoSubtle fill (light). Not yet recomputed for Palette D."
     },
     "tealStrong": {
       "$value": "#0E7473",
-      "$description": "status.onInfo foreground (light). 4.61:1 on infoSubtle."
+      "$description": "status.onInfo foreground (light). Not yet recomputed for Palette D."
     },
     "tealBorder": {
       "$value": "#14A1A0",
-      "$description": "status.infoBorder (light). 3.00:1 on bg.page, 2.61:1 on infoSubtle."
+      "$description": "status.infoBorder (light). Not yet recomputed for Palette D."
     },
 
-    "greenSubtle": { "$value": "#D3F8E1", "$description": "status.successSubtle fill (light)" },
-    "greenStrong": { "$value": "#147B3A", "$description": "status.onSuccess foreground (light)" },
-    "greenBorder": { "$value": "#1BA64F", "$description": "status.successBorder (light)" },
+    "greenSubtle": {
+      "$value": "#D3F8E9",
+      "$description": "status.successSubtle fill (light). Palette D rotation of #D3F8E1."
+    },
+    "greenStrong": {
+      "$value": "#147B52",
+      "$description": "status.onSuccess foreground (light). Palette D rotation of #147B3A."
+    },
+    "greenBorder": {
+      "$value": "#1BA66D",
+      "$description": "status.successBorder (light). Palette D rotation of #1BA64F."
+    },
 
-    "amberSubtle": { "$value": "#FDE2CE", "$description": "status.warningSubtle fill (light)" },
-    "amberStrong": { "$value": "#A54C08", "$description": "status.onWarning foreground (light)" },
-    "amberBorder": { "$value": "#E96C0C", "$description": "status.warningBorder (light)" },
+    "amberSubtle": {
+      "$value": "#FDE2CE",
+      "$description": "status.warningSubtle fill (light). Not yet recomputed for Palette D."
+    },
+    "amberStrong": {
+      "$value": "#A54C08",
+      "$description": "status.onWarning foreground (light). Not yet recomputed for Palette D."
+    },
+    "amberBorder": {
+      "$value": "#E96C0C",
+      "$description": "status.warningBorder (light). Not yet recomputed for Palette D."
+    },
 
-    "crimsonSubtle": { "$value": "#FBD0DB", "$description": "status.dangerSubtle fill (light)" },
-    "crimsonStrong": { "$value": "#BA123B", "$description": "status.onDanger foreground (light)" },
-    "crimsonBorder": { "$value": "#F05C80", "$description": "status.dangerBorder (light)" },
+    "crimsonSubtle": {
+      "$value": "#FBD0DB",
+      "$description": "status.dangerSubtle fill (light). Not yet recomputed for Palette D."
+    },
+    "crimsonStrong": {
+      "$value": "#BA123B",
+      "$description": "status.onDanger foreground (light). Not yet recomputed for Palette D."
+    },
+    "crimsonBorder": {
+      "$value": "#F05C80",
+      "$description": "status.dangerBorder (light). Not yet recomputed for Palette D."
+    },
 
     "terracottaCta": {
-      "$value": "#CF3F17",
-      "$description": "Filled CTA background. 4.55:1 vs bg.page; 4.80:1 with white text."
+      "$value": "#B33413",
+      "$description": "Filled CTA background. Palette D: darkened coral (was #CF3F17) so white text clears AA — 5.60:1."
     },
     "terracottaCtaHover": {
-      "$value": "#B5330D",
-      "$description": "Filled CTA hover. 6.10:1 with white text."
+      "$value": "#7B2914",
+      "$description": "Filled CTA hover. Palette D: darker step of the same coral scale, was #B5330D."
     },
-    "inkMuted": { "$value": "rgba(26, 20, 22, 0.7)", "$description": "Muted body text — 70% ink." },
+    "inkMuted": {
+      "$value": "rgba(11, 32, 39, 0.7)",
+      "$description": "Muted body text — 70% ink. Palette D: re-based on new charcoal #0B2027."
+    },
     "inkCaption": {
-      "$value": "rgba(26, 20, 22, 0.6)",
-      "$description": "Captions — 60% ink. Phase 4 STOP 2: was 55% (3.97:1 on bg.page, 4.03:1 on bg.surface — both fail the 4.5:1 text floor). 60% clears it: 4.67:1 on bg.page, 4.75:1 on bg.surface."
+      "$value": "rgba(11, 32, 39, 0.6)",
+      "$description": "Captions — 60% ink. Palette D: re-based on new charcoal #0B2027 (was based on #1A1416)."
     },
     "inkLine": {
-      "$value": "rgba(26, 20, 22, 0.48)",
-      "$description": "Hairline borders — 48% ink. Phase 4 STOP 1: was 12% (1.28:1 on both bg.page and bg.surface — far under the 3:1 control-boundary floor, `border.control` was never actually added as its own token). 48% clears it: 3.20:1 on bg.page, 3.24:1 on bg.surface. Also strengthens Tag's unselected border and Card's border (its only other consumers) — deliberate, not a side effect to avoid."
+      "$value": "rgba(11, 32, 39, 0.48)",
+      "$description": "Hairline borders — 48% ink. Palette D: re-based on new charcoal #0B2027 (was based on #1A1416)."
     },
     "cream2": {
       "$value": "#F3F0E7",
-      "$description": "Subtle alt background (MyWeb's --color-bg-alt)."
+      "$description": "Subtle alt background (MyWeb's --color-bg-alt). Unchanged by Palette D."
     },
-    "tealBrand": { "$value": "#0F6E6D", "$description": "Inverse surface (MyWeb's card colour)." },
+    "tealBrand": {
+      "$value": "#0F6E6D",
+      "$description": "Inverse surface. Unchanged by Palette D (light theme only)."
+    },
     "sageLight": {
       "$value": "#CDE8E2",
-      "$description": "Muted text on the inverse surface. 4.7:1 on tealBrand."
+      "$description": "Muted text on the inverse surface. Also reused in dark theme for text.heading under Palette D."
     },
     "amberLabel": {
       "$value": "#FFDFA0",
-      "$description": "Label/eyebrow on the inverse surface. 4.7:1 on tealBrand."
+      "$description": "Label/eyebrow on the inverse surface. Also reused in dark theme for brand.eyebrow under Palette D."
+    },
+    "tertiary": {
+      "$value": "#1E4A42",
+      "$description": "New Palette D role: brand.tertiary. Kept separate from status.success even though success's hue was rotated to match it."
     }
   }
 }
