@@ -1,6 +1,14 @@
 # 002 — Reduced motion should drop movement, not every transition
 
-- **Status**: DONE
+- **Status**: DONE — see note below on `FormFieldError`
+
+> **Follow-up note.** This plan's `FormFieldError` step (`motion-reduce:transition-[opacity]`) was
+> correct in intent but had no observable effect at the time: the base list said
+> `transition-[opacity,transform]` while the entrance uses Tailwind v4's `translate-*` utility,
+> which compiles to the standalone `translate:` property — so the slide was never animating under
+> _either_ motion setting. Fixed separately after plan 003 surfaced the same trap with `scale-*`;
+> the guard this plan added is what keeps the now-working slide from running under reduced motion.
+
 - **Commit**: 3d45113
 - **Severity**: MEDIUM
 - **Category**: Accessibility

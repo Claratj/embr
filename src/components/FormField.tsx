@@ -110,6 +110,14 @@ export function FormFieldDescription({ className, ...rest }: ComponentPropsWithR
  * (2.89:1 on bg.page, 2.41:1 on bg.surface). status.on-danger clears the floor on both surfaces
  * in both themes (light 6.16–6.49:1, dark 5.92–7.10:1 — measured with `npm run verify:contrast`)
  * and matches the token Badge already uses for the same danger status as text.
+ *
+ * The transition lists `translate`, NOT `transform`: Tailwind v4's `translate-*` utility compiles
+ * to the standalone `translate:` property, which CSS animates independently of `transform` — with
+ * `transform` listed, the `@starting-style` entrance never animated at all and the error simply
+ * appeared at its final position. Same trap as `scale-*` on Button/Tag. Measured, not assumed.
+ *
+ * `motion-reduce:transition-[opacity]` is that list minus `translate`: under reduced motion the
+ * error still fades in, it just doesn't travel.
  */
 export function FormFieldError({ className, ...rest }: ComponentPropsWithRef<'p'>) {
   const field = useFormFieldContext('FormFieldError');
@@ -117,7 +125,7 @@ export function FormFieldError({ className, ...rest }: ComponentPropsWithRef<'p'
     <p
       id={field.errorId}
       className={cx(
-        'text-sm font-medium text-on-danger transition-[opacity,transform] duration-base ' +
+        'text-sm font-medium text-on-danger transition-[opacity,translate] duration-base ' +
           'ease-out starting:opacity-0 starting:-translate-y-1 motion-reduce:transition-[opacity]',
         className,
       )}
