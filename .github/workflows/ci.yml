@@ -58,3 +58,11 @@ jobs:
 
       - name: Build Storybook
         run: npm run build-storybook
+
+      # The motion contract, measured on the real rendered components in storybook-static/.
+      # Runs after the Storybook build because that is what it reads. Catches the class of bug
+      # the rest of the suite is blind to: an animation that is declared but never actually
+      # transitions (a transition list naming `transform` while the utility sets `scale:`), and
+      # reduced-motion guards that drop the whole transition instead of just the movement.
+      - name: Verify motion contract
+        run: npm run verify:motion

@@ -46,6 +46,7 @@
     "test": "vitest run",
     "verify:contrast": "node scripts/verify-contrast.mjs contrast",
     "verify:height": "node scripts/verify-contrast.mjs height",
+    "verify:motion": "node scripts/verify-motion.mjs",
     "changeset": "changeset",
     "version": "changeset version",
     "lint": "eslint .",

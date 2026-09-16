@@ -16,41 +16,16 @@
  * caller's mistake, not a silent difference from what's on disk.
  */
 import { chromium } from 'playwright';
-import { createServer } from 'node:http';
-import { createReadStream, existsSync, readFileSync } from 'node:fs';
-import { extname, resolve, dirname, join } from 'node:path';
+import { existsSync, readFileSync } from 'node:fs';
+import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+import { serveStatic } from './serve-static.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const TOKENS_CSS = resolve(ROOT, 'dist/tokens.css');
 const STORYBOOK_STATIC = resolve(ROOT, 'storybook-static');
 const STORYBOOK_IFRAME = join(STORYBOOK_STATIC, 'iframe.html');
-
-const MIME = {
-  '.html': 'text/html',
-  '.js': 'text/javascript',
-  '.css': 'text/css',
-  '.json': 'application/json',
-};
-
-// Storybook's runtime loads its story index and modules via fetch()/import(), which browsers
-// block under file:// origins (no CORS for the file protocol) — the story never mounts and
-// #storybook-root stays empty forever. A trivial local static server sidesteps that.
-function serveStatic(root) {
-  return new Promise((resolvePromise) => {
-    const server = createServer((req, res) => {
-      const path = join(root, decodeURIComponent(new URL(req.url, 'http://x').pathname));
-      if (!existsSync(path)) {
-        res.writeHead(404);
-        res.end();
-        return;
-      }
-      res.writeHead(200, { 'Content-Type': MIME[extname(path)] ?? 'application/octet-stream' });
-      createReadStream(path).pipe(res);
-    });
-    server.listen(0, () => resolvePromise(server));
-  });
-}
 
 // ---- WCAG contrast -------------------------------------------------------------------------
 

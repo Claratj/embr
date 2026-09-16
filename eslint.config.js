@@ -46,16 +46,20 @@ export default tseslint.config(
     files: ['scripts/**/*.js', 'scripts/**/*.mjs'],
     extends: [tseslint.configs.disableTypeChecked],
     languageOptions: {
-      globals: { console: 'readonly', process: 'readonly' },
+      globals: { console: 'readonly', process: 'readonly', URL: 'readonly' },
     },
   },
   {
-    // verify-contrast.mjs additionally passes callbacks into page.evaluate(), which run inside
-    // the Playwright-controlled browser page, not Node — hence the DOM globals on top of the
-    // Node ones above.
-    files: ['scripts/verify-contrast.mjs'],
+    // The verify-* scripts additionally pass callbacks into page.evaluate(), which run inside the
+    // Playwright-controlled browser page, not Node — hence the DOM globals on top of the Node
+    // ones above.
+    files: ['scripts/verify-*.mjs'],
     languageOptions: {
-      globals: { document: 'readonly', getComputedStyle: 'readonly', URL: 'readonly' },
+      globals: {
+        document: 'readonly',
+        getComputedStyle: 'readonly',
+        matchMedia: 'readonly',
+      },
     },
   },
   prettier,
