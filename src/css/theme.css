@@ -177,9 +177,12 @@
   /* ---- Motion ------------------------------------------------------------------------ */
   /* `--ease-*` is a real Tailwind theme namespace (unlike duration/opacity below), so it goes
      through @theme like everything else. Reset first: Tailwind ships its own ease-in/out/in-out
-     values, and golden rule 1 means those shouldn't be usable un-tokenized. */
+     values, and golden rule 1 means those shouldn't be usable un-tokenized.
+     `ease-default` is CSS's own `ease` curve (cubic-bezier(0.25,0.1,0.25,1)), tokenized for pure
+     color/border transitions; `ease-out` stays reserved for entrances, exits, and press feedback. */
   --ease-*: initial;
   --ease-out: var(--embr-motion-easing-out);
+  --ease-default: var(--embr-motion-easing-default);
 }
 
 /*

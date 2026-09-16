@@ -106,7 +106,8 @@
     },
     "easing": {
       "$type": "cubicBezier",
-      "out": { "$value": [0.22, 1, 0.36, 1] }
+      "out": { "$value": [0.22, 1, 0.36, 1] },
+      "default": { "$value": [0.25, 0.1, 0.25, 1] }
     }
   },
   "opacity": {

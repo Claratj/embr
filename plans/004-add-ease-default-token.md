@@ -1,6 +1,6 @@
 # 004 — Add a `motion.easing.default` token for pure color/border transitions
 
-- **Status**: TODO
+- **Status**: DONE
 - **Commit**: 3d45113
 - **Severity**: LOW
 - **Category**: Cohesion & tokens
