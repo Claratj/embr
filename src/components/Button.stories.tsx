@@ -11,7 +11,8 @@ const meta = {
     docs: {
       description: {
         component:
-          'Three treatments over the same shape. `asChild` renders the styling onto a single ' +
+          'Five treatments over the same shape: solid, outline and ghost on the page; inverse and ' +
+          'inverse-solid on the inverse block. `asChild` renders the styling onto a single ' +
           'child (via Radix `Slot`) instead of a `<button>` — for an `<a>` that must look like a ' +
           'button while keeping link semantics.',
       },
@@ -54,6 +55,53 @@ export const Small: Story = {
   },
 };
 export const Medium: Story = { args: { size: 'md' } };
+export const Large: Story = {
+  args: { size: 'lg', children: 'See experience' },
+  parameters: {
+    docs: { description: { story: 'Hero and closing calls. Never more than one per view.' } },
+  },
+};
+
+const DownloadIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M12 4v12M6 11l6 6 6-6M5 20h14" />
+  </svg>
+);
+
+export const WithIcon: Story = {
+  name: 'With icon',
+  args: { variant: 'outline', iconRight: <DownloadIcon />, children: 'CV' },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    // The icon is decorative: the accessible name is the label alone.
+    await expect(canvas.getByRole('button', { name: 'CV' })).toBeInTheDocument();
+  },
+};
+
+const onInverse: Story['decorators'] = [
+  (Story) => (
+    <div className="flex gap-3 bg-inverse p-6">
+      <Story />
+    </div>
+  ),
+];
+
+export const Inverse: Story = {
+  args: { variant: 'inverse', children: 'LinkedIn' },
+  decorators: onInverse,
+};
+export const InverseSolid: Story = {
+  name: 'Inverse solid',
+  args: { variant: 'inverse-solid', size: 'lg', children: 'Email me' },
+  decorators: onInverse,
+};
 
 export const AsChildLink: Story = {
   name: 'asChild (link)',

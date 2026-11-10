@@ -1,16 +1,24 @@
-import { Slot } from '@radix-ui/react-slot';
-import type { ComponentPropsWithRef } from 'react';
+import { Slot, Slottable } from '@radix-ui/react-slot';
+import type { ComponentPropsWithRef, ReactNode } from 'react';
 
 import { cx } from './internal/cx';
 
-export type ButtonVariant = 'solid' | 'outline' | 'ghost';
-export type ButtonSize = 'sm' | 'md';
+export type ButtonVariant = 'solid' | 'outline' | 'ghost' | 'inverse' | 'inverse-solid';
+export type ButtonSize = 'sm' | 'md' | 'lg';
 
 export interface ButtonProps extends ComponentPropsWithRef<'button'> {
-  /** Visual treatment. @default 'solid' */
+  /**
+   * Visual treatment. `inverse` and `inverse-solid` are for the inverse surfaces only
+   * (`bg-inverse`, plum bands): sage-light on the dark fill, with their own focus ring.
+   * @default 'solid'
+   */
   variant?: ButtonVariant;
-  /** @default 'md' */
+  /** `lg` is the hero / closing-call size. @default 'md' */
   size?: ButtonSize;
+  /** Decorative glyph before the label: rendered `aria-hidden`, sized to 1em, `currentColor`. */
+  iconLeft?: ReactNode;
+  /** Decorative glyph after the label (e.g. a download arrow). The label carries the meaning. */
+  iconRight?: ReactNode;
   /**
    * Render the styling onto a single child element (via Radix `Slot`) instead of a `<button>` —
    * for example an `<a>` that needs to look like a button while keeping its own semantics.
@@ -22,13 +30,25 @@ const VARIANT_CLASSES: Record<ButtonVariant, string> = {
   solid: 'bg-brand text-on-brand can-hover:hover:bg-brand-strong',
   outline: 'border border-brand-text text-brand-text bg-transparent can-hover:hover:bg-subtle',
   ghost: 'text-ink bg-transparent can-hover:hover:bg-subtle',
+  // Plum on teal is 1.35:1, so both inverse variants switch the ring to focus.ringOnInverse.
+  inverse:
+    'border border-inverse-action text-inverse-action bg-transparent ' +
+    'can-hover:hover:bg-inverse-action can-hover:hover:text-on-inverse-action ' +
+    'focus-visible:outline-focus-on-inverse',
+  'inverse-solid':
+    'bg-inverse-action text-on-inverse-action can-hover:hover:bg-inverse-action-hover ' +
+    'focus-visible:outline-focus-on-inverse',
 };
 
 /** Two sizes, four padding values, all from the integer spacing scale — no `.5` step exists. */
 const SIZE_CLASSES: Record<ButtonSize, string> = {
   sm: 'gap-1 px-3 py-1 text-xs',
   md: 'gap-2 px-4 py-2 text-sm',
+  lg: 'gap-2 px-6 py-3 text-md',
 };
+
+/** Icons follow the label's size and colour; `aria-hidden` because the label names the action. */
+const ICON_CLASSES = 'inline-flex shrink-0 [&>svg]:size-[1em]';
 
 /**
  * `disabled:pointer-events-none` keeps the button from ever firing hover/active styles or
@@ -56,8 +76,11 @@ export function Button({
   variant = 'solid',
   size = 'md',
   asChild = false,
+  iconLeft,
+  iconRight,
   className,
   type,
+  children,
   ...rest
 }: ButtonProps) {
   const Comp = asChild ? Slot : 'button';
@@ -71,6 +94,20 @@ export function Button({
       className={cx(BASE_CLASSES, VARIANT_CLASSES[variant], SIZE_CLASSES[size], className)}
       type={resolvedType}
       {...rest}
-    />
+    >
+      {iconLeft ? (
+        <span aria-hidden="true" className={ICON_CLASSES}>
+          {iconLeft}
+        </span>
+      ) : null}
+      {/* Slottable: with `asChild`, the child element receives the styling and the icons land
+          inside it, around its own children. */}
+      <Slottable>{children}</Slottable>
+      {iconRight ? (
+        <span aria-hidden="true" className={ICON_CLASSES}>
+          {iconRight}
+        </span>
+      ) : null}
+    </Comp>
   );
 }
