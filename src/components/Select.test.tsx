@@ -61,11 +61,11 @@ describe('Select', () => {
 
   it('puts className on the root wrapper, not the select', () => {
     const { container } = render(
-      <Select aria-label="Status" className="max-w-sm">
+      <Select aria-label="Status" className="max-w-field">
         {OPTIONS}
       </Select>,
     );
-    expect(container.firstElementChild).toHaveClass('max-w-sm');
-    expect(screen.getByRole('combobox')).not.toHaveClass('max-w-sm');
+    expect(container.firstElementChild).toHaveClass('max-w-field');
+    expect(screen.getByRole('combobox')).not.toHaveClass('max-w-field');
   });
 });

@@ -29,6 +29,19 @@
       "$value": "64px"
     }
   },
+  "size": {
+    "$type": "dimension",
+    "container": {
+      "field": {
+        "$value": "24rem",
+        "$description": "Max width of a standalone form field or a narrow column of them (max-w-field)."
+      },
+      "tooltip": {
+        "$value": "40ch",
+        "$description": "Max width of a tooltip: a reading measure in characters, so it scales with the type (max-w-tooltip)."
+      }
+    }
+  },
   "radius": {
     "$type": "dimension",
     "xs": {

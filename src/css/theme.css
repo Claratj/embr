@@ -28,6 +28,7 @@
  *   focus.*     ─▶  ring-focus   outline-focus   outline-focus-on-inverse
  *   status.*    ─▶  bg-danger    text-success   border-warning  bg-danger-subtle  text-on-danger
  *                    border-danger-border  …
+ *   size.container.*  ─▶  max-w-field  max-w-tooltip
  *   motion.*    ─▶  ease-out (a real `@theme` namespace); duration-fast, duration-base and
  *                    opacity-disabled are `@utility` rules instead — Tailwind v4 has no themeable
  *                    `--duration-*`/`--opacity-*` namespace to hang named keys off of.
@@ -185,6 +186,26 @@
   --tracking-*: initial;
   --tracking-eyebrow: var(--embr-font-letter-spacing-eyebrow);
   --tracking-tight: var(--embr-font-letter-spacing-tight);
+
+  /* ---- Container ---------------------------------------------------------------------- */
+  /* `--container-*` drives `max-w-*` / `w-*` named sizes. Tailwind's own scale (`max-w-xs` …
+     `max-w-7xl`) is reset like every other namespace; only role-named widths exist. */
+  --container-*: initial;
+  --container-field: var(--embr-size-container-field);
+  --container-tooltip: var(--embr-size-container-tooltip);
+
+  /* ---- Unused namespaces -------------------------------------------------------------- */
+  /* Embr has no tokens for these, so none of their utilities may exist: left alone, each would
+     ship Tailwind's default values through preset.css (`blur-sm`, `drop-shadow-md`, …) — exactly
+     the leak golden rule 1 forbids. Guarded by src/css/theme.test.ts.
+     Not here: `--breakpoint-*`. `@media` can't read `var()`, so breakpoint tokens need literal
+     values generated into @theme by Style Dictionary — scheduled with the Layout phase (8). */
+  --blur-*: initial;
+  --drop-shadow-*: initial;
+  --inset-shadow-*: initial;
+  --text-shadow-*: initial;
+  --aspect-*: initial;
+  --perspective-*: initial;
 
   /* ---- Elevation --------------------------------------------------------------------- */
   --shadow-*: initial;
