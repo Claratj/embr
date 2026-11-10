@@ -16,14 +16,20 @@ export interface BadgeProps extends ComponentPropsWithRef<'span'> {
   status?: BadgeStatus;
   /** @default 'soft' */
   variant?: BadgeVariant;
+  /**
+   * A live indicator before the label, in the badge's own foreground colour, with a slow ring
+   * (motion.duration.ambient) that stops under reduced motion. Decorative: the label must state
+   * the status by itself. At most one per view. @default false
+   */
+  dot?: boolean;
 }
 
 /**
  * Every class below is a literal string, not `` `bg-${status}` `` — Tailwind's scanner only
  * picks up class names it can see whole in source, so a template-built name would silently fail
  * to generate. Three treatments, matching tokens/color.semantic.json's contract exactly:
- * solid pairs the flat `status.<name>` fill with `text-on-brand` (white, already AA on any of
- * them); soft pairs `<name>Subtle` with `on<Name>`; outline is transparent + `<name>Border` +
+ * solid pairs the flat `status.<name>` fill with `text-on-brand` (white) — except warning, whose
+ * ochre is too light for white (2.30:1) and carries `status.onWarningSolid` (ink, 7.31:1); soft pairs `<name>Subtle` with `on<Name>`; outline is transparent + `<name>Border` +
  * `on<Name>` text, measured against the page — never against the Subtle fill. No variant here
  * stacks Border on top of Subtle; see the token file for why that pair fails contrast.
  */
@@ -32,7 +38,7 @@ const STATUS_VARIANT_CLASSES: Record<BadgeVariant, Record<BadgeStatus, string>> 
     neutral: 'bg-neutral text-on-brand',
     info: 'bg-info text-on-brand',
     success: 'bg-success text-on-brand',
-    warning: 'bg-warning text-on-brand',
+    warning: 'bg-warning text-on-warning-solid',
     danger: 'bg-danger text-on-brand',
   },
   soft: {
@@ -63,11 +69,25 @@ const STATUS_VARIANT_CLASSES: Record<BadgeVariant, Record<BadgeStatus, string>> 
 const BASE_CLASSES =
   'inline-flex items-center gap-1 rounded-full px-2 py-1 font-body text-xs font-medium';
 
-export function Badge({ status = 'neutral', variant = 'soft', className, ...rest }: BadgeProps) {
+export function Badge({
+  status = 'neutral',
+  variant = 'soft',
+  dot = false,
+  className,
+  children,
+  ...rest
+}: BadgeProps) {
   return (
     <span
       className={cx(BASE_CLASSES, STATUS_VARIANT_CLASSES[variant][status], className)}
       {...rest}
-    />
+    >
+      {dot ? (
+        <span aria-hidden="true" className="relative size-2 shrink-0 rounded-full bg-current">
+          <span className="absolute inset-0 rounded-full bg-current opacity-0 motion-safe:animate-pulse-ring" />
+        </span>
+      ) : null}
+      {children}
+    </span>
   );
 }

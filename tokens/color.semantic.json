@@ -1,131 +1,223 @@
 {
   "bg": {
     "$type": "color",
-    "page": { "$value": "{color.cream}" },
-    "surface": { "$value": "{color.white}" },
-    "subtle": { "$value": "{color.cream2}" },
-    "inverse": { "$value": "{color.tealBrand}" }
+    "page": {
+      "$value": "{color.cream}",
+      "$description": "Page background. Every text token below is measured against it."
+    },
+    "surface": {
+      "$value": "{color.white}",
+      "$description": "Cards, fields and raised panels on the page."
+    },
+    "subtle": {
+      "$value": "{color.cream2}",
+      "$description": "Hover fill for outline/ghost buttons and unselected tags; alt rows. In dark it sits one step above bg-surface, so a hover on a card shows."
+    },
+    "inverse": {
+      "$value": "{color.teal}",
+      "$description": "The inverse block (teal) in both themes: pair with text-on-inverse, brand-label-on-inverse, inverse-action, focus-ring-on-inverse."
+    }
   },
   "text": {
     "$type": "color",
-    "default": { "$value": "{color.charcoal}" },
-    "muted": { "$value": "{color.inkMuted}" },
-    "caption": { "$value": "{color.inkCaption}" },
+    "default": {
+      "$value": "{color.charcoal}",
+      "$description": "Body copy on bg-page, bg-surface and bg-subtle (15.18:1 light, cream on slate in dark)."
+    },
+    "muted": {
+      "$value": "{color.inkMuted}",
+      "$description": "Secondary text on bg-page and bg-surface (6.92:1 light, 6.44:1 dark)."
+    },
+    "caption": {
+      "$value": "{color.inkCaption}",
+      "$description": "Captions and placeholders on bg-page and bg-surface (4.60:1 light)."
+    },
     "heading": {
       "$value": "{color.plum}",
-      "$description": "Palette D plum, still clears large-text contrast on bg.page."
+      "$description": "Headings on bg-page and bg-surface: plum in light (13.20:1), sage-light in dark (14.03:1)."
     },
-    "onBrand": { "$value": "{color.white}" },
-    "onInverse": { "$value": "{color.cream}" },
-    "onInverseMuted": { "$value": "{color.sageLight}" }
+    "onBrand": {
+      "$value": "{color.white}",
+      "$description": "Labels on brand-primary and solid status fills (white, 5.06:1 on orange)."
+    },
+    "onInverse": {
+      "$value": "{color.cream}",
+      "$description": "Body text on bg-inverse (cream on teal, 9.74:1)."
+    },
+    "onInverseMuted": {
+      "$value": "{color.sageLight}",
+      "$description": "Secondary text on bg-inverse (sage-light on teal, 8.34:1)."
+    },
+    "onInverseAction": {
+      "$value": "{color.charcoal}",
+      "$description": "Label on inverse-action fills (charcoal, 12.99:1 on sage-light, 15.18:1 on cream)."
+    }
   },
   "border": {
     "$type": "color",
-    "default": { "$value": "{color.inkLine}" }
+    "default": {
+      "$value": "{color.inkLine}",
+      "$description": "Control borders (fields, tags, theme toggle): the 3:1 hairline."
+    },
+    "subtle": {
+      "$value": "{color.line}",
+      "$description": "Card borders and separators. Decorative, never a control border."
+    },
+    "onInverse": {
+      "$value": "{color.sageHairline}",
+      "$description": "Separators on bg-inverse."
+    }
   },
   "brand": {
     "$type": "color",
     "primary": {
       "$value": "{color.orange}",
-      "$description": "Palette D Accent principal, darkened for AA. 5.06:1 with text.onBrand (white)."
+      "$description": "The CTA fill (solid button, selected tag). One per view."
     },
     "primaryStrong": {
       "$value": "{color.orangeStrong}",
-      "$description": "Palette D Accent principal hover step. 6.82:1 with text.onBrand (white)."
+      "$description": "CTA hover fill."
     },
-    "accent": {
-      "$value": "{color.orange}",
-      "$description": "Same primitive as brand.primary — no separate decorative surface exists yet, and this role has no component consumer today."
+    "primaryText": {
+      "$value": "{color.orangeStrong}",
+      "$description": "Outline button text and border on bg-page and bg-surface (6.16:1 light, 7.12:1 dark)."
     },
     "link": {
       "$value": "{color.plum}",
-      "$description": "Palette D has no dedicated link hex — reuses Primary (plum). 13.20:1 on bg.page."
+      "$description": "Inline links on bg-page and bg-surface (plum 13.20:1 light, light orange 7.12:1 dark)."
+    },
+    "linkHover": {
+      "$value": "{color.orangeStrong}",
+      "$description": "Link hover on bg-page and bg-surface."
     },
     "eyebrow": {
       "$value": "{color.plum}",
-      "$description": "Moved off magenta, which Palette D reserves for Accent secundario (badges/tags). 13.20:1 on bg.page."
+      "$description": "Eyebrow labels on bg-page and bg-surface (plum light, light orange dark)."
     },
-    "labelOnInverse": { "$value": "{color.amberLabel}" }
+    "labelOnInverse": {
+      "$value": "{color.sageLight}",
+      "$description": "Eyebrow and labels on bg-inverse and plum bands (8.34:1 on teal, 11.3:1 on plum)."
+    },
+    "decor": {
+      "$value": "{color.sage}",
+      "$description": "Decorative marks only (logo frame, photo border, quotes). Never text."
+    },
+    "markFrame": {
+      "$value": "{color.plum}",
+      "$description": "The Mark frame: plum on bg-page (13.20:1), sage-light in dark."
+    },
+    "markScript": {
+      "$value": "{color.orange}",
+      "$description": "The Mark signature: orange on bg-page (4.57:1), light orange in dark."
+    }
   },
   "focus": {
     "$type": "color",
     "ring": {
       "$value": "{color.plum}",
-      "$description": "Moved off magenta for the same reason as brand.eyebrow, and to avoid repeating the Phase 2 bug where brand.primary and focus.ring shared a value (an invisible ring on the primary button). 13.20:1 on bg.page, well above the 3:1 UI-indicator floor."
+      "$description": "The global focus ring, 2px at 2px offset, on bg-page and bg-surface (13.20:1 light, 7.12:1 dark)."
+    },
+    "ringOnInverse": {
+      "$value": "{color.sageLight}",
+      "$description": "Focus ring on bg-inverse and plum bands (sage-light, 8.34:1 on teal)."
     }
   },
   "status": {
     "$type": "color",
-    "$description": "Three distinct treatments per role, not one. Solid: <name> fill + text.onBrand (white). Soft: <name>Subtle fill + on<Name> text. Outline: on<Name> text + <name>Border border on bg.page. Badge implements exactly this. Palette D note: every base hue has moved (success now unified with the former Tertiary role, at 169°; info/warning/danger were nudged) but none of the four Subtle/on/Border trios were recomputed to match — pending recompute across the board.",
-    "neutral": { "$value": "{color.gray}", "$description": "Neutral / default state" },
-    "info": { "$value": "{color.teal}", "$description": "Informational" },
-    "success": { "$value": "{color.green}", "$description": "Success" },
-    "warning": { "$value": "{color.amber}", "$description": "Warning" },
-    "danger": { "$value": "{color.crimson}", "$description": "Error / negative" },
-
+    "neutral": {
+      "$value": "{color.inkMuted}",
+      "$description": "Solid neutral badge fill (white label)."
+    },
+    "info": {
+      "$value": "{color.teal}",
+      "$description": "Solid info badge fill (white label, 10.78:1)."
+    },
+    "success": {
+      "$value": "{color.green}",
+      "$description": "Solid success badge fill (white label, 5.04:1)."
+    },
+    "warning": {
+      "$value": "{color.ochre}",
+      "$description": "Solid warning badge fill: carries status-on-warning-solid, never white."
+    },
+    "danger": {
+      "$value": "{color.crimson}",
+      "$description": "Solid danger badge fill (white label, 6.20:1)."
+    },
+    "onWarningSolid": {
+      "$value": "{color.charcoal}",
+      "$description": "Label on a solid warning fill (charcoal, 7.31:1)."
+    },
     "neutralSubtle": {
-      "$value": "{color.graySubtle}",
-      "$description": "Soft badge fill — neutral"
+      "$value": "{color.neutralSubtle}",
+      "$description": "Soft neutral badge fill; carries status-on-neutral."
     },
     "onNeutral": {
-      "$value": "{color.grayStrong}",
-      "$description": "Foreground on neutralSubtle, or on the page for an outline badge. 4.65:1 on neutralSubtle."
+      "$value": "{color.inkMuted}",
+      "$description": "Neutral status text: on status-neutral-subtle and as outline text on bg-page."
     },
     "neutralBorder": {
-      "$value": "{color.grayBorder}",
-      "$description": "Outline badge border — neutral. 3.03:1 on bg.page."
+      "$value": "{color.neutralBorder}",
+      "$description": "Outline neutral badge border on bg-page (3:1)."
     },
-
     "infoSubtle": {
-      "$value": "{color.tealSubtle}",
-      "$description": "Soft badge fill — info. Pending Palette D recompute."
+      "$value": "{color.infoSubtle}",
+      "$description": "Soft info badge fill; carries status-on-info."
     },
     "onInfo": {
-      "$value": "{color.tealStrong}",
-      "$description": "Foreground on infoSubtle. Pending Palette D recompute."
+      "$value": "{color.teal}",
+      "$description": "Info status text: on status-info-subtle and as outline text on bg-page."
     },
     "infoBorder": {
-      "$value": "{color.tealBorder}",
-      "$description": "Outline badge border — info. Pending Palette D recompute."
+      "$value": "{color.infoBorder}",
+      "$description": "Outline info badge border on bg-page (3:1)."
     },
-
     "successSubtle": {
       "$value": "{color.greenSubtle}",
-      "$description": "Soft badge fill — success. Pending Palette D recompute."
+      "$description": "Soft success badge fill; carries status-on-success."
     },
     "onSuccess": {
       "$value": "{color.greenStrong}",
-      "$description": "Foreground on successSubtle. Pending Palette D recompute."
+      "$description": "Success status text: on status-success-subtle and as outline text on bg-page."
     },
     "successBorder": {
       "$value": "{color.greenBorder}",
-      "$description": "Outline badge border — success. Pending Palette D recompute."
+      "$description": "Outline success badge border on bg-page (3:1)."
     },
-
     "warningSubtle": {
-      "$value": "{color.amberSubtle}",
-      "$description": "Soft badge fill — warning. Pending Palette D recompute."
+      "$value": "{color.ochreSubtle}",
+      "$description": "Soft warning badge fill; carries status-on-warning."
     },
     "onWarning": {
-      "$value": "{color.amberStrong}",
-      "$description": "Foreground on warningSubtle. Pending Palette D recompute."
+      "$value": "{color.ochreStrong}",
+      "$description": "Warning status text: on status-warning-subtle and as outline text on bg-page."
     },
     "warningBorder": {
-      "$value": "{color.amberBorder}",
-      "$description": "Outline badge border — warning. Pending Palette D recompute."
+      "$value": "{color.ochreBorder}",
+      "$description": "Outline warning badge border on bg-page (3:1)."
     },
-
     "dangerSubtle": {
       "$value": "{color.crimsonSubtle}",
-      "$description": "Soft badge fill — danger. Pending Palette D recompute."
+      "$description": "Soft danger badge fill; carries status-on-danger."
     },
     "onDanger": {
       "$value": "{color.crimsonStrong}",
-      "$description": "Foreground on dangerSubtle. Pending Palette D recompute."
+      "$description": "Danger status text: on status-danger-subtle and as outline text on bg-page."
     },
     "dangerBorder": {
       "$value": "{color.crimsonBorder}",
-      "$description": "Outline badge border — danger. Pending Palette D recompute."
+      "$description": "Outline danger badge border on bg-page (3:1)."
+    }
+  },
+  "inverse": {
+    "$type": "color",
+    "action": {
+      "$value": "{color.sageLight}",
+      "$description": "Fill and border of Button inverse / inverse-solid on bg-inverse and plum bands (8.34:1 / 11.29:1)."
+    },
+    "actionHover": {
+      "$value": "{color.cream}",
+      "$description": "Button inverse-solid hover fill."
     }
   }
 }

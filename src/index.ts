@@ -15,7 +15,7 @@ export { tokens, cssVar } from './tokens/generated/tokens';
 export type { EmbrToken, TokenName } from './tokens/generated/tokens';
 
 export { Button } from './components/Button';
-export type { ButtonProps, ButtonVariant } from './components/Button';
+export type { ButtonProps, ButtonSize, ButtonVariant } from './components/Button';
 
 export { Tag } from './components/Tag';
 export type { TagProps } from './components/Tag';
@@ -53,3 +53,12 @@ export {
   FormFieldError,
 } from './components/FormField';
 export type { FormFieldProps, FormFieldLabelProps } from './components/FormField';
+
+export { ThemeToggle } from './components/ThemeToggle';
+export type { ThemeToggleProps, Theme } from './components/ThemeToggle';
+
+export { Eyebrow } from './components/Eyebrow';
+export type { EyebrowProps, EyebrowTone } from './components/Eyebrow';
+
+export { Mark } from './components/Mark';
+export type { MarkProps } from './components/Mark';

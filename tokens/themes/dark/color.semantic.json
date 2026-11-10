@@ -1,67 +1,75 @@
 {
-  "$description": "Dark palette. bg.page is deep green (deepGreenPage), text.heading uses sageLight. brand.link, brand.eyebrow, and focus.ring all point to plumLight now — light mode moved all three off magenta/rust onto plum, so dark follows with plum's lightened tint, consistent with this theme's rule that a dark tint is always its light counterpart's hue. brand.primary/primaryStrong/accent and solid status.<name> fills remain un-overridden: white text on top holds contrast regardless of theme.",
+  "$description": "Dark mode (borrador 3): a token mode, never a component variant. The neutral ramp is slate green, the brand teal hue at low chroma (page #101717, raised #1D2828, subtle #2A3737, border #5A7775, muted #859F9E). One light orange, #F38362, does every orange text job (primary text, link, eyebrow, focus). brand.primary and the solid status fills are not overridden: they carry their own label colour, so the theme does not change their contrast. bg.inverse and the inverse-action trio are theme-invariant.",
   "bg": {
     "$type": "color",
     "page": {
-      "$value": "{color.deepGreenPage}",
-      "$description": "Palette D: deep green direction for dark mode, no pink. Was {color.charcoal}."
+      "$value": "{color.slate}"
     },
-    "surface": { "$value": "{color.charcoalRaised}" },
-    "subtle": { "$value": "{color.charcoalSubtle}" }
+    "surface": {
+      "$value": "{color.slateRaised}"
+    },
+    "subtle": {
+      "$value": "{color.slateSubtle}"
+    }
   },
   "text": {
     "$type": "color",
-    "default": { "$value": "{color.cream}" },
-    "muted": { "$value": "{color.grayLight}" },
-    "heading": {
-      "$value": "{color.sageLight}",
-      "$description": "Palette D: reuses the existing inverse-surface muted text color for dark headings. Was {color.plumLight}."
+    "default": {
+      "$value": "{color.cream}"
     },
-    "caption": { "$value": "{color.inkCaptionLight}" },
-    "onBrand": { "$value": "{color.white}" }
+    "muted": {
+      "$value": "{color.slateMuted}"
+    },
+    "caption": {
+      "$value": "{color.slateMuted}"
+    },
+    "heading": {
+      "$value": "{color.sageLight}"
+    }
   },
   "border": {
     "$type": "color",
-    "default": { "$value": "{color.charcoalBorder}" }
+    "default": {
+      "$value": "{color.slateBorder}"
+    },
+    "subtle": {
+      "$value": "{color.slateBorder}"
+    }
   },
   "brand": {
     "$type": "color",
+    "primaryText": {
+      "$value": "{color.orangeLight}"
+    },
     "link": {
-      "$value": "{color.plumLight}",
-      "$description": "Follows light mode's move to plum. 11.28:1 vs bg.page."
+      "$value": "{color.orangeLight}"
+    },
+    "linkHover": {
+      "$value": "{color.orangeLightHover}"
     },
     "eyebrow": {
-      "$value": "{color.plumLight}",
-      "$description": "Follows light mode's move off magenta (reserved for Accent secundario) onto plum. 11.28:1 vs bg.page."
+      "$value": "{color.orangeLight}"
+    },
+    "markFrame": {
+      "$value": "{color.sageLight}"
+    },
+    "markScript": {
+      "$value": "{color.orangeLight}"
     }
   },
   "focus": {
     "$type": "color",
     "ring": {
-      "$value": "{color.plumLight}",
-      "$description": "Follows light mode's move to plum, for the same reason: keeps the ring's hue independent of brand.primary's. 11.28:1 vs bg.page, 9.95:1 vs bg.surface."
+      "$value": "{color.orangeLight}"
     }
   },
   "status": {
     "$type": "color",
-    "neutralSubtle": { "$value": "{color.graySubtle}" },
-    "onNeutral": { "$value": "{color.grayStrong}" },
-    "neutralBorder": { "$value": "{color.grayBorder}" },
-
-    "infoSubtle": { "$value": "{color.tealSubtle}" },
-    "onInfo": { "$value": "{color.tealStrong}" },
-    "infoBorder": { "$value": "{color.tealBorder}" },
-
-    "successSubtle": { "$value": "{color.greenSubtle}" },
-    "onSuccess": { "$value": "{color.greenStrong}" },
-    "successBorder": { "$value": "{color.greenBorder}" },
-
-    "warningSubtle": { "$value": "{color.amberSubtle}" },
-    "onWarning": { "$value": "{color.amberStrong}" },
-    "warningBorder": { "$value": "{color.amberBorder}" },
-
-    "dangerSubtle": { "$value": "{color.crimsonSubtle}" },
-    "onDanger": { "$value": "{color.crimsonStrong}" },
-    "dangerBorder": { "$value": "{color.crimsonBorder}" }
+    "onNeutral": {
+      "$value": "{color.slateMuted}"
+    },
+    "onInfo": {
+      "$value": "{color.infoStrong}"
+    }
   }
 }

@@ -44,7 +44,7 @@ const meta = {
         component:
           'Generic status roles (neutral/info/success/warning/danger) — no business meaning. A ' +
           'consuming app maps its own states onto these. Three treatments: solid (fill + ' +
-          '`text-on-brand`), soft (`*Subtle` fill + `on*` text), outline (transparent + ' +
+          '`text-on-brand`; warning, too light for white, carries `text-on-warning-solid`), soft (`*Subtle` fill + `on*` text), outline (transparent + ' +
           '`*Border` + `on*` text, measured against the page — never stacked on the Subtle fill).',
       },
     },
@@ -58,6 +58,21 @@ type Story = StoryObj<typeof meta>;
 export const Solid: Story = { args: { variant: 'solid', status: 'info', children: 'Info' } };
 export const Soft: Story = { args: { variant: 'soft', status: 'info', children: 'Info' } };
 export const Outline: Story = { args: { variant: 'outline', status: 'info', children: 'Info' } };
+
+export const Dot: Story = {
+  name: 'Live dot',
+  args: { status: 'info', dot: true, children: 'Available · Remote' },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'A live indicator in the badge’s own foreground colour. Its ring loops on ' +
+          '`motion.duration.ambient` and stops under reduced motion. Decorative: the label must ' +
+          'state the status by itself.',
+      },
+    },
+  },
+};
 
 export const AllStatuses: Story = {
   render: () => <AllVariants />,

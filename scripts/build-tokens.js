@@ -15,7 +15,7 @@ const BASE_FONT_SIZE = 16;
 const OUT = 'src/tokens/generated/';
 
 /** Semantic roles. Everything under these paths is theme-able; primitives are not. */
-const SEMANTIC_ROOTS = new Set(['bg', 'text', 'border', 'brand', 'focus', 'status']);
+const SEMANTIC_ROOTS = new Set(['bg', 'text', 'border', 'brand', 'focus', 'status', 'inverse']);
 const isSemantic = (token) => SEMANTIC_ROOTS.has(token.path[0]);
 
 /**

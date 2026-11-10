@@ -1,79 +1,76 @@
 {
-  "$description": "Dark tints. deepGreenPage is the dark bg.page direction (deep green, no pink). plumLight now covers brand.link, brand.eyebrow, and focus.ring — all three moved off the magenta/rust family in light mode, so their dark tints follow the same hue (plum), per this file's own rule that a dark tint is always its light counterpart's hue, only re-lightened. magentaLight and rustLight are gone: nothing references them now that link/eyebrow/focus all point to plum.",
   "color": {
     "$type": "color",
-    "charcoalRaised": {
-      "$value": "#2E2327",
-      "$description": "bg.surface — unchanged by Palette D."
+    "neutralSubtle": {
+      "$value": "{color.slateRaised}"
     },
-    "charcoalSubtle": {
-      "$value": "#3F3136",
-      "$description": "bg.subtle — unchanged by Palette D."
+    "neutralBorder": {
+      "$value": "{color.slateBorder}"
     },
-    "charcoalBorder": {
-      "$value": "#826C73",
-      "$description": "border.default — unchanged by Palette D."
+    "infoSubtle": {
+      "$value": "#0E2B2A"
     },
-    "grayLight": { "$value": "#9E9999", "$description": "text.muted — unchanged by Palette D." },
-    "plumLight": {
-      "$value": "#E7C9DC",
-      "$description": "brand.link, brand.eyebrow, focus.ring (dark) — lightened plum, same hue as their light-mode value. 11.28:1 vs bg.page, 9.95:1 vs bg.surface — clears both the 4.5:1 text floor and the 3:1 UI-indicator floor with heavy margin."
+    "infoBorder": {
+      "$value": "#358580"
     },
-    "inkCaptionLight": {
-      "$value": "#9E9194",
-      "$description": "text.caption — unchanged by Palette D."
+    "greenSubtle": {
+      "$value": "#0F3A22"
     },
-
-    "deepGreenPage": {
-      "$value": "#0B1F17",
-      "$description": "New Palette D primitive: dark theme bg.page. Deep green direction, replacing the reused charcoal — no pink in dark mode."
+    "greenStrong": {
+      "$value": "#5FD08A"
     },
-
-    "graySubtle": { "$value": "#343232", "$description": "status.neutralSubtle fill (dark)" },
-    "grayStrong": { "$value": "#9E9999", "$description": "status.onNeutral foreground (dark)" },
-    "grayBorder": { "$value": "#686464", "$description": "status.neutralBorder (dark)" },
-
-    "tealSubtle": {
-      "$value": "#084443",
-      "$description": "status.infoSubtle fill (dark). Pending Palette D recompute."
+    "greenBorder": {
+      "$value": "#338552"
     },
-    "tealStrong": {
-      "$value": "#15BAB8",
-      "$description": "status.onInfo foreground (dark). Also reused as dark focus.ring under Palette D."
+    "ochreSubtle": {
+      "$value": "#3A2C0A"
     },
-    "tealBorder": {
-      "$value": "#0C6E6D",
-      "$description": "status.infoBorder (dark). Pending Palette D recompute."
+    "ochreStrong": {
+      "$value": "#E8C15E"
     },
-
-    "greenSubtle": { "$value": "#0C4621", "$description": "status.successSubtle fill (dark)" },
-    "greenStrong": { "$value": "#20C15C", "$description": "status.onSuccess foreground (dark)" },
-    "greenBorder": { "$value": "#137236", "$description": "status.successBorder (dark)" },
-
-    "amberSubtle": {
-      "$value": "#612D05",
-      "$description": "status.warningSubtle fill (dark). Pending Palette D recompute."
+    "ochreBorder": {
+      "$value": "#9A751A"
     },
-    "amberStrong": {
-      "$value": "#F58A38",
-      "$description": "status.onWarning foreground (dark). Pending Palette D recompute."
-    },
-    "amberBorder": {
-      "$value": "#A04A08",
-      "$description": "status.warningBorder (dark). Pending Palette D recompute."
-    },
-
     "crimsonSubtle": {
-      "$value": "#700B23",
-      "$description": "status.dangerSubtle fill (dark). Pending Palette D recompute."
+      "$value": "#700B23"
     },
     "crimsonStrong": {
-      "$value": "#F37D99",
-      "$description": "status.onDanger foreground (dark). Pending Palette D recompute."
+      "$value": "#F37D99"
     },
     "crimsonBorder": {
-      "$value": "#C4133E",
-      "$description": "status.dangerBorder (dark). Pending Palette D recompute."
+      "$value": "#C4133E"
+    },
+    "slate": {
+      "$value": "#101717",
+      "$description": "D1 page"
+    },
+    "slateRaised": {
+      "$value": "#1D2828",
+      "$description": "D2 cards, chips, hovers. 1.20:1 vs page"
+    },
+    "slateSubtle": {
+      "$value": "#2A3737",
+      "$description": "D2.5: the hover step on the dark ramp. 1.23:1 vs slate-raised (the same step as raised vs page, 1.20:1), 1.47:1 vs page; cream 11.16:1 and light orange 4.84:1 on it."
+    },
+    "slateBorder": {
+      "$value": "#5A7775",
+      "$description": "D3 borders, separators. 3.74:1 on page"
+    },
+    "slateMuted": {
+      "$value": "#859F9E",
+      "$description": "D4 secondary text. 6.44:1 page, 5.37:1 surface"
+    },
+    "orangeLight": {
+      "$value": "#F38362",
+      "$description": "The one orange of the dark ramp. 7.12:1 on page, 5.94:1 on surface."
+    },
+    "orangeLightHover": {
+      "$value": "#F7B19B",
+      "$description": "Its hover, for links. 10.13:1 on page, 8.45:1 on surface."
+    },
+    "infoStrong": {
+      "$value": "#7FC9C2",
+      "$description": "9.54:1 page, 7.96:1 surface"
     }
   }
 }
