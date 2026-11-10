@@ -9,7 +9,7 @@
  *     exactly as a consumer's browser would) and computes ratios for a fixed set of role pairs.
  *   node scripts/verify-contrast.mjs height     — mounts real stories from the built Storybook
  *     (storybook-static/) in a real browser and measures rendered heights, for comparing new
- *     controls against Button.
+ *     controls against Button, and gates the pairs that must match exactly.
  *
  * Requires `npm run build` (contrast mode) and/or `npm run build-storybook` (height mode) to
  * have been run first — this script never builds anything itself, so a stale run is always the
@@ -399,6 +399,37 @@ const CONTRAST_CHECKS = [
     'BORRADOR 3 — status.dangerBorder vs bg.page (outline badge)',
     true,
   ],
+  // Phase 5 — Checkbox / Radio. Checked = brand.primary fill inside a brand.primaryText border.
+  // The border carries the 3:1 boundary (WCAG 1.4.11); the fill alone is reported but not gated,
+  // because in dark it lands at 2.99:1 on bg.surface — the measurement that put the border there.
+  [
+    'brand.primary-text',
+    'bg.page',
+    3.0,
+    'PHASE 5 — brand.primaryText vs bg.page (checked checkbox/radio boundary)',
+    true,
+  ],
+  [
+    'brand.primary-text',
+    'bg.surface',
+    3.0,
+    'PHASE 5 — brand.primaryText vs bg.surface (checked checkbox/radio boundary)',
+    true,
+  ],
+  [
+    'brand.primary',
+    'bg.surface',
+    3.0,
+    '(informational) PHASE 5 — brand.primary fill alone vs bg.surface',
+    false,
+  ],
+  [
+    'text.on-brand',
+    'brand.primary',
+    3.0,
+    'PHASE 5 — text.onBrand vs brand.primary (tick, dash and dot glyphs)',
+    true,
+  ],
 ];
 
 async function readTokens(page, theme) {
@@ -473,6 +504,17 @@ const HEIGHT_CHECKS = [
   ['Button sm', 'components-button--small', '#storybook-root'],
   ['Input md', 'components-input--medium', '#storybook-root input'],
   ['Input sm', 'components-input--small', '#storybook-root input'],
+  ['Select md', 'components-select--medium', '#storybook-root select'],
+  ['Select sm', 'components-select--small', '#storybook-root select'],
+];
+
+// Pairs that must render at exactly the same height — a Select next to an Input in a form row
+// that differs by a pixel is the kind of drift this script exists to catch. Unlike the Button vs
+// Input gap (documented and accepted in internal/field-classes.ts), these share their classes,
+// so any difference is a bug.
+const SAME_HEIGHT = [
+  ['Select md', 'Input md'],
+  ['Select sm', 'Input sm'],
 ];
 
 async function measureHeight(page, baseUrl, storyId, selector) {
@@ -493,16 +535,27 @@ async function runHeight() {
   const page = await browser.newPage();
 
   console.log('');
+  const heights = {};
   for (const [label, storyId, selector] of HEIGHT_CHECKS) {
     const height = await measureHeight(page, baseUrl, storyId, selector);
+    heights[label] = height;
     console.log(
       height == null ? `? ${label}: could not measure (${storyId})` : `  ${label}: ${height}px`,
     );
   }
   console.log('');
 
+  let anyFail = false;
+  for (const [a, b] of SAME_HEIGHT) {
+    const pass = heights[a] != null && heights[a] === heights[b];
+    if (!pass) anyFail = true;
+    console.log(`${pass ? '✓' : '✗'} ${a} (${heights[a]}px) = ${b} (${heights[b]}px)`);
+  }
+  console.log('');
+
   await browser.close();
   server.close();
+  process.exit(anyFail ? 1 : 0);
 }
 
 // ---- entry ------------------------------------------------------------------------------------

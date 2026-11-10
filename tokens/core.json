@@ -31,6 +31,10 @@
   },
   "radius": {
     "$type": "dimension",
+    "xs": {
+      "$value": "4px",
+      "$description": "Small square controls (Checkbox). radius.sm would round a 16px box into a circle, and a checkbox must never read as a radio."
+    },
     "sm": {
       "$value": "8px"
     },

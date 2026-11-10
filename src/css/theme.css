@@ -139,6 +139,7 @@
 
   /* ---- Radius ------------------------------------------------------------------------ */
   --radius-*: initial;
+  --radius-xs: var(--embr-radius-xs);
   --radius-sm: var(--embr-radius-sm);
   --radius-lg: var(--embr-radius-lg);
   --radius-full: var(--embr-radius-full);
