@@ -59,6 +59,21 @@ export const Solid: Story = { args: { variant: 'solid', status: 'info', children
 export const Soft: Story = { args: { variant: 'soft', status: 'info', children: 'Info' } };
 export const Outline: Story = { args: { variant: 'outline', status: 'info', children: 'Info' } };
 
+export const Dot: Story = {
+  name: 'Live dot',
+  args: { status: 'info', dot: true, children: 'Available · Remote' },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'A live indicator in the badge’s own foreground colour. Its ring loops on ' +
+          '`motion.duration.ambient` and stops under reduced motion. Decorative: the label must ' +
+          'state the status by itself.',
+      },
+    },
+  },
+};
+
 export const AllStatuses: Story = {
   render: () => <AllVariants />,
 };

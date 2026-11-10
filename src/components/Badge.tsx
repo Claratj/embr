@@ -16,6 +16,12 @@ export interface BadgeProps extends ComponentPropsWithRef<'span'> {
   status?: BadgeStatus;
   /** @default 'soft' */
   variant?: BadgeVariant;
+  /**
+   * A live indicator before the label, in the badge's own foreground colour, with a slow ring
+   * (motion.duration.ambient) that stops under reduced motion. Decorative: the label must state
+   * the status by itself. At most one per view. @default false
+   */
+  dot?: boolean;
 }
 
 /**
@@ -63,11 +69,25 @@ const STATUS_VARIANT_CLASSES: Record<BadgeVariant, Record<BadgeStatus, string>> 
 const BASE_CLASSES =
   'inline-flex items-center gap-1 rounded-full px-2 py-1 font-body text-xs font-medium';
 
-export function Badge({ status = 'neutral', variant = 'soft', className, ...rest }: BadgeProps) {
+export function Badge({
+  status = 'neutral',
+  variant = 'soft',
+  dot = false,
+  className,
+  children,
+  ...rest
+}: BadgeProps) {
   return (
     <span
       className={cx(BASE_CLASSES, STATUS_VARIANT_CLASSES[variant][status], className)}
       {...rest}
-    />
+    >
+      {dot ? (
+        <span aria-hidden="true" className="relative size-2 shrink-0 rounded-full bg-current">
+          <span className="absolute inset-0 rounded-full bg-current opacity-0 motion-safe:animate-pulse-ring" />
+        </span>
+      ) : null}
+      {children}
+    </span>
   );
 }
