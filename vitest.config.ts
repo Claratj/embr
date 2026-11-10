@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitest/config';
 import { playwright } from '@vitest/browser-playwright';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
+import tailwindcss from '@tailwindcss/vite';
 
 /**
  * Two projects, matching the testing pyramid in CLAUDE.md:
@@ -30,7 +31,11 @@ export default defineConfig({
       },
       {
         extends: true,
-        plugins: [storybookTest({ configDir: '.storybook' })],
+        // `extends: true` inherits the *library* vite.config.ts, not .storybook/vite.config.ts —
+        // so Tailwind has to be added here too. Without it every story runs unstyled under
+        // `npm test`: axe audits contrast on bare HTML and style-dependent behaviour (e.g. a
+        // disabled button's `pointer-events: none`) passes here and fails in Chromatic.
+        plugins: [tailwindcss(), storybookTest({ configDir: '.storybook' })],
         // Storybook's preview runtime pulls two CJS-only packages that Vite serves unbundled in
         // browser mode, where their named/default exports don't exist as ESM. Pre-bundling them
         // fixes the interop. Without this, Storybook's generated setup file fails to import and
