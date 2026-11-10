@@ -1,49 +1,109 @@
 {
   "space": {
     "$type": "dimension",
-    "0": { "$value": "0px" },
-    "1": { "$value": "4px" },
-    "2": { "$value": "8px" },
-    "3": { "$value": "12px" },
-    "4": { "$value": "16px" },
-    "5": { "$value": "24px" },
-    "6": { "$value": "32px" },
-    "7": { "$value": "48px" },
-    "8": { "$value": "64px" }
+    "0": {
+      "$value": "0px"
+    },
+    "1": {
+      "$value": "4px"
+    },
+    "2": {
+      "$value": "8px"
+    },
+    "3": {
+      "$value": "12px"
+    },
+    "4": {
+      "$value": "16px"
+    },
+    "5": {
+      "$value": "24px"
+    },
+    "6": {
+      "$value": "32px"
+    },
+    "7": {
+      "$value": "48px"
+    },
+    "8": {
+      "$value": "64px"
+    }
   },
   "radius": {
     "$type": "dimension",
-    "sm": { "$value": "8px" },
-    "lg": { "$value": "20px" },
-    "full": { "$value": "9999px" }
+    "sm": {
+      "$value": "8px"
+    },
+    "lg": {
+      "$value": "20px"
+    },
+    "full": {
+      "$value": "9999px"
+    }
   },
   "font": {
     "family": {
       "$type": "fontFamily",
-      "heading": { "$value": ["Montserrat", "system-ui", "sans-serif"] },
-      "body": { "$value": ["Mulish", "system-ui", "sans-serif"] }
+      "heading": {
+        "$value": ["Montserrat", "system-ui", "sans-serif"]
+      },
+      "body": {
+        "$value": ["Mulish", "system-ui", "sans-serif"]
+      }
     },
     "weight": {
       "$type": "fontWeight",
-      "regular": { "$value": 400 },
-      "medium": { "$value": 500 },
-      "semibold": { "$value": 600 },
-      "bold": { "$value": 700 },
-      "extrabold": { "$value": 800 }
+      "regular": {
+        "$value": 400
+      },
+      "medium": {
+        "$value": 500
+      },
+      "semibold": {
+        "$value": 600
+      },
+      "bold": {
+        "$value": 700
+      },
+      "extrabold": {
+        "$value": 800
+      }
     },
     "size": {
       "$type": "dimension",
-      "xs": { "$value": "12px" },
-      "sm": { "$value": "14px" },
-      "md": { "$value": "16px" },
-      "lg": { "$value": "18px" },
-      "xl": { "$value": "20px" },
-      "2xl": { "$value": "24px" },
-      "3xl": { "$value": "32px" },
-      "4xl": { "$value": "40px" },
-      "eyebrow": { "$value": "12px" },
-      "caption": { "$value": "13px" },
-      "body": { "$value": "15px" },
+      "xs": {
+        "$value": "12px"
+      },
+      "sm": {
+        "$value": "14px"
+      },
+      "md": {
+        "$value": "16px"
+      },
+      "lg": {
+        "$value": "18px"
+      },
+      "xl": {
+        "$value": "20px"
+      },
+      "2xl": {
+        "$value": "24px"
+      },
+      "3xl": {
+        "$value": "32px"
+      },
+      "4xl": {
+        "$value": "40px"
+      },
+      "eyebrow": {
+        "$value": "12px"
+      },
+      "caption": {
+        "$value": "13px"
+      },
+      "body": {
+        "$value": "15px"
+      },
       "bodyLg": {
         "$value": "clamp(1rem, 0.25vw + 0.95rem, 1.0625rem)",
         "$description": "Fluid, copied verbatim from MyWeb — responds to the viewport, not just the page. ~16-17px."
@@ -67,14 +127,24 @@
     },
     "lineHeight": {
       "$type": "number",
-      "tight": { "$value": 1.05 },
-      "snug": { "$value": 1.2 },
-      "normal": { "$value": 1.6 }
+      "tight": {
+        "$value": 1.05
+      },
+      "snug": {
+        "$value": 1.2
+      },
+      "normal": {
+        "$value": 1.6
+      }
     },
     "letterSpacing": {
       "$type": "dimension",
-      "eyebrow": { "$value": "0.14em" },
-      "tight": { "$value": "-0.02em" }
+      "eyebrow": {
+        "$value": "0.14em"
+      },
+      "tight": {
+        "$value": "-0.02em"
+      }
     }
   },
   "shadow": {
@@ -101,17 +171,35 @@
   "motion": {
     "duration": {
       "$type": "duration",
-      "fast": { "$value": "140ms" },
-      "base": { "$value": "240ms" }
+      "fast": {
+        "$value": "140ms"
+      },
+      "base": {
+        "$value": "240ms"
+      },
+      "slow": {
+        "$value": "450ms",
+        "$description": "Large reveals: the theme switch circle. Never for state changes."
+      },
+      "ambient": {
+        "$value": "2800ms",
+        "$description": "Ambient loops (the Badge live dot). Stopped under prefers-reduced-motion."
+      }
     },
     "easing": {
       "$type": "cubicBezier",
-      "out": { "$value": [0.22, 1, 0.36, 1] },
-      "default": { "$value": [0.25, 0.1, 0.25, 1] }
+      "out": {
+        "$value": [0.22, 1, 0.36, 1]
+      },
+      "default": {
+        "$value": [0.25, 0.1, 0.25, 1]
+      }
     }
   },
   "opacity": {
     "$type": "number",
-    "disabled": { "$value": 0.5 }
+    "disabled": {
+      "$value": 0.5
+    }
   }
 }
