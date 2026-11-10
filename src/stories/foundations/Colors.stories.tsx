@@ -30,7 +30,13 @@ const GROUPS = [
     role: 'brand',
     title: 'Brand',
     description:
-      'Embr’s identity: the primary action colour, its stronger variant, the accent and links.',
+      'Embr’s identity (borrador 3): plum for headings, eyebrow, link and focus; orange for action; sage for decoration and for labels on the inverse block; the Mark’s two inks.',
+  },
+  {
+    role: 'inverse',
+    title: 'Inverse',
+    description:
+      'Actions on the inverse surfaces (the teal block, plum bands): sage-light fill or border with an ink label. Theme-invariant.',
   },
   {
     role: 'focus',

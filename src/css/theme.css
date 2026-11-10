@@ -20,10 +20,12 @@
  *   bg.*        ─▶  bg-page      bg-surface     bg-subtle       bg-inverse
  *   text.*      ─▶  text-ink     text-ink-muted text-heading    text-caption
  *                    text-on-brand  text-on-inverse  text-on-inverse-muted
- *   border.*    ─▶  border-border
- *   brand.*     ─▶  bg-brand     bg-brand-strong  bg-accent  text-link  text-eyebrow
- *                    text-label-on-inverse
- *   focus.ring  ─▶  ring-focus   outline-focus
+ *   border.*    ─▶  border-border  border-border-subtle  border-border-on-inverse
+ *   brand.*     ─▶  bg-brand     bg-brand-strong  text-brand-text  text-link  text-link-hover
+ *                    text-eyebrow  text-label-on-inverse  fill-decor  fill-mark-frame
+ *                    fill-mark-script
+ *   inverse.*   ─▶  bg-inverse-action  bg-inverse-action-hover  text-on-inverse-action
+ *   focus.*     ─▶  ring-focus   outline-focus   outline-focus-on-inverse
  *   status.*    ─▶  bg-danger    text-success   border-warning  bg-danger-subtle  text-on-danger
  *                    border-danger-border  …
  *   motion.*    ─▶  ease-out (a real `@theme` namespace); duration-fast, duration-base and
@@ -62,20 +64,32 @@
   --color-on-brand: var(--embr-text-on-brand);
   --color-on-inverse: var(--embr-text-on-inverse);
   --color-on-inverse-muted: var(--embr-text-on-inverse-muted);
+  --color-on-inverse-action: var(--embr-text-on-inverse-action);
 
   /* Lines */
   --color-border: var(--embr-border-default);
+  --color-border-subtle: var(--embr-border-subtle);
+  --color-border-on-inverse: var(--embr-border-on-inverse);
 
   /* Brand */
   --color-brand: var(--embr-brand-primary);
   --color-brand-strong: var(--embr-brand-primary-strong);
-  --color-accent: var(--embr-brand-accent);
+  --color-brand-text: var(--embr-brand-primary-text);
   --color-link: var(--embr-brand-link);
+  --color-link-hover: var(--embr-brand-link-hover);
   --color-eyebrow: var(--embr-brand-eyebrow);
   --color-label-on-inverse: var(--embr-brand-label-on-inverse);
+  --color-decor: var(--embr-brand-decor);
+  --color-mark-frame: var(--embr-brand-mark-frame);
+  --color-mark-script: var(--embr-brand-mark-script);
+
+  /* Actions on the inverse surfaces (bg.inverse teal, plum bands). Theme-invariant. */
+  --color-inverse-action: var(--embr-inverse-action);
+  --color-inverse-action-hover: var(--embr-inverse-action-hover);
 
   /* Focus */
   --color-focus: var(--embr-focus-ring);
+  --color-focus-on-inverse: var(--embr-focus-ring-on-inverse);
 
   /* Status — generic. Embr is domain-agnostic; consumers map these to their own states.
      Each role has three treatments: the solid fill above (pairs with text-on-brand), a soft
@@ -85,6 +99,8 @@
   --color-success: var(--embr-status-success);
   --color-warning: var(--embr-status-warning);
   --color-danger: var(--embr-status-danger);
+  /* The one solid fill too light for white: a solid warning carries ink. */
+  --color-on-warning-solid: var(--embr-status-on-warning-solid);
 
   --color-neutral-subtle: var(--embr-status-neutral-subtle);
   --color-on-neutral: var(--embr-status-on-neutral);

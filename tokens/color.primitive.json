@@ -3,134 +3,125 @@
     "$type": "color",
     "plum": {
       "$value": "#4D0C3E",
-      "$description": "Brand: dark primary (name/CV). Palette D: darkened from #5A1545."
-    },
-    "magenta": {
-      "$value": "#8C1249",
-      "$description": "Accent secundario — badges, tags, CTA de menor jerarquía (Palette D image role). No component consumer yet."
+      "$description": "Headings, eyebrow, link, focus ring. 13.20:1 on page, 14.59:1 on white."
     },
     "orange": {
       "$value": "#C54120",
-      "$description": "Accent principal / CTA primario. Palette D's image hex is #E2694A, but that's only 3.31:1 with white text — fails AA. Darkened along the same hue/sat (H12° S72%) to L45%: 5.06:1 with white. The lighter #E2694A has no consumer at a contrast that clears AA, so it wasn't kept as a separate unused primitive."
+      "$description": "CTA fill. 5.06:1 with white text; 4.57:1 on page as text."
     },
     "orangeStrong": {
       "$value": "#A2361A",
-      "$description": "CTA hover — same hue/sat as orange, one step darker (L37%). 6.82:1 with white."
-    },
-
-    "cream": {
-      "$value": "#F7F2F5",
-      "$description": "Neutral: page background. Palette D: cooler direction, was #FAF9F5."
-    },
-    "white": { "$value": "#FFFFFF", "$description": "Neutral: surfaces (cards, tables)" },
-    "charcoal": {
-      "$value": "#0B2027",
-      "$description": "Neutral: primary text. Palette D: cooler near-navy-black, was #1A1416."
-    },
-    "gray": { "$value": "#5C5858", "$description": "Neutral: secondary text" },
-    "sand": { "$value": "#E7E3DC", "$description": "Neutral: soft borders on cream" },
-    "linen": { "$value": "#F1EEE8", "$description": "Neutral: table zebra/hover" },
-
-    "amber": {
-      "$value": "#B44209",
-      "$description": "Semantic base: warning. Palette D: nudged toward coral, was #B45309. Subtle/on/border not yet recomputed."
-    },
-    "green": {
-      "$value": "#1E4A42",
-      "$description": "Semantic base: success. Palette D image: this IS the Tertiary/success color, not a separate role — unified here rather than kept as two roles at two hues. 9.94:1 with white text. Was #158053 (a rotation toward this hue that stopped short); the former separate brand.tertiary/color.tertiary primitive is gone."
+      "$description": "CTA hover AND every piece of orange text: outline button, italic emphasis, link hover. 6.82:1 with white, 6.16:1 on page, 6.82:1 on surface, 5.66:1 on bg.subtle. Replaces the separate orange-text step #9E4A34: one tone, more contrast as text (5.45 -> 6.16 on page)."
     },
     "teal": {
-      "$value": "#0F6E64",
-      "$description": "Semantic base: info. Palette D: nudged toward the deep-green family, was #0F6E6D. Subtle/on/border not yet recomputed."
+      "$value": "#0A4544",
+      "$description": "Inverse block, featured card, status.info, brand.accent. 10.78:1 with white."
     },
-    "crimson": {
-      "$value": "#BE124E",
-      "$description": "Semantic base: danger. Palette D: nudged toward magenta, was #BE123C. Subtle/on/border not yet recomputed."
-    },
-
-    "graySubtle": { "$value": "#E6E5E5", "$description": "status.neutralSubtle fill (light)" },
-    "grayStrong": { "$value": "#686464", "$description": "status.onNeutral foreground (light)" },
-    "grayBorder": { "$value": "#948F8F", "$description": "status.neutralBorder (light)" },
-
-    "tealSubtle": {
-      "$value": "#BBF4F3",
-      "$description": "status.infoSubtle fill (light). Not yet recomputed for Palette D."
-    },
-    "tealStrong": {
-      "$value": "#0E7473",
-      "$description": "status.onInfo foreground (light). Not yet recomputed for Palette D."
-    },
-    "tealBorder": {
-      "$value": "#14A1A0",
-      "$description": "status.infoBorder (light). Not yet recomputed for Palette D."
-    },
-
-    "greenSubtle": {
-      "$value": "#D3F8E9",
-      "$description": "status.successSubtle fill (light). Tuned for the earlier 154.8° rotation, now 14° off the true 169° success base (#1E4A42) — pending recompute, same as info/warning/danger."
-    },
-    "greenStrong": {
-      "$value": "#147B52",
-      "$description": "status.onSuccess foreground (light). Pending recompute — see greenSubtle."
-    },
-    "greenBorder": {
-      "$value": "#1BA66D",
-      "$description": "status.successBorder (light). Pending recompute — see greenSubtle."
-    },
-
-    "amberSubtle": {
-      "$value": "#FDE2CE",
-      "$description": "status.warningSubtle fill (light). Not yet recomputed for Palette D."
-    },
-    "amberStrong": {
-      "$value": "#A54C08",
-      "$description": "status.onWarning foreground (light). Not yet recomputed for Palette D."
-    },
-    "amberBorder": {
-      "$value": "#E96C0C",
-      "$description": "status.warningBorder (light). Not yet recomputed for Palette D."
-    },
-
-    "crimsonSubtle": {
-      "$value": "#FBD0DB",
-      "$description": "status.dangerSubtle fill (light). Not yet recomputed for Palette D."
-    },
-    "crimsonStrong": {
-      "$value": "#BA123B",
-      "$description": "status.onDanger foreground (light). Not yet recomputed for Palette D."
-    },
-    "crimsonBorder": {
-      "$value": "#F05C80",
-      "$description": "status.dangerBorder (light). Not yet recomputed for Palette D."
-    },
-
-    "inkMuted": {
-      "$value": "rgba(11, 32, 39, 0.7)",
-      "$description": "Muted body text — 70% ink. Palette D: re-based on new charcoal #0B2027."
-    },
-    "inkCaption": {
-      "$value": "rgba(11, 32, 39, 0.63)",
-      "$description": "Captions — 63% ink. Palette D's new, slightly darker cream (#F7F2F5) undercut the previous 60% (4.33:1 on bg.page, 4.48:1 on bg.surface — both under the 4.5:1 floor). 63% clears it: 4.76:1 on bg.page, 4.94:1 on bg.surface."
-    },
-    "inkLine": {
-      "$value": "rgba(11, 32, 39, 0.48)",
-      "$description": "Hairline borders — 48% ink. Palette D: re-based on new charcoal #0B2027 (was based on #1A1416)."
-    },
-    "cream2": {
-      "$value": "#F3F0E7",
-      "$description": "Subtle alt background (MyWeb's --color-bg-alt). Unchanged by Palette D."
-    },
-    "tealBrand": {
-      "$value": "#0F6E6D",
-      "$description": "Inverse surface. Unchanged by Palette D (light theme only)."
+    "sage": {
+      "$value": "#AAD8D0",
+      "$description": "Decorative only — logo frame, photo border, pull quotes. 1.41:1 on page: never text."
     },
     "sageLight": {
       "$value": "#CDE8E2",
-      "$description": "Muted text on the inverse surface. Also reused in dark theme for text.heading under Palette D."
+      "$description": "Text and labels on teal and plum (8.34:1 on teal, 11.3:1 on plum); headings in dark mode."
     },
-    "amberLabel": {
-      "$value": "#FFDFA0",
-      "$description": "Label/eyebrow on the inverse surface."
+    "cream": {
+      "$value": "#F7F2F5",
+      "$description": "Page, with its faint brand tint."
+    },
+    "white": {
+      "$value": "#FFFFFF"
+    },
+    "charcoal": {
+      "$value": "#0B2027",
+      "$description": "Ink. 16.80:1 on white, 15.18:1 on cream."
+    },
+    "inkMuted": {
+      "$value": "#46565B",
+      "$description": "Ink muted: secondary text, the neutral status. Solid, replacing the 76% alpha step. 6.92:1 on page, 7.66:1 on white."
+    },
+    "line": {
+      "$value": "#D3D7D8",
+      "$description": "Line: separators and card borders. Decorative (1.45:1 on white) — never a control border; controls use border.default."
+    },
+    "cream2": {
+      "$value": "#ECE9EC",
+      "$description": "The alt surface for hovers. Borrador 3 is silent on it; kept because bg.subtle consumes it. Charcoal on it: 13.95:1."
+    },
+    "inkCaption": {
+      "$value": "rgba(11, 32, 39, 0.62)",
+      "$description": "Kept from the previous system: captions/placeholders at 4.60:1 on page, and the 3:1 control hairline. Borrador 3 does not name them; both have live consumers."
+    },
+    "inkLine": {
+      "$value": "rgba(11, 32, 39, 0.53)"
+    },
+    "neutralSubtle": {
+      "$value": "#E9EBEB",
+      "$description": "on/subtle 6.40:1"
+    },
+    "neutralBorder": {
+      "$value": "#7F8C90",
+      "$description": "3.13:1 on page"
+    },
+    "infoSubtle": {
+      "$value": "#E6ECEC",
+      "$description": "on/subtle 9.02:1"
+    },
+    "infoBorder": {
+      "$value": "#699592",
+      "$description": "3.00:1 on page"
+    },
+    "green": {
+      "$value": "#2F7D4F",
+      "$description": "Success. White text 5.04:1."
+    },
+    "greenSubtle": {
+      "$value": "#E6EFEA",
+      "$description": "on/subtle 6.36:1"
+    },
+    "greenStrong": {
+      "$value": "#24603D",
+      "$description": "on page 6.74:1"
+    },
+    "greenBorder": {
+      "$value": "#5E9675",
+      "$description": "3.11:1 on page"
+    },
+    "ochre": {
+      "$value": "#D6A32C",
+      "$description": "Warning. The ochre that left the brand lives on here only. Too light for white text (2.30:1): a solid warning carries ink instead (7.31:1) — see status.onWarningSolid."
+    },
+    "ochreSubtle": {
+      "$value": "#F9F2E1",
+      "$description": "on/subtle 5.71:1"
+    },
+    "ochreStrong": {
+      "$value": "#7A5A0F",
+      "$description": "on page 5.76:1"
+    },
+    "ochreBorder": {
+      "$value": "#A87D1A",
+      "$description": "3.38:1 on page"
+    },
+    "crimson": {
+      "$value": "#BE124E",
+      "$description": "Danger. White text 6.20:1. With magenta gone it no longer has a near neighbour."
+    },
+    "crimsonSubtle": {
+      "$value": "#F7E3EA",
+      "$description": "on/subtle 5.72:1"
+    },
+    "crimsonStrong": {
+      "$value": "#AF1148",
+      "$description": "on page 6.33:1"
+    },
+    "crimsonBorder": {
+      "$value": "#D5678E",
+      "$description": "3.08:1 on page"
+    },
+    "sageHairline": {
+      "$value": "rgba(205, 232, 226, 0.34)",
+      "$description": "sage-light at 34%: hairlines on bg.inverse."
     }
   }
 }

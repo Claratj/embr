@@ -22,8 +22,8 @@ export interface BadgeProps extends ComponentPropsWithRef<'span'> {
  * Every class below is a literal string, not `` `bg-${status}` `` — Tailwind's scanner only
  * picks up class names it can see whole in source, so a template-built name would silently fail
  * to generate. Three treatments, matching tokens/color.semantic.json's contract exactly:
- * solid pairs the flat `status.<name>` fill with `text-on-brand` (white, already AA on any of
- * them); soft pairs `<name>Subtle` with `on<Name>`; outline is transparent + `<name>Border` +
+ * solid pairs the flat `status.<name>` fill with `text-on-brand` (white) — except warning, whose
+ * ochre is too light for white (2.30:1) and carries `status.onWarningSolid` (ink, 7.31:1); soft pairs `<name>Subtle` with `on<Name>`; outline is transparent + `<name>Border` +
  * `on<Name>` text, measured against the page — never against the Subtle fill. No variant here
  * stacks Border on top of Subtle; see the token file for why that pair fails contrast.
  */
@@ -32,7 +32,7 @@ const STATUS_VARIANT_CLASSES: Record<BadgeVariant, Record<BadgeStatus, string>> 
     neutral: 'bg-neutral text-on-brand',
     info: 'bg-info text-on-brand',
     success: 'bg-success text-on-brand',
-    warning: 'bg-warning text-on-brand',
+    warning: 'bg-warning text-on-warning-solid',
     danger: 'bg-danger text-on-brand',
   },
   soft: {

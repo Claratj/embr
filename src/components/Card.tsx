@@ -18,7 +18,7 @@ export type CardFooterProps = ComponentPropsWithRef<'div'>;
 export function Card({ className, ...rest }: CardProps) {
   return (
     <div
-      className={cx('rounded-lg border border-border bg-surface shadow-sm', className)}
+      className={cx('rounded-lg border border-border-subtle bg-surface shadow-sm', className)}
       {...rest}
     />
   );

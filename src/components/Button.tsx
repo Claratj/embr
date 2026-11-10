@@ -20,7 +20,7 @@ export interface ButtonProps extends ComponentPropsWithRef<'button'> {
 
 const VARIANT_CLASSES: Record<ButtonVariant, string> = {
   solid: 'bg-brand text-on-brand can-hover:hover:bg-brand-strong',
-  outline: 'border border-brand text-brand bg-transparent can-hover:hover:bg-subtle',
+  outline: 'border border-brand-text text-brand-text bg-transparent can-hover:hover:bg-subtle',
   ghost: 'text-ink bg-transparent can-hover:hover:bg-subtle',
 };
 

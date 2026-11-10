@@ -44,7 +44,7 @@ const meta = {
         component:
           'Generic status roles (neutral/info/success/warning/danger) — no business meaning. A ' +
           'consuming app maps its own states onto these. Three treatments: solid (fill + ' +
-          '`text-on-brand`), soft (`*Subtle` fill + `on*` text), outline (transparent + ' +
+          '`text-on-brand`; warning, too light for white, carries `text-on-warning-solid`), soft (`*Subtle` fill + `on*` text), outline (transparent + ' +
           '`*Border` + `on*` text, measured against the page — never stacked on the Subtle fill).',
       },
     },
