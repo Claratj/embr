@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>;
 
 function FullCard() {
   return (
-    <Card className="max-w-sm">
+    <Card className="max-w-field">
       <CardHeader>
         <CardTitle>Card title</CardTitle>
         <CardDescription>A one-line description of what this card represents.</CardDescription>
@@ -47,7 +47,7 @@ export const Default: Story = {
 
 export const ContentOnly: Story = {
   render: () => (
-    <Card className="max-w-sm">
+    <Card className="max-w-field">
       <CardContent>
         <p className="text-sm text-ink">A card with no header or footer, just content.</p>
       </CardContent>

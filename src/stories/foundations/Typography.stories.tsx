@@ -97,7 +97,7 @@ function Typography() {
         {lineHeights.map((token) => (
           <div key={token.name} className="grid grid-cols-[5rem_1fr] items-baseline gap-4">
             <span className="font-mono text-xs text-ink-muted">{token.path.at(-1)}</span>
-            <p className="max-w-sm text-ink" style={{ lineHeight: `var(${token.cssVar})` }}>
+            <p className="max-w-field text-ink" style={{ lineHeight: `var(${token.cssVar})` }}>
               The quick brown fox jumps over the lazy dog near the bank of the river.
             </p>
           </div>

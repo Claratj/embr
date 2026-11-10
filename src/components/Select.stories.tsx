@@ -18,7 +18,7 @@ const OPTIONS = (
 /** Same as Input's stories: a real `<label>` around every control, never a placeholder alone. */
 function Labeled({ label, ...props }: { label: string } & ComponentProps<typeof Select>) {
   return (
-    <label className="flex max-w-sm flex-col gap-2 font-body text-sm font-medium text-ink">
+    <label className="flex max-w-field flex-col gap-2 font-body text-sm font-medium text-ink">
       {label}
       <Select {...props} />
     </label>
@@ -68,7 +68,7 @@ export const Medium: Story = { args: { size: 'md', defaultValue: 'active' } };
 export const InFormField: Story = {
   name: 'In FormField (required, with error)',
   render: (args) => (
-    <FormField required className="max-w-sm">
+    <FormField required className="max-w-field">
       <FormFieldLabel>Status</FormFieldLabel>
       <FormFieldDescription>Only active studies send reminders.</FormFieldDescription>
       <Select {...args} />
@@ -89,7 +89,7 @@ export const Controlled: Story = {
   render: function Render(args) {
     const [value, setValue] = useState('draft');
     return (
-      <div className="flex max-w-sm flex-col gap-3">
+      <div className="flex max-w-field flex-col gap-3">
         <Labeled
           label="Status"
           {...args}
@@ -109,7 +109,7 @@ export const Controlled: Story = {
 
 export const Dark: Story = {
   render: (args) => (
-    <div className="flex max-w-sm flex-col gap-3">
+    <div className="flex max-w-field flex-col gap-3">
       <Labeled label="Placeholder" {...args} />
       <Labeled label="With value" {...args} defaultValue="active" />
       <Labeled label="Invalid" {...args} invalid />

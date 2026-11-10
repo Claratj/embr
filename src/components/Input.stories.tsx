@@ -10,7 +10,7 @@ import { Input } from './Input';
  */
 function Labeled({ label, ...props }: { label: string } & ComponentProps<typeof Input>) {
   return (
-    <label className="flex max-w-sm flex-col gap-2 font-body text-sm font-medium text-ink">
+    <label className="flex max-w-field flex-col gap-2 font-body text-sm font-medium text-ink">
       {label}
       <Input {...props} />
     </label>

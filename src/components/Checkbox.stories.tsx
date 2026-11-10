@@ -61,14 +61,14 @@ export const LongLabel: Story = {
       'I confirm the participant signed the current version of the informed consent form, and ' +
       'that a copy is filed in the investigator site file.',
   },
-  decorators: [(Story) => <div className="max-w-sm">{Story()}</div>],
+  decorators: [(Story) => <div className="max-w-field">{Story()}</div>],
 };
 
 /** Inside a FormField: description and error wire to the box, and the error sets invalid. */
 export const InFormField: Story = {
   name: 'In FormField (required, with error)',
   render: (args) => (
-    <FormField required className="max-w-sm">
+    <FormField required className="max-w-field">
       <FormFieldDescription>You can change this later in settings.</FormFieldDescription>
       <Checkbox {...args}>I accept the data processing terms</Checkbox>
       <FormFieldError>Accept the terms to continue.</FormFieldError>

@@ -28,7 +28,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <FormField className="max-w-sm">
+    <FormField className="max-w-field">
       <FormFieldLabel>Study name</FormFieldLabel>
       <Input placeholder="Phase 3 — oncology" />
     </FormField>
@@ -38,7 +38,7 @@ export const Default: Story = {
 export const WithDescription: Story = {
   name: 'With description',
   render: () => (
-    <FormField className="max-w-sm">
+    <FormField className="max-w-field">
       <FormFieldLabel>Monitor email</FormFieldLabel>
       <FormFieldDescription>Must be the site's corporate domain.</FormFieldDescription>
       <Input placeholder="name@site.org" />
@@ -49,7 +49,7 @@ export const WithDescription: Story = {
 export const WithError: Story = {
   name: 'With error',
   render: () => (
-    <FormField className="max-w-sm">
+    <FormField className="max-w-field">
       <FormFieldLabel>Monitor email</FormFieldLabel>
       <FormFieldDescription>Must be the site's corporate domain.</FormFieldDescription>
       <Input defaultValue="clara@" />
@@ -60,7 +60,7 @@ export const WithError: Story = {
 
 export const Required: Story = {
   render: () => (
-    <FormField required className="max-w-sm">
+    <FormField required className="max-w-field">
       <FormFieldLabel>Protocol code</FormFieldLabel>
       <Input placeholder="EMB-0000" />
     </FormField>
@@ -70,7 +70,7 @@ export const Required: Story = {
 export const SrOnlyLabel: Story = {
   name: 'Visually-hidden label',
   render: () => (
-    <FormField className="max-w-sm">
+    <FormField className="max-w-field">
       <FormFieldLabel srOnly>Search subjects</FormFieldLabel>
       <Input placeholder="Search subjects" />
     </FormField>
@@ -88,7 +88,7 @@ export const Dark: Story = {
  */
 function ComposedForm() {
   return (
-    <Card className="max-w-sm">
+    <Card className="max-w-field">
       <CardHeader>
         <CardTitle>Register site</CardTitle>
         <CardDescription>Three fields, one with an error, one disabled.</CardDescription>
