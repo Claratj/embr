@@ -35,8 +35,12 @@ export const Disabled: Story = {
     const button = canvas.getByRole('button', { name: 'Button' });
 
     await expect(button).toBeDisabled();
+    // A real pointer can't reach it at all (no hover/active styles either)...
+    await expect(button).toHaveStyle({ pointerEvents: 'none' });
 
-    await userEvent.click(button);
+    // ...and the native `disabled` still swallows a click that gets dispatched anyway. The
+    // default userEvent refuses to click a `pointer-events: none` element, so skip that check.
+    await userEvent.setup({ pointerEventsCheck: 0 }).click(button);
     await expect(args.onClick).not.toHaveBeenCalled();
   },
 };
